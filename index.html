@@ -550,12 +550,31 @@
   .err svg{width:13px;height:13px;flex:none}
   .field.has-error .chips .chip{border-color:#F0C4C4}
   @media (min-width:900px){
-    .consult{padding:92px 0 100px}
-    .form-card{padding:30px 34px 28px}
-    .form-card-head h2{font-size:21px}
-    .fault-grid{grid-template-columns:repeat(2,1fr)}
-    .radio-card{padding:11px 12px;gap:9px}
-    .radio-card .rtxt strong{font-size:12.5px}
+    /* 데스크톱: 카드 폭을 넓히고 신청서를 컴팩트한 2열 그리드로 배치 (스크롤 없이 한 화면) */
+    .consult{padding:56px 0 84px}
+    .consult .wrap{max-width:1020px}
+    .form-card{padding:24px 26px 22px}
+    .form-card-head{padding-bottom:14px}
+    .form-card-head h2{font-size:20px}
+    .form-card-head p{margin-top:3px;font-size:12px}
+    .field{padding-top:16px}
+    .field-head{margin-bottom:9px}
+    .chip{padding:8px 12px;font-size:13px}
+    .input,select.input{height:48px;font-size:14.5px}
+    .phone-input .input{height:50px;font-size:16px}
+    .cc-guide{margin-top:9px;padding:7px 10px;font-size:11px;line-height:1.5}
+    .field-note{margin-top:9px;padding:7px 10px;border-radius:9px;background:#F4F8FF;border:1px solid #E1EBFA;font-size:11px;line-height:1.5}
+    /* 배기량을 직접 고르면 안내문 대신 선택한 배기량 기준 설명을 보여줘 높이를 유지합니다 */
+    #fieldCc:has(#ccNote:not(.is-hidden)) .cc-guide{display:none}
+    .fault-grid{gap:7px}
+    .radio-card{padding:10px 10px;gap:8px}
+    .radio-card .rtxt strong{font-size:12px}
+    .radio-card .rtxt small{font-size:10.5px;margin-top:0}
+    #consultForm{display:grid;grid-template-columns:1.04fr 1fr;column-gap:28px;align-items:stretch}
+    .form-col{display:flex;flex-direction:column;min-width:0}
+    .form-col-main{padding-bottom:2px}
+    .form-col-side .submit-area{margin-top:auto;padding-top:18px}
+    #submitBtn{height:54px}
   }
 
   /* faq */
@@ -1194,6 +1213,7 @@
         </div>
 
         <form id="consultForm" novalidate autocomplete="on">
+          <div class="form-col form-col-main">
           <!-- 브랜드 -->
           <div class="field" id="fieldBrand">
             <div class="field-head">
@@ -1284,6 +1304,9 @@
             </p>
           </div>
 
+          </div><!-- /form-col-main -->
+
+          <div class="form-col form-col-side">
           <!-- 과실비율 -->
           <div class="field" id="fieldFault">
             <div class="field-head">
@@ -1340,6 +1363,7 @@
             </button>
             <p class="form-agree">입력하신 연락처는 대차 상담 목적으로만 사용합니다.</p>
           </div>
+          </div><!-- /form-col-side -->
         </form>
       </div>
     </div>

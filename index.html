@@ -79,6 +79,8 @@
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
   @media (min-width:900px){ .wrap{padding:0 40px} }
   section[id],div[id="consult"]{scroll-margin-top:calc(var(--header-h) + 14px)}
+  /* 모바일에서 배기량 선택 후 지역 칸으로 내려갈 때 고정 헤더에 가리지 않도록 */
+  #fieldRegion{scroll-margin-top:80px}
 
   /* ---------- typography ---------- */
   .eyebrow{
@@ -1825,9 +1827,22 @@
     });
   }
 
+  /* 모바일: 배기량 칩을 직접 누르면 이어지는 지역·과실비율·연락처가 한눈에 보이도록 내려줍니다.
+     (페이지 초기화나 차종 연동에 의한 자동 선택에서는 동작하지 않습니다.) */
+  function scrollToRegionOnMobile() {
+    if (!(window.innerWidth <= 900)) return;
+    setTimeout(function () {
+      var target = document.getElementById("fieldRegion");
+      if (target && target.scrollIntoView) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 60);
+  }
+
   ccChips.forEach(function (chip) {
     chip.addEventListener("click", function () {
       var key = chip.getAttribute("data-cc");
+      scrollToRegionOnMobile();
       if (state.cc === key) return;
       state.cc = key;
       state.ccAuto = false;

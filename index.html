@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08182E">
+<title>하하렌트 | 차량 사고 시, 간편하고 쉽게 사고대차</title>
+<meta name="description" content="차량 사고 시, 간편하고 쉽게 사고대차. 하하렌트는 사고 차량의 배기량을 확인해 동급 이상 차량을 고객 희망 장소로 배차합니다. 상담부터 수리 후 인도까지 한 번에 안내합니다.">
+<meta property="og:title" content="하하렌트 | 사고대차 전문">
+<meta property="og:description" content="배기량 기준 동급 이상 차량 배차. 사고 접수부터 수리 후 인도까지 하하렌트가 안내합니다.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy-900:#08182E;
+    --navy-800:#0C2340;
+    --navy-700:#123055;
+    --blue-700:#1449B8;
+    --blue-600:#1D5FE0;
+    --blue-500:#2C74F5;
+    --blue-100:#D8E6FF;
+    --blue-50:#EEF4FF;
+    --ink:#0C1A2B;
+    --body:#4A5A70;
+    --muted:#7D8CA1;
+    --line:#E3E9F2;
+    --line-strong:#CFDAEA;
+    --soft:#F5F8FD;
+    --white:#FFFFFF;
+    --ok:#0B8457;
+    --err:#D93A3A;
+    --r-sm:10px;
+    --r-md:14px;
+    --r-lg:20px;
+    --r-xl:26px;
+    --shadow-card:0 24px 60px -34px rgba(9,30,60,.42), 0 2px 6px rgba(9,30,60,.04);
+    --shadow-soft:0 12px 32px -20px rgba(9,30,60,.35);
+    --header-h:60px;
+    --maxw:1200px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    font-size:16px;
+    line-height:1.6;
+    letter-spacing:-0.01em;
+    -webkit-font-smoothing:antialiased;
+    word-break:keep-all;
+    overflow-x:hidden;
+  }
+  body.no-scroll{overflow:hidden}
+  h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+  ul,ol{padding:0;list-style:none}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  img,svg{display:block;max-width:100%}
+  strong{font-weight:700}
+  :focus-visible{outline:2px solid var(--blue-500);outline-offset:3px;border-radius:6px}
+  .is-hidden{display:none !important}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  @media (min-width:900px){ .wrap{padding:0 40px} }
+  section[id],div[id="consult"]{scroll-margin-top:calc(var(--header-h) + 14px)}
+
+  /* ---------- typography ---------- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:700;letter-spacing:.02em;
+    color:var(--blue-700);background:var(--blue-50);
+    border:1px solid var(--blue-100);
+    padding:7px 13px;border-radius:999px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue-600)}
+  .eyebrow.on-dark{color:#CFE0FF;background:rgba(120,170,255,.14);border-color:rgba(150,190,255,.28)}
+  .eyebrow.on-dark .dot{background:#6FA8FF;box-shadow:0 0 0 4px rgba(111,168,255,.16)}
+
+  .sec-head{max-width:660px}
+  .sec-head h2{
+    font-size:clamp(1.6rem,4.4vw,2.35rem);
+    line-height:1.32;letter-spacing:-0.035em;font-weight:800;
+    margin-top:14px;
+  }
+  .sec-head p{margin-top:14px;color:var(--body);font-size:15.5px;line-height:1.72}
+  @media (min-width:900px){ .sec-head p{font-size:16.5px} }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    --btn-h:50px;
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    height:var(--btn-h);padding:0 22px;border-radius:12px;
+    font-size:15px;font-weight:700;letter-spacing:-0.01em;
+    border:1px solid transparent;cursor:pointer;
+    transition:transform .16s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-lg{--btn-h:56px;padding:0 26px;font-size:16px;border-radius:14px}
+  .btn-block{width:100%}
+  .btn-primary{
+    background:linear-gradient(180deg,#2C74F5 0%,#1D5FE0 100%);
+    color:#fff;
+    box-shadow:0 12px 26px -14px rgba(29,95,224,.85), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .btn-primary:hover{background:linear-gradient(180deg,#357CFF 0%,#1A57D2 100%);box-shadow:0 16px 30px -14px rgba(29,95,224,.9)}
+  .btn-ghost{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.26);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.44)}
+  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line-strong)}
+  .btn-outline:hover{border-color:#A9BEDC;background:#FBFDFF}
+  .btn-soft{background:var(--blue-50);color:var(--blue-700);border-color:var(--blue-100)}
+  .btn-soft:hover{background:#E4EEFF}
+  .btn .ico{width:18px;height:18px;flex:none}
+
+  /* 3-channel quick connect (전화 · 문자 · 채널톡) */
+  .chan-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .chan{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    height:44px;padding:0 8px;border-radius:11px;
+    border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);
+    color:#E4EEFF;font-size:12.5px;font-weight:700;letter-spacing:-0.02em;
+    font-family:inherit;cursor:pointer;white-space:nowrap;
+    transition:background .16s ease,border-color .16s ease,color .16s ease;
+  }
+  .chan svg{width:16px;height:16px;flex:none;opacity:.92}
+  .chan:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.42)}
+  .chan:active{transform:translateY(1px)}
+  .chan-row.is-light .chan{border-color:var(--line-strong);background:#fff;color:#26405C}
+  .chan-row.is-light .chan:hover{border-color:#A9C2E6;background:#FBFDFF}
+  .chan-row.is-light .chan svg{color:var(--blue-600);opacity:1}
+  .chan-row.is-soft .chan{border-color:#D8E5F8;background:#F7FAFF;color:#2B4767}
+  .chan-row.is-soft .chan:hover{border-color:#B4CDEF;background:#EEF5FF}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:60;
+    height:var(--header-h);
+    background:rgba(255,255,255,.88);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid rgba(227,233,242,0);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .site-header.is-stuck{border-bottom-color:var(--line);box-shadow:0 6px 24px -20px rgba(9,30,60,.5)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:16px}
+  .logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-0.04em;font-size:19px;color:var(--navy-900)}
+  .logo-mark{
+    width:30px;height:30px;border-radius:9px;flex:none;
+    background:linear-gradient(150deg,#2C74F5,#1449B8 75%);
+    display:grid;place-items:center;
+    box-shadow:0 6px 14px -8px rgba(29,95,224,.9), inset 0 1px 0 rgba(255,255,255,.3);
+  }
+  .logo-mark svg{width:17px;height:17px}
+  .logo small{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.14em;margin-left:2px;transform:translateY(1px)}
+  .nav-desktop{display:none;align-items:center;gap:4px}
+  .nav-desktop a{
+    padding:9px 13px;border-radius:9px;font-size:14.5px;font-weight:600;color:#3C4E66;
+    transition:background .16s ease,color .16s ease;
+  }
+  .nav-desktop a:hover{background:var(--soft);color:var(--navy-900)}
+  .header-actions{display:flex;align-items:center;gap:10px}
+  .header-tel{
+    display:none;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--navy-800);
+    padding:8px 12px;border-radius:9px;
+  }
+  .header-tel:hover{background:var(--soft)}
+  .header-tel svg{width:15px;height:15px;color:var(--blue-600)}
+  .header-cta{display:none;--btn-h:40px;font-size:13.5px;padding:0 16px}
+  .menu-btn{
+    width:42px;height:42px;border-radius:11px;border:1px solid var(--line);
+    background:#fff;display:grid;place-content:center;gap:4px;cursor:pointer;
+  }
+  .menu-btn span{display:block;width:17px;height:1.8px;border-radius:2px;background:var(--navy-800);transition:transform .2s ease,opacity .2s ease}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(5.8px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-5.8px) rotate(-45deg)}
+  .mobile-nav{
+    position:absolute;top:100%;left:0;right:0;
+    background:#fff;border-top:1px solid var(--line);
+    box-shadow:0 24px 40px -28px rgba(9,30,60,.5);
+    padding:10px 20px 22px;display:none;
+  }
+  .mobile-nav.is-open{display:block}
+  .mobile-nav a{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 4px;font-size:15.5px;font-weight:600;color:var(--navy-800);
+    border-bottom:1px solid #F0F4FA;
+  }
+  .mobile-nav a:last-of-type{border-bottom:0}
+  .mobile-nav a svg{width:15px;height:15px;color:var(--muted)}
+  .mobile-nav .btn{margin-top:14px}
+  @media (min-width:900px){
+    :root{--header-h:72px}
+    .nav-desktop{display:flex}
+    .header-tel{display:inline-flex}
+    .header-cta{display:inline-flex}
+    .menu-btn{display:none}
+    .mobile-nav{display:none !important}
+    .logo{font-size:21px}
+    .logo-mark{width:34px;height:34px;border-radius:10px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(1100px 620px at 88% -12%, #1C4E96 0%, rgba(28,78,150,0) 62%),
+      radial-gradient(820px 520px at -6% 108%, #11335A 0%, rgba(17,51,90,0) 58%),
+      linear-gradient(168deg,#08182E 0%,#0B2140 52%,#091B33 100%);
+    padding:44px 0 56px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(to right,rgba(255,255,255,.055) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(255,255,255,.055) 1px,transparent 1px);
+    background-size:66px 66px;
+    -webkit-mask-image:radial-gradient(120% 85% at 50% 0%,#000 0%,transparent 72%);
+    mask-image:radial-gradient(120% 85% at 50% 0%,#000 0%,transparent 72%);
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;gap:38px}
+  .hero-copy h1{
+    margin-top:20px;
+    font-size:clamp(1.95rem,7.4vw,2.5rem);
+    line-height:1.3;letter-spacing:-0.045em;font-weight:800;
+  }
+  .hero-copy h1 .hl{
+    background:linear-gradient(100deg,#8FC0FF 0%,#DCEAFF 46%,#7FB4FF 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    margin-top:18px;max-width:520px;
+    color:#B9CBE4;font-size:15px;line-height:1.75;
+  }
+  .hero-sub strong{color:#EAF2FF;font-weight:700}
+  .hero-cta{display:grid;gap:10px;margin-top:26px;max-width:480px}
+  .hero-cta .btn{width:100%}
+  .hero-cta .chan-row{margin-top:2px}
+  .hero-points{
+    display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;
+    font-size:13.5px;font-weight:600;color:#A9BEDC;
+  }
+  .hero-points li{display:flex;align-items:center;gap:7px}
+  .hero-points svg{width:15px;height:15px;color:#6FA8FF;flex:none}
+
+  .hero-card{
+    position:relative;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFF 100%);
+    color:var(--ink);
+    border-radius:var(--r-xl);
+    padding:24px 20px;
+    box-shadow:0 40px 80px -40px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.5);
+  }
+  .hero-card .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--blue-700);
+    background:var(--blue-50);border:1px solid var(--blue-100);
+    padding:5px 10px;border-radius:7px;
+  }
+  .hero-card h2{font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-top:12px}
+  .hero-card .sub{font-size:13.5px;color:var(--body);margin-top:5px}
+  .compare{margin-top:18px;display:grid;gap:0}
+  .compare-row{
+    border:1px solid var(--line);border-radius:var(--r-md);
+    padding:13px 15px;background:#fff;
+  }
+  .compare-row .label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--muted)}
+  .compare-row .value{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:3px;font-size:16px;font-weight:700;letter-spacing:-0.02em;color:#33465F}
+  .compare-row .value em{
+    font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted);
+    background:#F1F4F9;border-radius:6px;padding:2px 7px;
+  }
+  .compare-row .value .v-line{display:inline-block;line-height:1.42}
+  .compare-row.is-target{
+    background:linear-gradient(180deg,#F4F8FF 0%,#EAF2FF 100%);
+    border-color:#BBD4FF;
+    box-shadow:0 10px 24px -20px rgba(29,95,224,.9);
+  }
+  .compare-row.is-target .label{color:var(--blue-700)}
+  .compare-row.is-target .value{color:var(--navy-900);font-size:17.5px}
+  .compare-row.is-target .value em{color:#Fff;background:var(--blue-600)}
+  .compare-link{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    height:34px;color:#93A6BF;position:relative;
+  }
+  .compare-link::before,.compare-link::after{content:"";height:1px;flex:1;background:repeating-linear-gradient(to right,#CBD8E8 0 4px,transparent 4px 8px)}
+  .compare-link span{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--blue-700);background:#fff;padding:0 4px}
+  .compare-link svg{width:14px;height:14px;color:var(--blue-500)}
+  .hero-card .note{margin-top:14px;font-size:12px;color:var(--muted);line-height:1.6}
+  @media (min-width:640px){
+    .hero-cta{max-width:520px}
+    .chan{font-size:13px;height:46px}
+  }
+  @media (min-width:900px){
+    .hero{padding:64px 0 84px}
+    .hero-grid{grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+    .hero-copy h1{font-size:clamp(2.6rem,3.5vw,3.35rem);line-height:1.24}
+    .hero-sub{font-size:16.5px}
+    .hero-card{padding:30px 30px 26px}
+    .hero-card h2{font-size:22px}
+    .compare-row{padding:16px 18px}
+  }
+
+  /* ---------- brand strip ---------- */
+  .brand-strip{border-bottom:1px solid var(--line);background:#fff}
+  .brand-strip .wrap{display:flex;align-items:center;gap:18px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap;justify-content:center}
+  .brand-strip .cap{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--muted);flex:none}
+  .brand-strip ul{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center}
+  .brand-strip li{font-size:13.5px;font-weight:700;color:#5E7290;letter-spacing:-0.01em}
+  .brand-strip li span{font-size:10px;font-weight:700;color:#A6B5C9;margin-left:4px;letter-spacing:.06em}
+  @media (min-width:900px){ .brand-strip .wrap{justify-content:space-between;gap:24px} }
+
+  /* ---------- sections ---------- */
+  .section{padding:56px 0}
+  .section.tint{background:linear-gradient(180deg,#F7FAFF 0%,#F4F8FE 100%)}
+  .section.dark{background:var(--navy-900);color:#fff}
+  @media (min-width:900px){ .section{padding:92px 0} }
+
+  /* promise cards */
+  .promise-grid{display:grid;gap:14px;margin-top:32px}
+  .p-card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:24px 22px;box-shadow:var(--shadow-soft);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .p-card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -28px rgba(9,30,60,.5);border-color:#D5E2F5}
+  .p-card .icon{
+    width:44px;height:44px;border-radius:13px;display:grid;place-items:center;
+    background:linear-gradient(160deg,#EEF4FF,#DCE9FF);color:var(--blue-700);
+    border:1px solid #D3E3FF;
+  }
+  .p-card .icon svg{width:22px;height:22px}
+  .p-card h3{margin-top:16px;font-size:17px;font-weight:800;letter-spacing:-0.03em}
+  .p-card p{margin-top:8px;font-size:14px;line-height:1.72;color:var(--body)}
+  @media (min-width:760px){ .promise-grid{grid-template-columns:repeat(3,1fr);gap:18px} }
+
+  /* process */
+  .process-list{margin-top:34px;display:grid;gap:14px;counter-reset:step}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:22px 20px 22px 20px;box-shadow:0 14px 34px -30px rgba(9,30,60,.55);
+    overflow:hidden;
+  }
+  .step::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--blue-500),#0E3E9E);
+    opacity:.9;
+  }
+  .step-top{display:flex;align-items:center;gap:12px}
+  .step-num{
+    font-size:12px;font-weight:800;letter-spacing:.05em;
+    color:var(--blue-700);background:var(--blue-50);border:1px solid var(--blue-100);
+    border-radius:8px;padding:4px 9px;
+    font-variant-numeric:tabular-nums;
+  }
+  .step h3{font-size:17.5px;font-weight:800;letter-spacing:-0.03em}
+  .step p{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--body)}
+  .step .point{margin-top:12px;display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#5A6E88;font-weight:600}
+  .step .point svg{width:15px;height:15px;color:var(--blue-500);flex:none;margin-top:2px}
+  .process-note{
+    margin-top:22px;padding:16px 18px;border-radius:var(--r-md);
+    background:#fff;border:1px dashed var(--line-strong);
+    font-size:13px;line-height:1.7;color:#5B6E86;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .process-note svg{width:17px;height:17px;color:var(--blue-600);flex:none;margin-top:1px}
+  @media (min-width:900px){
+    .process-list{grid-template-columns:repeat(2,1fr);gap:18px}
+    .step{padding:26px 26px}
+  }
+  @media (min-width:1100px){
+    .process-list{grid-template-columns:repeat(4,1fr)}
+    .step{padding:24px 20px}
+    .step h3{font-size:16.5px}
+  }
+
+  /* fleet */
+  .fleet-grid{margin-top:32px;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+  .fleet-card{
+    display:block;text-align:left;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+    padding:16px 15px;cursor:pointer;
+    transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
+  }
+  .fleet-card:hover{border-color:#B9D1F5;box-shadow:0 18px 32px -26px rgba(9,30,60,.6);transform:translateY(-2px)}
+  .fleet-card .fc-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+  .fleet-card .fc-name{font-size:15px;font-weight:800;letter-spacing:-0.02em}
+  .fleet-card .fc-tag{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+  .fleet-card .fc-models{display:block;margin-top:8px;font-size:12.5px;line-height:1.6;color:#6B7F99}
+  .fleet-card .fc-go{display:inline-flex;align-items:center;gap:4px;margin-top:11px;font-size:11.5px;font-weight:800;color:var(--blue-700)}
+  .fleet-card .fc-go svg{width:12px;height:12px}
+  @media (min-width:760px){ .fleet-grid{grid-template-columns:repeat(4,1fr);gap:14px} }
+  .fleet-hint{margin-top:16px;font-size:13px;color:var(--muted)}
+
+  /* 배기량 기준 안내 */
+  .cc-band{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:18px 16px 16px}
+  .cc-band-head{display:flex;align-items:flex-start;gap:11px}
+  .cb-icon{width:34px;height:34px;flex:none;border-radius:10px;display:grid;place-items:center;background:var(--blue-50);border:1px solid #DBE8FF;color:var(--blue-700)}
+  .cb-icon svg{width:17px;height:17px}
+  .cc-band h3{font-size:15px;font-weight:800;letter-spacing:-0.02em}
+  .cc-lead{margin-top:6px;font-size:13px;line-height:1.65;color:var(--body)}
+  .cc-rows{margin-top:15px;display:grid;gap:8px;list-style:none}
+  .cc-row{display:flex;align-items:baseline;gap:4px 10px;flex-wrap:wrap;background:var(--soft);border:1px solid #E7EEFA;border-radius:10px;padding:10px 12px}
+  .cc-k{flex:none;font-size:12px;font-weight:800;color:var(--blue-700);letter-spacing:-0.01em}
+  .cc-v{font-size:12.5px;color:#5A6E88;line-height:1.5}
+  .cc-caveat{margin-top:12px;font-size:11.5px;color:var(--muted);line-height:1.6}
+  @media (min-width:700px){
+    .cc-band{padding:22px 22px 18px}
+    .cc-rows{grid-template-columns:repeat(2,1fr);gap:9px}
+    .cc-rows .cc-row:last-child{grid-column:1 / -1}
+  }
+
+  /* ---------- consult form ---------- */
+  .consult{padding:56px 0 64px;background:
+      radial-gradient(900px 420px at 100% 0%, #EAF2FF 0%, rgba(234,242,255,0) 62%),
+      linear-gradient(180deg,#F6F9FF 0%,#FFFFFF 68%);
+  }
+  .consult-grid{display:grid;gap:26px}
+  .consult-info h2{font-size:clamp(1.55rem,4.6vw,2.15rem);line-height:1.34;letter-spacing:-0.035em;font-weight:800;margin-top:14px}
+  .consult-info > p{margin-top:12px;font-size:15px;line-height:1.75;color:var(--body)}
+  .contact-list{margin-top:22px;display:grid;gap:9px}
+  .contact-list a,.contact-list .contact-item{
+    display:flex;align-items:center;gap:12px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+    padding:13px 15px;
+    transition:border-color .18s ease, box-shadow .18s ease;
+  }
+  .contact-list a:hover{border-color:#B9D1F5;box-shadow:0 14px 28px -24px rgba(9,30,60,.65)}
+  .contact-list .ci-icon{
+    width:36px;height:36px;border-radius:10px;flex:none;display:grid;place-items:center;
+    background:var(--blue-50);color:var(--blue-700);border:1px solid #DBE8FF;
+  }
+  .contact-list .ci-icon svg{width:17px;height:17px}
+  .contact-list .ci-body{min-width:0;display:flex;flex-direction:column;gap:1px}
+  .contact-list .ci-label{display:block;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+  .contact-list .ci-value{display:block;font-size:14.5px;font-weight:700;color:var(--navy-900);letter-spacing:-0.01em}
+  .contact-list .ci-arrow{margin-left:auto;color:#B4C4D8;flex:none}
+  .contact-list .ci-arrow svg{width:16px;height:16px}
+  .prep{margin-top:22px;padding:18px;background:rgba(255,255,255,.7);border:1px solid #E2EBF8;border-radius:var(--r-md)}
+  .prep h3{font-size:13px;font-weight:800;color:var(--navy-800);letter-spacing:-0.01em}
+  .prep ul{margin-top:9px;display:grid;gap:7px}
+  .prep li{display:flex;gap:8px;font-size:13px;color:#5A6E88;line-height:1.55}
+  .prep li svg{width:14px;height:14px;color:#8FA6C4;flex:none;margin-top:2px}
+
+  .form-card{
+    background:#fff;border:1px solid #E1E9F5;border-radius:var(--r-xl);
+    padding:22px 18px 20px;
+    box-shadow:var(--shadow-card);
+  }
+  .form-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid #EEF3FA}
+  .form-card-head h3{font-size:17.5px;font-weight:800;letter-spacing:-0.03em}
+  .form-card-head p{margin-top:4px;font-size:12.5px;color:var(--muted)}
+  .form-card-head .badge-free{
+    flex:none;font-size:11px;font-weight:800;color:var(--ok);
+    background:#E9F8F1;border:1px solid #C9EEDD;border-radius:7px;padding:5px 9px;letter-spacing:.01em;
+  }
+  .field{padding-top:18px}
+  .field-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .field-label{font-size:13px;font-weight:800;color:var(--navy-800);letter-spacing:-0.01em}
+  .field-label .req{color:var(--blue-600);margin-left:2px}
+  .field-hint{font-size:11.5px;color:var(--muted);font-weight:500}
+  .field-hint.is-auto{color:var(--blue-700);font-weight:700}
+  .cc-guide{
+    margin-top:10px;display:flex;align-items:flex-start;gap:7px;
+    padding:9px 11px;border-radius:9px;
+    background:#F4F8FF;border:1px solid #E1EBFA;
+    font-size:11.5px;line-height:1.6;color:#5A6E88;
+  }
+  .cc-guide svg{width:13px;height:13px;flex:none;margin-top:1px;color:var(--blue-500)}
+  .cc-guide strong{color:var(--blue-700);font-weight:800}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:9px 13px;border-radius:999px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-size:13.5px;font-weight:600;color:#3E5271;
+    cursor:pointer;transition:all .16s ease;line-height:1.2;
+  }
+  .chip:hover{border-color:#A9C2E6;background:#FBFDFF}
+  .chip small{font-size:11px;font-weight:600;color:#9BACBF}
+  .chip[aria-pressed="true"]{
+    border-color:var(--blue-600);background:var(--blue-50);color:var(--blue-700);
+    font-weight:800;box-shadow:0 0 0 3px rgba(44,116,245,.1);
+  }
+  .chip[aria-pressed="true"] small{color:#6C93D6}
+  .chip[aria-pressed="true"]::before{
+    content:"";width:13px;height:13px;flex:none;border-radius:50%;
+    background:var(--blue-600)
+      url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")
+      center/9px 9px no-repeat;
+  }
+  .select-wrap{position:relative}
+  .input,select.input{
+    width:100%;height:50px;padding:0 15px;border-radius:12px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-family:inherit;font-size:15px;color:var(--ink);font-weight:600;
+    transition:border-color .16s ease, box-shadow .16s ease, background .16s ease;
+    appearance:none;-webkit-appearance:none;
+  }
+  .input::placeholder{font-weight:500;color:#A3B2C6}
+  .input:hover{border-color:#B9CCE6}
+  .input:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 4px rgba(44,116,245,.12)}
+  select.input{cursor:pointer;padding-right:46px;color:var(--ink)}
+  select.input:disabled{background:#F7F9FD;color:#A3B2C6;cursor:not-allowed;border-color:#E7EDF6}
+  .select-wrap .chev{position:absolute;right:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#8296AE;pointer-events:none}
+  .select-wrap:has(select:disabled) .chev{color:#C2CEDE}
+  .input.custom{margin-top:9px}
+  .field-note{margin-top:9px;font-size:12px;color:#6C82A0;display:flex;align-items:flex-start;gap:6px;line-height:1.55}
+  .field-note svg{width:14px;height:14px;flex:none;margin-top:1px;color:var(--blue-500)}
+
+  .fault-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .radio-card{
+    position:relative;display:flex;align-items:center;gap:8px;
+    border:1px solid var(--line-strong);border-radius:12px;background:#fff;
+    padding:10px 11px;cursor:pointer;transition:all .16s ease;
+  }
+  .radio-card:hover{border-color:#A9C2E6;background:#FBFDFF}
+  .radio-card input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+  .radio-card .rdot{
+    width:16px;height:16px;border-radius:50%;flex:none;
+    border:1.5px solid #BFCDE0;background:#fff;transition:all .16s ease;
+  }
+  .radio-card .rtxt{display:flex;flex-direction:column;min-width:0}
+  .radio-card .rtxt strong{font-size:12px;font-weight:700;color:#2D405A;letter-spacing:-0.02em;line-height:1.35;word-break:keep-all}
+  .radio-card .rtxt small{font-size:11px;color:#8B9BB0;margin-top:1px}
+  .radio-card:has(input:checked){border-color:var(--blue-600);background:var(--blue-50);box-shadow:0 0 0 3px rgba(44,116,245,.1)}
+  .radio-card:has(input:checked) .rdot{border-color:var(--blue-600);border-width:4.5px}
+  .radio-card:has(input:checked) .rtxt strong{color:var(--blue-700);font-weight:800}
+  .radio-card:has(input:focus-visible){outline:2px solid var(--blue-500);outline-offset:2px}
+
+  .phone-input{position:relative}
+  .phone-input .input{height:52px;font-size:17px;font-weight:700;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+  .phone-input .input.error{border-color:var(--err);background:#FFF7F7}
+  .submit-area{padding-top:20px}
+  .form-agree{margin-top:11px;font-size:11.5px;color:var(--muted);line-height:1.6;text-align:center}
+  .form-agree a{color:#6C82A0;text-decoration:underline;text-underline-offset:2px}
+  .err{margin-top:7px;font-size:12px;font-weight:700;color:var(--err);display:flex;align-items:center;gap:5px}
+  .err svg{width:13px;height:13px;flex:none}
+  .field.has-error .chips .chip{border-color:#F0C4C4}
+  @media (min-width:900px){
+    .consult{padding:92px 0 100px}
+    .consult-grid{grid-template-columns:.86fr 1.14fr;gap:56px;align-items:start}
+    .consult-info{position:sticky;top:calc(var(--header-h) + 24px)}
+    .form-card{padding:28px 30px 26px}
+    .fault-grid{grid-template-columns:repeat(2,1fr)}
+    .radio-card{padding:11px 12px;gap:9px}
+    .radio-card .rtxt strong{font-size:12.5px}
+  }
+
+  /* faq */
+  .faq-list{margin-top:28px;display:grid;gap:10px;max-width:900px}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;transition:border-color .18s ease, box-shadow .18s ease}
+  .faq-item[open]{border-color:#C6D9F4;box-shadow:0 16px 34px -30px rgba(9,30,60,.6)}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:17px 18px;
+    display:flex;align-items:center;gap:12px;
+    font-size:14.5px;font-weight:700;color:var(--navy-800);letter-spacing:-0.02em;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary .q{font-size:11.5px;font-weight:800;color:var(--blue-600);flex:none}
+  .faq-item summary .caret{margin-left:auto;flex:none;width:16px;height:16px;color:#90A3BA;transition:transform .2s ease}
+  .faq-item[open] summary .caret{transform:rotate(180deg)}
+  .faq-item .a{padding:0 18px 18px 42px;font-size:13.5px;line-height:1.75;color:var(--body)}
+  @media (min-width:900px){
+    .faq-list{grid-template-columns:1fr;gap:12px}
+    .faq-item summary{padding:20px 24px;font-size:15.5px}
+    .faq-item .a{padding:0 24px 22px 49px}
+  }
+
+  /* final cta */
+  .cta-band{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:52px 0}
+  .cta-band::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 340px at 82% 10%,rgba(44,116,245,.42) 0%,transparent 62%),
+               radial-gradient(560px 300px at 8% 96%,rgba(20,73,184,.4) 0%,transparent 60%);
+  }
+  .cta-band .wrap{position:relative;z-index:1;text-align:center}
+  .cta-band h2{font-size:clamp(1.45rem,4.6vw,2.1rem);line-height:1.35;letter-spacing:-0.035em;font-weight:800}
+  .cta-band p{margin-top:12px;color:#B9CBE4;font-size:14.5px;line-height:1.7}
+  .cta-band .cta-row{display:flex;flex-direction:column;gap:10px;margin-top:24px;max-width:420px;margin-left:auto;margin-right:auto}
+  .cta-actions{max-width:470px;margin:24px auto 0;display:grid;gap:10px}
+  .cta-actions .chan-row{margin-top:2px}
+  @media (min-width:640px){ .cta-band .cta-row{flex-direction:row;justify-content:center;max-width:none} }
+  @media (min-width:900px){ .cta-band{padding:76px 0} }
+
+  /* footer */
+  .site-footer{background:#061424;color:#8296AE;padding:38px 0 30px;font-size:12.5px}
+  .footer-top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .footer-brand{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:17px;letter-spacing:-0.03em}
+  .footer-brand .logo-mark{box-shadow:none}
+  .footer-brand small{font-size:9.5px;color:#68809B;letter-spacing:.14em;font-weight:700}
+  .footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;font-weight:600}
+  .footer-links a:hover{color:#D9E6F7}
+  .footer-info{margin-top:20px;display:grid;gap:6px;line-height:1.75}
+  .footer-info strong{color:#A9BEDC;font-weight:700}
+  .footer-info a{color:#A9BEDC}
+  .footer-bottom{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;color:#54708F;font-size:11.5px}
+  @media (min-width:900px){ .site-footer{padding:48px 0 34px} }
+
+  /* floating channel button */
+  .fab{
+    position:fixed;right:16px;bottom:88px;z-index:70;
+    display:inline-flex;align-items:center;gap:8px;
+    height:50px;padding:0 17px 0 14px;border-radius:999px;border:0;
+    background:linear-gradient(150deg,#2C74F5,#1449B8);
+    color:#fff;font-size:13.5px;font-weight:800;letter-spacing:-0.01em;
+    box-shadow:0 16px 30px -14px rgba(20,73,184,.85), 0 0 0 1px rgba(255,255,255,.12) inset;
+    cursor:pointer;transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .fab:hover{transform:translateY(-2px);box-shadow:0 22px 36px -16px rgba(20,73,184,.9)}
+  .fab svg{width:20px;height:20px;flex:none}
+  .fab .fab-dot{width:7px;height:7px;border-radius:50%;background:#5FE3A1;box-shadow:0 0 0 3px rgba(95,227,161,.22);margin-left:2px}
+  @media (min-width:900px){ .fab{right:26px;bottom:26px;height:54px;padding:0 20px 0 16px;font-size:14px} }
+  @media (max-width:899px){
+    .fab{right:13px;bottom:82px;height:46px;padding:0 14px 0 12px;font-size:12.5px;gap:7px}
+    .fab svg{width:18px;height:18px}
+  }
+
+  @media (max-width:379px){
+    .chan{font-size:11.5px;gap:4px;padding:0 4px}
+    .chan svg{width:14px;height:14px}
+    .bar-item{font-size:10.5px}
+  }
+
+  /* mobile bottom bar */
+  .mobile-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:65;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:7px;
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,.95);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);
+  }
+  .bar-item{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    height:50px;border-radius:11px;background:#fff;border:1px solid var(--line);
+    font-size:11.5px;font-weight:700;letter-spacing:-0.02em;color:#3C4E66;
+  }
+  .bar-item svg{width:18px;height:18px;color:var(--blue-600)}
+  .bar-item:hover{background:#FBFDFF;border-color:#C4D6EE}
+  .bar-item.is-primary{
+    background:linear-gradient(180deg,#2C74F5 0%,#1D5FE0 100%);
+    border-color:transparent;color:#fff;
+    box-shadow:0 10px 22px -14px rgba(29,95,224,.9);
+  }
+  .bar-item.is-primary svg{color:#fff}
+  @media (min-width:900px){ .mobile-bar{display:none} }
+  body{padding-bottom:76px}
+  @media (min-width:900px){ body{padding-bottom:0} }
+
+  /* ---------- modal / sheet ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(6,18,34,.55);
+    -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    opacity:0;pointer-events:none;transition:opacity .22s ease;
+  }
+  .overlay.is-open{opacity:1;pointer-events:auto}
+
+  .modal{
+    position:fixed;inset:0;z-index:101;display:flex;align-items:flex-end;justify-content:center;
+    padding:0;pointer-events:none;
+  }
+  .modal.is-open{pointer-events:auto}
+  .modal-card{
+    position:relative;width:100%;max-width:520px;
+    background:#fff;border-radius:22px 22px 0 0;
+    padding:22px 20px calc(20px + env(safe-area-inset-bottom));
+    transform:translateY(16px);opacity:0;
+    transition:transform .26s cubic-bezier(.22,.7,.3,1), opacity .2s ease;
+    max-height:92dvh;overflow-y:auto;
+  }
+  .modal.is-open .modal-card{transform:translateY(0);opacity:1}
+  .modal-grip{width:38px;height:4px;border-radius:99px;background:#DDE5F0;margin:0 auto 16px}
+  .modal-head{display:flex;align-items:flex-start;gap:12px}
+  .modal-head .m-icon{
+    width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;
+    background:linear-gradient(160deg,#E9F1FF,#D7E6FF);color:var(--blue-700);border:1px solid #D2E2FF;
+  }
+  .modal-head .m-icon svg{width:21px;height:21px}
+  .modal-head h3{font-size:18px;font-weight:800;letter-spacing:-0.03em;line-height:1.35}
+  .modal-head p{margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .modal-close{
+    margin-left:auto;width:34px;height:34px;flex:none;border:1px solid var(--line);background:#fff;
+    border-radius:10px;display:grid;place-items:center;cursor:pointer;color:#7D8CA1;
+  }
+  .modal-close:hover{background:var(--soft);color:var(--navy-800)}
+  .modal-close svg{width:16px;height:16px}
+  .summary{
+    margin-top:18px;border:1px solid #E4EBF6;border-radius:var(--r-md);overflow:hidden;background:#FBFDFF;
+  }
+  .summary-row{display:flex;gap:12px;padding:11px 14px;border-bottom:1px solid #ECF2FA;font-size:13.5px}
+  .summary-row:last-child{border-bottom:0}
+  .summary-row dt{flex:none;width:68px;color:var(--muted);font-weight:600;font-size:12.5px;padding-top:1px}
+  .summary-row dd{margin:0;font-weight:700;color:var(--navy-900);letter-spacing:-0.01em}
+  .summary-row dd small{display:block;font-weight:500;color:#8B9BB0;font-size:11.5px;margin-top:2px}
+  .modal-actions{margin-top:16px;display:grid;gap:9px}
+  .modal-actions .btn{width:100%}
+  .modal-channels{margin-top:14px}
+  .modal-channels .cap{display:block;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.01em;margin-bottom:7px}
+  .modal-note{margin-top:12px;font-size:11.5px;color:var(--muted);line-height:1.65;text-align:center}
+  .copy-state{margin-top:10px;font-size:12px;font-weight:700;color:var(--ok);display:none;align-items:center;justify-content:center;gap:6px}
+  .copy-state.is-on{display:flex}
+  .copy-state svg{width:14px;height:14px}
+  @media (min-width:900px){
+    .modal{align-items:center;padding:24px}
+    .modal-card{border-radius:var(--r-xl);padding:26px 28px;max-width:560px}
+    .modal-grip{display:none}
+  }
+
+  /* channel sheet */
+  .sheet{
+    position:fixed;inset:0;z-index:101;display:flex;align-items:flex-end;justify-content:center;
+    pointer-events:none;
+  }
+  .sheet.is-open{pointer-events:auto}
+  .sheet-card{
+    position:relative;width:100%;max-width:460px;background:#fff;
+    border-radius:22px 22px 0 0;padding:20px 20px calc(22px + env(safe-area-inset-bottom));
+    transform:translateY(18px);opacity:0;transition:transform .26s cubic-bezier(.22,.7,.3,1),opacity .2s ease;
+  }
+  .sheet.is-open .sheet-card{transform:translateY(0);opacity:1}
+  .sheet-head{display:flex;align-items:center;gap:12px}
+  .sheet-head .ct-icon{
+    width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;
+    background:linear-gradient(160deg,#EAF1FF,#D9E7FF);color:var(--blue-700);border:1px solid #D3E3FF;
+  }
+  .sheet-head .ct-icon svg{width:22px;height:22px}
+  .sheet-head h3{font-size:16.5px;font-weight:800;letter-spacing:-0.02em}
+  .sheet-head .ct-state{margin-top:2px;font-size:11.5px;font-weight:700;color:#B07A15;background:#FFF6E3;border:1px solid #F5E2B5;border-radius:6px;padding:2px 7px;display:inline-block}
+  .sheet-head .ct-state.is-live{color:var(--ok);background:#E9F8F1;border-color:#C9EEDD}
+  .sheet-desc{margin-top:14px;font-size:13.5px;line-height:1.7;color:var(--body)}
+  .sheet-actions{margin-top:16px;display:grid;gap:9px}
+  .sheet-actions .btn{width:100%}
+  .mini-note{margin-top:12px;font-size:11px;line-height:1.6;color:#93A4B9;text-align:center}
+  .mini-note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;background:#F2F6FC;border:1px solid #E4EBF6;border-radius:5px;padding:1px 5px;color:#5C7392}
+  @media (min-width:900px){
+    .sheet{align-items:flex-end;justify-content:flex-end;padding:0 26px 96px}
+    .sheet-card{border-radius:18px;box-shadow:0 40px 80px -30px rgba(6,18,34,.7);}
+  }
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;bottom:100px;z-index:120;transform:translate(-50%,10px);
+    background:#0C1A2B;color:#fff;font-size:13px;font-weight:600;
+    padding:11px 16px;border-radius:10px;box-shadow:0 18px 34px -18px rgba(0,0,0,.7);
+    opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;
+    max-width:calc(100vw - 40px);text-align:center;
+  }
+  .toast.is-on{opacity:1;transform:translate(-50%,0)}
+  @media (min-width:900px){ .toast{bottom:96px} }
+
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================================================================
+     ChannelTalk 연동 설정 영역
+     - 아래 HAHA_CHANNEL_PLUGIN_KEY 에 실제 채널톡 pluginKey 값을 넣으면
+       우측 하단 버튼 / 모달 / 채널톡 안내 시트가 모두 실시간 상담창으로 연결됩니다.
+     - 비어 있으면 시안용 안내 시트(전화·상담신청서 연결)가 열립니다.
+     ================================================================== -->
+<script>
+  window.HAHA_RENT = {
+    channelPluginKey: "",            // ← 실제 채널톡 pluginKey 입력 (예: "a1b2c3d4-....")
+    phone: "01020040790",
+    phoneDisplay: "010-2004-0790"
+  };
+</script>
+<script>
+  /* ChannelIO 부트스트랩: pluginKey가 있을 때만 SDK를 불러옵니다. */
+  (function () {
+    var key = window.HAHA_RENT.channelPluginKey;
+    if (!key) return;
+    (function () {
+      var w = window;
+      if (w.ChannelIO) return w.ChannelIO("boot", { pluginKey: key });
+      var ch = w.ch = w.ch || {};
+      ch.pluginKey = key;
+      ch.c = ch.c || [];
+      var methods = ["boot", "shutdown", "show", "hide", "showMessenger", "hideMessenger",
+        "openChat", "track", "setPage", "addTags", "clearTags", "updateUser",
+        "setUser", "setListener", "onShowMessenger", "onHideMessenger", "onBadgeChanged",
+        "onChatCreated", "onFollowUpChanged", "onUrlClicked"];
+      for (var i = 0; i < methods.length; i++) {
+        (function (m) {
+          ch[m] = ch[m] || function () { ch.c.push([m].concat([].slice.call(arguments))); };
+        })(methods[i]);
+      }
+      var s = document.createElement("script");
+      s.type = "text/javascript"; s.async = true;
+      s.src = "https://cdn.channel.io/plugin/channelio.js";
+      (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(s);
+    })();
+  })();
+</script>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="하하렌트 홈">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.6"/>
+          <circle cx="12" cy="12" r="2.9"/>
+          <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
+        </svg>
+      </span>
+      하하렌트 <small>HAHA RENT</small>
+    </a>
+
+    <nav class="nav-desktop" aria-label="주요 메뉴">
+      <a href="#promise">서비스 안내</a>
+      <a href="#process">처리 절차</a>
+      <a href="#fleet">차량 라인업</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-tel" href="tel:01020040790">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+        010-2004-0790
+      </a>
+      <a class="btn btn-primary header-cta" href="#consult">상담 신청</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴">
+    <a href="#promise">서비스 안내 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="#process">처리 절차 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="#fleet">차량 라인업 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="#faq">자주 묻는 질문 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="tel:01020040790">전화 상담 010-2004-0790 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a class="btn btn-primary btn-block" href="#consult" data-nav-close>무료 대차 상담 신청</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-dark"><span class="dot"></span>사고대차 전문 · 하하렌트</span>
+        <h1>차량 사고 시,<br><span class="hl">간편하고 쉽게 사고대차</span></h1>
+        <p class="hero-sub">
+          사고 차량의 차급을 먼저 확인하고 <strong>동급 또는 동급 이상</strong> 차량을 고객님이 계신 곳으로 배차합니다.
+          접수부터 수리 후 인도까지 한 사람이 끝까지 안내합니다.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#consult">
+            무료 대차 상담 신청
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="chan-row" aria-label="바로 상담 연결">
+            <a class="chan" href="tel:01020040790">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+              전화 상담
+            </a>
+            <a class="chan" href="sms:01020040790">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+              문자 문의
+            </a>
+            <button class="chan" type="button" data-open-channel>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+              채널톡 상담
+            </button>
+          </div>
+        </div>
+        <ul class="hero-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>배기량 기준 동급 이상</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>보험 처리 절차 안내</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>요청 입고지 · 제휴 센터</li>
+        </ul>
+      </div>
+
+      <div class="hero-card" aria-label="배기량 기준 동급 이상 배차 예시">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.4 3.2 7.6 7.5 9 4.3-1.4 7.5-4.6 7.5-9V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          배차 원칙
+        </span>
+        <h2>배기량 기준 동급 이상</h2>
+        <p class="sub">사고 차량의 배기량을 확인한 뒤 배차 차량을 정합니다.</p>
+
+        <div class="compare">
+          <div class="compare-row">
+            <span class="label">타시던 차량</span>
+            <div class="value">그랜저 <em>2.0~3.0 급</em></div>
+          </div>
+          <div class="compare-link" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+            <span>같은 배기량 또는 상위</span>
+          </div>
+          <div class="compare-row is-target">
+            <span class="label">배차 차량</span>
+            <div class="value"><span class="v-line">E클래스 · 5시리즈<br>S클래스 · 7시리즈</span><em>동급 이상</em></div>
+          </div>
+        </div>
+        <p class="note">예시입니다. 실제 배차 차량은 사고 차량의 배기량·차급과 재고 상황을 확인한 뒤 안내드립니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="brand-strip">
+    <div class="wrap">
+      <span class="cap">주요 브랜드 전 차급 대차</span>
+      <ul>
+        <li>현대</li><li>기아</li><li>제네시스</li><li>BMW</li><li>벤츠</li><li>아우디</li><li>테슬라</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= PROMISE ================= -->
+  <section class="section" id="promise">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>하하렌트가 지키는 것</span>
+        <h2>대차에서 가장 중요한 건<br>“내 차보다 낮지 않은 차”입니다</h2>
+        <p>사고 직후에는 무엇부터 해야 할지 판단이 어렵습니다. 하하렌트는 배기량 확인부터 보험 절차, 입고와 인도까지 순서대로 안내합니다.</p>
+      </div>
+
+      <div class="promise-grid">
+        <article class="p-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5 8a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 8l2 5.5"/><path d="M3 13.5h18V18a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H6.5v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5Z"/><path d="M6.5 16h1M16.5 16h1"/></svg>
+          </div>
+          <h3>배기량 기준 동급 이상</h3>
+          <p>차종보다 배기량을 먼저 봅니다. 사고 차량의 배기량을 확인해 그와 같거나 높은 급으로 배차하며, 예를 들어 2.0급은 그랜저·E클래스·5시리즈, 3.0~4.0급은 S클래스·GLE·카이엔 급이 배차 예시입니다.</p>
+        </article>
+        <article class="p-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+          </div>
+          <h3>보험 처리 절차 안내</h3>
+          <p>과실비율과 가입 보험(자차·대차료 특약 등)에 따라 대차 가능 여부와 기간이 달라집니다. 접수 전에 먼저 확인해 드립니다.</p>
+        </article>
+        <article class="p-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          </div>
+          <h3>요청 입고지 · 제휴 센터</h3>
+          <p>고객님이 원하는 곳으로 사고 차량을 입고합니다. 필요하면 제휴 센터 입고도 함께 안내합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section tint" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>처리 절차</span>
+        <h2>상담부터 인도까지<br>네 단계로 끝납니다</h2>
+        <p>지금 어느 단계에 계시든 괜찮습니다. 사고 경위만 알려주시면 다음 순서를 안내해 드립니다.</p>
+      </div>
+
+      <ol class="process-list">
+        <li class="step">
+          <div class="step-top">
+            <span class="step-num">STEP 01</span>
+            <h3>상담</h3>
+          </div>
+          <p>사고 경위와 과실비율, 원하시는 차량을 확인합니다. 이 단계에서 대차 가능 여부와 예상 기간을 함께 안내합니다.</p>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            사고 일시·지역, 상대 차량 확인
+          </div>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            과실비율 · 보험 특약 확인
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-top">
+            <span class="step-num">STEP 02</span>
+            <h3>차량 배차</h3>
+          </div>
+          <p>배기량 기준 동급 이상 차량으로 고객님이 계신 곳에 배차합니다. 희망 차종이 있으면 함께 반영합니다.</p>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            배기량 확인 후 차량 확정
+          </div>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            희망 장소 · 시간에 맞춰 배차
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-top">
+            <span class="step-num">STEP 03</span>
+            <h3>고객 차량 입고</h3>
+          </div>
+          <p>고객님이 요청하신 입고지로 사고 차량을 입고합니다. 필요하시면 제휴 센터 입고도 가능합니다.</p>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            요청 입고지 입고
+          </div>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            필요 시 제휴 센터 연결
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-top">
+            <span class="step-num">STEP 04</span>
+            <h3>수리 후 딜리버리</h3>
+          </div>
+          <p>수리가 끝나면 고객 차량을 안전하게 인도하고, 대차 차량 회수까지 마무리합니다.</p>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            수리 완료 확인 · 인도
+          </div>
+          <div class="point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            대차 차량 반납까지 마무리
+          </div>
+        </li>
+      </ol>
+
+      <div class="process-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <span>보험사 청구 대행과 자차 포함 종합보험 여부는 가입하신 보험과 특약에 따라 달라집니다. 과장 없이, 확인되는 내용만 안내드리고 필요한 절차는 함께 진행합니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FLEET ================= -->
+  <section class="section" id="fleet">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>차량 라인업</span>
+        <h2>브랜드별로 바로 확인하세요</h2>
+        <p>브랜드를 누르면 상담 신청서에 그 브랜드가 선택된 상태로 이동합니다. 차종과 배기량까지 30초면 정리됩니다.</p>
+      </div>
+
+      <div class="fleet-grid" id="fleetGrid">
+        <button class="fleet-card" type="button" data-brand="hyundai">
+          <span class="fc-top"><span class="fc-name">현대</span><span class="fc-tag">HYUNDAI</span></span>
+          <span class="fc-models">아반떼 · 쏘나타 · 그랜저<br>투싼 · 싼타페 · 팰리세이드</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="kia">
+          <span class="fc-top"><span class="fc-name">기아</span><span class="fc-tag">KIA</span></span>
+          <span class="fc-models">K5 · K8 · 스포티지<br>쏘렌토 · 카니발 · EV6</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="genesis">
+          <span class="fc-top"><span class="fc-name">제네시스</span><span class="fc-tag">GENESIS</span></span>
+          <span class="fc-models">G70 · G80 · G90<br>GV70 · GV80</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="bmw">
+          <span class="fc-top"><span class="fc-name">BMW</span><span class="fc-tag">BMW</span></span>
+          <span class="fc-models">3 · 5 · 7 시리즈<br>X3 · X5 · X7</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="benz">
+          <span class="fc-top"><span class="fc-name">벤츠</span><span class="fc-tag">MERCEDES</span></span>
+          <span class="fc-models">C · E · S 클래스<br>GLC · GLE</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="audi">
+          <span class="fc-top"><span class="fc-name">아우디</span><span class="fc-tag">AUDI</span></span>
+          <span class="fc-models">A4 · A6<br>Q5 · Q7</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="tesla">
+          <span class="fc-top"><span class="fc-name">테슬라</span><span class="fc-tag">TESLA</span></span>
+          <span class="fc-models">모델 3 · 모델 Y<br>모델 S · 모델 X</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button class="fleet-card" type="button" data-brand="etc">
+          <span class="fc-top"><span class="fc-name">기타 브랜드</span><span class="fc-tag">ETC</span></span>
+          <span class="fc-models">목록에 없는 브랜드<br>직접 입력해서 상담</span>
+          <span class="fc-go">상담 신청 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+      </div>
+      <div class="cc-band">
+        <div class="cc-band-head">
+          <span class="cb-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 12l3.5-3.5"/><path d="M6.8 15.2h10.4"/></svg>
+          </span>
+          <div>
+            <h3>차종보다 배기량이 기준입니다</h3>
+            <p class="cc-lead">업계 기준은 배기량입니다. 내 차의 배기량과 같거나 높은 급으로 배차하며, 같은 배기량이라면 차종이 달라도 동급으로 봅니다.</p>
+          </div>
+        </div>
+        <ul class="cc-rows">
+          <li class="cc-row"><span class="cc-k">경차 · ~1,000cc</span><span class="cc-v">모닝 · 캐스퍼 급</span></li>
+          <li class="cc-row"><span class="cc-k">소형 · ~1,600cc</span><span class="cc-v">아반떼 · K3 · C클래스 급</span></li>
+          <li class="cc-row"><span class="cc-k">2.0급 · 1,600~2,400cc</span><span class="cc-v">쏘나타 · K5 · 그랜저 · K8 · E클래스 · 5시리즈 급</span></li>
+          <li class="cc-row"><span class="cc-k">3.0~4.0급 · 3,000~4,000cc</span><span class="cc-v">S클래스 · 7시리즈 · GLE · 카이엔 · G90 급</span></li>
+          <li class="cc-row"><span class="cc-k">전기차 · EV</span><span class="cc-v">아이오닉 5 · EV6 · 모델 3 급</span></li>
+        </ul>
+        <p class="cc-caveat">※ 배차 예시이며, 실제 배차 차량과 보험 적용 여부는 차량 배기량과 보험 조건을 확인한 상담 후 안내드립니다.</p>
+      </div>
+
+      <p class="fleet-hint">※ 예시 차종과 실제 배차 차량은 재고에 따라 달라질 수 있으며, 어떤 경우에도 차급을 낮춰 안내하지 않습니다.</p>
+    </div>
+  </section>
+
+  <!-- ================= CONSULT ================= -->
+  <section class="consult" id="consult">
+    <div class="wrap consult-grid">
+      <div class="consult-info">
+        <span class="eyebrow"><span class="dot"></span>무료 대차 상담</span>
+        <h2>사고 경위만 알려주시면<br>나머지는 저희가 확인합니다</h2>
+        <p>브랜드와 차종, 배기량, 과실비율, 연락처만 남겨주세요. 배차는 배기량 기준으로 확인 후 순서대로 연락드립니다.</p>
+
+        <div class="contact-list">
+          <a href="tel:01020040790">
+            <span class="ci-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            </span>
+            <span class="ci-body">
+              <span class="ci-label">전화 상담</span>
+              <span class="ci-value">010-2004-0790</span>
+            </span>
+            <span class="ci-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+          </a>
+          <a href="sms:01020040790">
+            <span class="ci-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+            </span>
+            <span class="ci-body">
+              <span class="ci-label">문자 문의</span>
+              <span class="ci-value">010-2004-0790</span>
+            </span>
+            <span class="ci-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+          </a>
+          <button class="contact-item" type="button" data-open-channel style="width:100%;text-align:left;cursor:pointer;font:inherit;background:#fff">
+            <span class="ci-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+            </span>
+            <span class="ci-body">
+              <span class="ci-label">채널톡 상담</span>
+              <span class="ci-value">실시간 상담 연결</span>
+            </span>
+            <span class="ci-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+          </button>
+          <div class="contact-item">
+            <span class="ci-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            </span>
+            <span class="ci-body">
+              <span class="ci-label">문의 접수</span>
+              <span class="ci-value">아래 신청서로 남겨주세요</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="prep">
+          <h3>이런 내용을 준비하시면 빠릅니다</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>사고 차량의 브랜드·차종과 배기량</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>대략적인 과실비율 (모르셔도 됩니다)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>배차 받으실 장소</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-head">
+          <div>
+            <h3>사고대차 상담 신청</h3>
+            <p>30초면 접수됩니다 · 상담은 무료입니다</p>
+          </div>
+          <span class="badge-free">무료 상담</span>
+        </div>
+
+        <form id="consultForm" novalidate autocomplete="on">
+          <!-- 브랜드 -->
+          <div class="field" id="fieldBrand">
+            <div class="field-head">
+              <span class="field-label">브랜드 <span class="req">*</span></span>
+              <span class="field-hint" id="brandHint">사고 차량 기준</span>
+            </div>
+            <div class="chips" id="brandChips" role="group" aria-label="브랜드 선택">
+              <button class="chip" type="button" data-brand="hyundai" aria-pressed="false">현대</button>
+              <button class="chip" type="button" data-brand="kia" aria-pressed="false">기아</button>
+              <button class="chip" type="button" data-brand="genesis" aria-pressed="false">제네시스</button>
+              <button class="chip" type="button" data-brand="bmw" aria-pressed="false">BMW</button>
+              <button class="chip" type="button" data-brand="benz" aria-pressed="false">벤츠</button>
+              <button class="chip" type="button" data-brand="audi" aria-pressed="false">아우디</button>
+              <button class="chip" type="button" data-brand="tesla" aria-pressed="false">테슬라</button>
+              <button class="chip" type="button" data-brand="etc" aria-pressed="false">기타</button>
+            </div>
+            <input class="input custom is-hidden" id="brandCustom" type="text" placeholder="브랜드를 직접 입력해 주세요 (예: 폴크스바겐)" autocomplete="off">
+            <p class="err is-hidden" id="errBrand" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              브랜드를 선택해 주세요.
+            </p>
+          </div>
+
+          <!-- 차종 -->
+          <div class="field" id="fieldModel">
+            <div class="field-head">
+              <span class="field-label" id="modelLabel">차종 <span class="req">*</span></span>
+              <span class="field-hint">브랜드 선택 시 자동 연동</span>
+            </div>
+            <div class="select-wrap">
+              <select class="input" id="modelSelect" aria-labelledby="modelLabel" disabled>
+                <option value="">브랜드를 먼저 선택해 주세요</option>
+              </select>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <input class="input custom is-hidden" id="modelCustom" type="text" placeholder="차종을 직접 입력해 주세요 (예: 티구안)" autocomplete="off">
+            <p class="err is-hidden" id="errModel" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              차종을 선택해 주세요.
+            </p>
+          </div>
+
+          <!-- 배기량 -->
+          <div class="field" id="fieldCc">
+            <div class="field-head">
+              <span class="field-label">배기량 <span class="req">*</span></span>
+              <span class="field-hint" id="ccHint">차종 선택 시 자동 선택</span>
+            </div>
+            <div class="chips" id="ccChips" role="group" aria-label="배기량 선택">
+              <button class="chip" type="button" data-cc="light" aria-pressed="false">경차 <small>~1,000cc</small></button>
+              <button class="chip" type="button" data-cc="compact" aria-pressed="false">소형 <small>~1,600cc</small></button>
+              <button class="chip" type="button" data-cc="midsize" aria-pressed="false">2.0급 <small>1,600~2,400cc</small></button>
+              <button class="chip" type="button" data-cc="luxury" aria-pressed="false">3.0~4.0급 <small>3,000~4,000cc</small></button>
+              <button class="chip" type="button" data-cc="ev" aria-pressed="false">전기차 <small>EV</small></button>
+            </div>
+            <p class="cc-guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 12l3.5-3.5"/><path d="M6.8 15.2h10.4"/></svg>
+              <span>배차는 차종이 아니라 <strong>배기량 기준</strong>입니다. 2.0급은 그랜저·E클래스·5시리즈, 3.0~4.0급은 S클래스·GLE·카이엔 급이 예시입니다.</span>
+            </p>
+            <p class="field-note is-hidden" id="ccNote">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <span id="ccNoteText"></span>
+            </p>
+            <p class="err is-hidden" id="errCc" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              배기량을 선택해 주세요.
+            </p>
+          </div>
+
+          <!-- 과실비율 -->
+          <div class="field" id="fieldFault">
+            <div class="field-head">
+              <span class="field-label">사고 과실비율 <span class="req">*</span></span>
+              <span class="field-hint">대략적으로 선택</span>
+            </div>
+            <div class="fault-grid" id="faultGroup" role="radiogroup" aria-label="사고 과실비율">
+              <label class="radio-card">
+                <input type="radio" name="fault" value="none">
+                <span class="rdot" aria-hidden="true"></span>
+                <span class="rtxt"><strong>상대 과실 100%</strong><small>무과실</small></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fault" value="low">
+                <span class="rdot" aria-hidden="true"></span>
+                <span class="rtxt"><strong>쌍방 10~30%</strong><small>내 과실 적음</small></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fault" value="mid">
+                <span class="rdot" aria-hidden="true"></span>
+                <span class="rtxt"><strong>쌍방 40~50%</strong><small>쌍방 비슷함</small></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fault" value="unknown">
+                <span class="rdot" aria-hidden="true"></span>
+                <span class="rtxt"><strong>과실 미정·모름</strong><small>확인 후 안내</small></span>
+              </label>
+            </div>
+            <p class="err is-hidden" id="errFault" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              과실비율을 선택해 주세요.
+            </p>
+          </div>
+
+          <!-- 연락처 -->
+          <div class="field" id="fieldPhone">
+            <div class="field-head">
+              <span class="field-label"><label for="phone">연락처 <span class="req">*</span></label></span>
+              <span class="field-hint">연락받으실 번호</span>
+            </div>
+            <div class="phone-input">
+              <input class="input" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" aria-describedby="errPhone">
+            </div>
+            <p class="err is-hidden" id="errPhone" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)
+            </p>
+          </div>
+
+          <div class="submit-area">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">
+              무료 대차 상담 신청
+              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="form-agree">입력하신 연락처는 대차 상담 목적으로만 사용합니다.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>자주 묻는 질문</span>
+        <h2>상담 전에 많이 물어보시는 것들</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="q">Q</span>대차 비용은 누가 부담하나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">상대 과실 정도와 가입하신 보험(자차, 대차료 특약 등)에 따라 달라집니다. 접수하실 때 보험 조건을 확인하고, 실제로 부담이 생기는 부분이 있는지 먼저 안내드립니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q">Q</span>희망하는 차종으로 받을 수 있나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">동급 이상 원칙 안에서 희망 차종을 요청하실 수 있습니다. 배기량 기준으로 같은 급 이상에서 안내드리고, 재고 상황에 따라 가장 가까운 차급으로 안내드리며 차급을 낮춰 안내하는 일은 없습니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q">Q</span>수리 기간이 길어지면 대차도 연장되나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">수리 기간이 예상보다 길어지는 경우가 있습니다. 연장이 필요한 시점에 보험사와 조건을 확인하고, 가능한 범위에서 대차 기간을 조정해 안내드립니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q">Q</span>사고 차량을 지정한 정비소에 맡기고 싶어요.
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">가능합니다. 고객님이 요청하신 입고지로 사고 차량을 입고해 드리고, 필요하시면 제휴 센터 입고도 함께 안내합니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q">Q</span>차종이 같은지, 배기량이 같은지 뭐가 기준인가요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">대차 업계 기준은 배기량입니다. 예를 들어 2.0급은 그랜저·E클래스·5시리즈 급, 3.0~4.0급은 S클래스·GLE·포르쉐 카이엔 급이 배차 예시입니다. 신청서에 배기량을 남겨주시면 같은 급 이상으로 확인해 안내드리고, 실제 배차 차량과 보험 적용 여부는 상담 후 확정됩니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q">Q</span>과실비율을 아직 모르는데 상담 가능한가요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">괜찮습니다. 신청서에서 ‘과실 미정 / 모름’을 선택해 주시면, 사고 경위를 듣고 확인해야 할 부분을 함께 정리해 드립니다.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>사고대차, 지금 바로 확인하세요</h2>
+      <p>배기량 확인부터 배차까지, 전화 한 통이면 시작됩니다.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg btn-block" href="#consult">무료 대차 상담 신청</a>
+        <div class="chan-row">
+          <a class="chan" href="tel:01020040790">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            전화 상담
+          </a>
+          <a class="chan" href="sms:01020040790">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+            문자 문의
+          </a>
+          <button class="chan" type="button" data-open-channel>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+            채널톡 상담
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8.6"/>
+            <circle cx="12" cy="12" r="2.9"/>
+            <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
+          </svg>
+        </span>
+        <span>하하렌트 <small style="margin-left:6px">HAHA RENT</small></span>
+      </div>
+      <nav class="footer-links" aria-label="바닥글 메뉴">
+        <a href="#promise">서비스 안내</a>
+        <a href="#process">처리 절차</a>
+        <a href="#fleet">차량 라인업</a>
+        <a href="#consult">상담 신청</a>
+        <a href="#faq">자주 묻는 질문</a>
+      </nav>
+    </div>
+    <div class="footer-info">
+      <div><strong>상담</strong> <a href="tel:01020040790">010-2004-0790</a> · <a href="sms:01020040790">문자 문의</a> · <a href="#consult">상담 신청서</a></div>
+      <div><strong>운영</strong> 도윤렌트카</div>
+      <div>사고대차 상담 및 배차 · 요청 입고지 입고 · 제휴 센터 연결</div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HAHA RENT. All rights reserved.</span>
+      <span>사업자 정보·주소는 오픈 전 반영 예정입니다.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating channel talk -->
+<button class="fab" type="button" id="fabChannel" aria-label="채널톡 상담 열기" data-open-channel>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8.5 10.5h7M8.5 13.5h4"/></svg>
+  채널톡 상담
+  <span class="fab-dot" aria-hidden="true"></span>
+</button>
+
+<!-- mobile bottom bar -->
+<div class="mobile-bar">
+  <a class="bar-item" href="tel:01020040790">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+    전화 상담
+  </a>
+  <a class="bar-item" href="sms:01020040790">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+    문자 문의
+  </a>
+  <a class="bar-item is-primary" href="#consult">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+    상담 신청
+  </a>
+</div>
+
+<!-- ================= summary modal ================= -->
+<div class="overlay" id="modalOverlay" hidden></div>
+<div class="modal" id="summaryModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="summaryTitle">
+    <div class="modal-grip" aria-hidden="true"></div>
+    <div class="modal-head">
+      <span class="m-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="m9.5 15 1.8 1.8L14.8 13"/></svg>
+      </span>
+      <div>
+        <h3 id="summaryTitle">상담 신청 내용을 확인해 주세요</h3>
+        <p>아래 내용을 복사해 채널톡으로 보내시면 바로 상담이 시작됩니다.</p>
+      </div>
+      <button class="modal-close" type="button" data-close-modal aria-label="닫기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <dl class="summary" id="summaryList"></dl>
+
+    <div class="modal-actions">
+      <button class="btn btn-primary btn-lg" type="button" id="copyBtn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+        <span id="copyBtnLabel">신청 내용 복사</span>
+      </button>
+      <div class="modal-channels">
+        <span class="cap">바로 상담 연결</span>
+        <div class="chan-row is-light">
+          <a class="chan" href="tel:01020040790" id="modalCallBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            전화 상담
+          </a>
+          <a class="chan" href="sms:01020040790" id="smsBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+            문자 문의
+          </a>
+          <button class="chan" type="button" id="modalChannelBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+            채널톡
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="copy-state" id="copyState">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      복사했어요. 채널톡 대화창에 붙여넣기 해주세요.
+    </p>
+    <p class="modal-note">입력하신 연락처는 상담 목적으로만 사용됩니다.</p>
+  </div>
+</div>
+
+<!-- ================= channel talk sheet ================= -->
+<div class="sheet" id="channelSheet" aria-hidden="true">
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="ctTitle">
+    <div class="modal-grip" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <span class="ct-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8.5 10.5h7M8.5 13.5h4"/></svg>
+      </span>
+      <div>
+        <h3 id="ctTitle">채널톡 상담</h3>
+        <span class="ct-state" id="ctState">시안 · 연동 전</span>
+      </div>
+      <button class="modal-close" type="button" data-close-sheet aria-label="닫기" style="margin-left:auto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <p class="sheet-desc" id="ctDesc">
+      채널톡 상담창이 연결되면 이 버튼으로 바로 대화를 시작할 수 있습니다.
+      지금은 전화 또는 상담 신청서로 문의해 주세요. 담당자가 확인 후 연락드립니다.
+    </p>
+    <div class="sheet-actions">
+      <a class="btn btn-primary btn-lg" href="tel:01020040790">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+        전화 상담 010-2004-0790
+      </a>
+      <a class="btn btn-outline" href="sms:01020040790">문자로 문의하기</a>
+      <button class="btn btn-soft" type="button" data-goto-form>상담 신청서 작성하기</button>
+    </div>
+    <p class="mini-note">연결 설정: <code>HAHA_RENT.channelPluginKey</code> 값만 입력하면 이 버튼이 채널톡 대화창으로 연결됩니다.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- 데이터 ---------------- */
+  var CC = {
+    light:   { label: "경차",       detail: "~1,000cc",      peer: "모닝 · 캐스퍼 급" },
+    compact: { label: "소형",       detail: "~1,600cc",      peer: "아반떼 · K3 급" },
+    midsize: { label: "2.0급",      detail: "1,600~2,400cc", peer: "쏘나타 · K5 · 그랜저 · E클래스 · 5시리즈 급" },
+    luxury:  { label: "3.0~4.0급",  detail: "3,000~4,000cc", peer: "S클래스 · 7시리즈 · GLE · 카이엔 · G90 급" },
+    ev:      { label: "전기차",     detail: "EV",            peer: "아이오닉 5 · EV6 · 모델 3 등" }
+  };
+
+  var FAULT = {
+    none:    { main: "상대 과실 100%", sub: "무과실" },
+    low:     { main: "쌍방 과실 10~30%", sub: "내 과실 적음" },
+    mid:     { main: "쌍방 과실 40~50%", sub: "쌍방 비슷함" },
+    unknown: { main: "과실 미정 / 모름", sub: "확인 후 안내" }
+  };
+
+  var BRANDS = {
+    hyundai: { name: "현대", models: [
+      ["아반떼", "compact"], ["쏘나타", "midsize"], ["그랜저", "midsize"],
+      ["투싼", "midsize"], ["싼타페", "midsize"], ["팰리세이드", "luxury"],
+      ["아이오닉 5", "ev"], ["아이오닉 6", "ev"]
+    ]},
+    kia: { name: "기아", models: [
+      ["K5", "midsize"], ["K8", "midsize"], ["스포티지", "midsize"],
+      ["쏘렌토", "midsize"], ["카니발", "luxury"], ["EV6", "ev"], ["EV9", "ev"]
+    ]},
+    genesis: { name: "제네시스", models: [
+      ["G70", "midsize"], ["G80", "midsize"], ["G90", "luxury"],
+      ["GV70", "midsize"], ["GV80", "luxury"]
+    ]},
+    bmw: { name: "BMW", models: [
+      ["3시리즈", "midsize"], ["5시리즈", "midsize"], ["7시리즈", "luxury"],
+      ["X3", "midsize"], ["X5", "luxury"], ["X7", "luxury"]
+    ]},
+    benz: { name: "벤츠", models: [
+      ["C클래스", "midsize"], ["E클래스", "midsize"], ["S클래스", "luxury"],
+      ["GLC", "midsize"], ["GLE", "luxury"]
+    ]},
+    audi: { name: "아우디", models: [
+      ["A4", "midsize"], ["A6", "midsize"], ["Q5", "midsize"], ["Q7", "luxury"]
+    ]},
+    tesla: { name: "테슬라", models: [
+      ["모델 3", "ev"], ["모델 Y", "ev"], ["모델 S", "ev"], ["모델 X", "ev"]
+    ]},
+    etc: { name: "기타", models: null }
+  };
+
+  var CUSTOM = "__custom__";
+
+  /* ---------------- 상태 ---------------- */
+  var state = {
+    brand: null,
+    brandCustom: "",
+    model: "",
+    modelCustom: "",
+    modelIsCustom: false,
+    cc: null,
+    ccAuto: false,
+    fault: null
+  };
+
+  /* ---------------- 요소 ---------------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $("consultForm");
+  var brandChips = Array.prototype.slice.call(document.querySelectorAll("#brandChips .chip"));
+  var brandCustom = $("brandCustom");
+  var modelSelect = $("modelSelect");
+  var modelCustom = $("modelCustom");
+  var ccChips = Array.prototype.slice.call(document.querySelectorAll("#ccChips .chip"));
+  var ccNote = $("ccNote");
+  var ccNoteText = $("ccNoteText");
+  var ccHint = $("ccHint");
+  var phoneInput = $("phone");
+  var summaryModal = $("summaryModal");
+  var modalOverlay = $("modalOverlay");
+  var channelSheet = $("channelSheet");
+  var summaryList = $("summaryList");
+  var copyBtn = $("copyBtn");
+  var copyBtnLabel = $("copyBtnLabel");
+  var copyState = $("copyState");
+  var toastEl = $("toast");
+  var lastFocused = null;
+
+  var ERRORS = {
+    brand: $("errBrand"),
+    model: $("errModel"),
+    cc: $("errCc"),
+    fault: $("errFault"),
+    phone: $("errPhone")
+  };
+  var FIELDS = {
+    brand: $("fieldBrand"),
+    model: $("fieldModel"),
+    cc: $("fieldCc"),
+    fault: $("fieldFault"),
+    phone: $("fieldPhone")
+  };
+
+  function show(el, on) { if (el) el.classList.toggle("is-hidden", !on); }
+
+  /* ---------------- 브랜드 ---------------- */
+  function resetModel() {
+    modelSelect.innerHTML = "";
+    var ph = document.createElement("option");
+    ph.value = "";
+    ph.textContent = "차종을 선택해 주세요";
+    modelSelect.appendChild(ph);
+
+    var brand = BRANDS[state.brand];
+    if (brand && brand.models) {
+      brand.models.forEach(function (m) {
+        var o = document.createElement("option");
+        o.value = m[0];
+        o.textContent = m[0];
+        modelSelect.appendChild(o);
+      });
+      var custom = document.createElement("option");
+      custom.value = CUSTOM;
+      custom.textContent = "기타 차종 직접입력";
+      modelSelect.appendChild(custom);
+    }
+
+    modelSelect.value = "";
+    modelSelect.disabled = false;
+    modelCustom.value = "";
+    state.model = "";
+    state.modelCustom = "";
+    state.modelIsCustom = false;
+    if (state.brand === "etc") {
+      modelSelect.parentNode.classList.add("is-hidden");
+      modelCustom.classList.remove("is-hidden");
+      modelCustom.placeholder = "차종을 직접 입력해 주세요 (예: 티구안)";
+    } else {
+      modelSelect.parentNode.classList.remove("is-hidden");
+      modelCustom.classList.add("is-hidden");
+    }
+  }
+
+  function selectBrand(key, opts) {
+    opts = opts || {};
+    state.brand = key;
+    state.brandCustom = "";
+
+    brandChips.forEach(function (c) {
+      c.setAttribute("aria-pressed", c.getAttribute("data-brand") === key ? "true" : "false");
+    });
+
+    if (key === "etc") {
+      brandCustom.classList.remove("is-hidden");
+      brandCustom.value = "";
+    } else {
+      brandCustom.classList.add("is-hidden");
+      brandCustom.value = "";
+    }
+
+    clearError("brand");
+    resetModel();
+    clearError("model");
+
+    /* 차종/배기량 초기화 */
+    state.cc = null;
+    state.ccAuto = false;
+    renderCc();
+    show(ccNote, false);
+    ccHint.textContent = "차종 선택 시 자동 선택";
+    ccHint.classList.remove("is-auto");
+    clearError("cc");
+
+    if (opts.scroll) {
+      var target = $("consult");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (opts.focus) {
+      if (key === "etc") { brandCustom.focus({ preventScroll: true }); }
+      else { modelSelect.focus({ preventScroll: true }); }
+    }
+  }
+
+  brandChips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      selectBrand(chip.getAttribute("data-brand"));
+    });
+  });
+
+  brandCustom.addEventListener("input", function () {
+    state.brandCustom = brandCustom.value.trim();
+    if (state.brandCustom) clearError("brand");
+  });
+
+  /* ---------------- 차종 ---------------- */
+  modelSelect.addEventListener("change", function () {
+    var v = modelSelect.value;
+    state.modelIsCustom = false;
+    state.modelCustom = "";
+
+    if (v === CUSTOM) {
+      modelCustom.classList.remove("is-hidden");
+      modelCustom.value = "";
+      modelCustom.focus({ preventScroll: true });
+      state.modelIsCustom = true;
+      state.model = "";
+      /* 직접 입력은 차종 기준 배기량을 알 수 없으므로 자동 선택을 해제 */
+      state.cc = null;
+      state.ccAuto = false;
+      renderCc();
+      show(ccNote, false);
+      ccHint.textContent = "차종을 직접 선택해 주세요";
+      ccHint.classList.remove("is-auto");
+      return;
+    }
+
+    modelCustom.classList.add("is-hidden");
+    modelCustom.value = "";
+    state.model = v;
+    if (!v) { return; }
+    clearError("model");
+
+    /* 차종 → 배기량 자동 하이라이트 */
+    var brand = BRANDS[state.brand];
+    var ccKey = null;
+    if (brand && brand.models) {
+      for (var i = 0; i < brand.models.length; i++) {
+        if (brand.models[i][0] === v) { ccKey = brand.models[i][1]; break; }
+      }
+    }
+    if (ccKey) {
+      state.cc = ccKey;
+      state.ccAuto = true;
+      renderCc();
+      ccHint.textContent = "차종 기준 자동 선택";
+      ccHint.classList.add("is-auto");
+      ccNoteText.textContent = "‘" + v + "’ 기준으로 " + CC[ccKey].label + "(" + CC[ccKey].detail + ")을 선택했어요. 이 급의 배차 예시는 " + CC[ccKey].peer + "입니다. 실제 배기량이 다르면 직접 바꾸실 수 있습니다.";
+      show(ccNote, true);
+      clearError("cc");
+    }
+  });
+
+  modelCustom.addEventListener("input", function () {
+    state.modelCustom = modelCustom.value.trim();
+    if (state.modelCustom) clearError("model");
+  });
+
+  /* ---------------- 배기량 ---------------- */
+  function renderCc() {
+    ccChips.forEach(function (chip) {
+      chip.setAttribute("aria-pressed", chip.getAttribute("data-cc") === state.cc ? "true" : "false");
+    });
+  }
+
+  ccChips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      var key = chip.getAttribute("data-cc");
+      if (state.cc === key) return;
+      state.cc = key;
+      state.ccAuto = false;
+      renderCc();
+      clearError("cc");
+      ccHint.textContent = "직접 선택";
+      ccHint.classList.remove("is-auto");
+      ccNoteText.textContent = "선택한 배기량(" + CC[key].label + ") 기준으로 상담을 진행합니다. 이 급의 배차 예시는 " + CC[key].peer + "입니다.";
+      show(ccNote, true);
+    });
+  });
+
+  /* ---------------- 과실 ---------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="fault"]'), function (radio) {
+    radio.addEventListener("change", function () {
+      state.fault = radio.value;
+      clearError("fault");
+    });
+  });
+
+  /* ---------------- 전화번호 ---------------- */
+  function formatPhone(raw) {
+    var d = String(raw || "").replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 3) return d;
+    if (d.length <= 6) return d.slice(0, 3) + "-" + d.slice(3);
+    if (d.length <= 10) return d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6);
+    return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7);
+  }
+  function isValidPhone(v) {
+    var d = String(v || "").replace(/\D/g, "");
+    return /^01[016789]\d{7,8}$/.test(d);
+  }
+
+  phoneInput.addEventListener("input", function () {
+    var pos = phoneInput.selectionStart;
+    var before = phoneInput.value.length;
+    phoneInput.value = formatPhone(phoneInput.value);
+    if (before !== phoneInput.value.length && pos !== null) {
+      try { phoneInput.setSelectionRange(phoneInput.value.length, phoneInput.value.length); } catch (e) {}
+    }
+    phoneInput.classList.remove("error");
+    if (isValidPhone(phoneInput.value)) clearError("phone");
+  });
+  phoneInput.addEventListener("blur", function () {
+    if (phoneInput.value && !isValidPhone(phoneInput.value)) {
+      showError("phone", "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)");
+      phoneInput.classList.add("error");
+    }
+  });
+
+  /* ---------------- 에러 처리 ---------------- */
+  function showError(key, msg) {
+    var el = ERRORS[key];
+    if (!el) return;
+    if (msg) {
+      var last = el.lastChild;
+      if (last && last.nodeType === 3) last.textContent = " " + msg;
+      else el.appendChild(document.createTextNode(" " + msg));
+    }
+    el.classList.remove("is-hidden");
+    FIELDS[key].classList.add("has-error");
+  }
+  function clearError(key) {
+    var el = ERRORS[key];
+    if (!el) return;
+    el.classList.add("is-hidden");
+    FIELDS[key].classList.remove("has-error");
+    if (key === "phone") phoneInput.classList.remove("error");
+  }
+  function clearAllErrors() {
+    Object.keys(ERRORS).forEach(clearError);
+  }
+
+  /* ---------------- 요약 ---------------- */
+  function brandText() {
+    if (!state.brand) return "";
+    if (state.brand === "etc") return state.brandCustom || "기타";
+    return BRANDS[state.brand].name;
+  }
+  function modelText() {
+    if (!state.brand) return "";
+    if (state.brand === "etc") return state.modelCustom;
+    if (state.modelIsCustom) return state.modelCustom;
+    return state.model;
+  }
+  function ccText() {
+    if (!state.cc) return "";
+    return CC[state.cc].label + " (" + CC[state.cc].detail + ")";
+  }
+  function faultText() {
+    if (!state.fault) return "";
+    return FAULT[state.fault].main + " (" + FAULT[state.fault].sub + ")";
+  }
+  function summaryText() {
+    return [
+      "[하하렌트 사고대차 상담 신청]",
+      "",
+      "· 브랜드 : " + brandText(),
+      "· 차종 : " + modelText(),
+      "· 배기량 : " + ccText(),
+      "· 사고 과실 : " + faultText(),
+      "· 연락처 : " + phoneInput.value,
+      "",
+      "위 내용으로 대차 상담 신청합니다."
+    ].join("\n");
+  }
+
+  function renderSummary() {
+    var rows = [
+      ["브랜드", brandText()],
+      ["차종", modelText()],
+      ["배기량", ccText()],
+      ["사고 과실", faultText()],
+      ["연락처", phoneInput.value]
+    ];
+    summaryList.innerHTML = "";
+    rows.forEach(function (r) {
+      var row = document.createElement("div");
+      row.className = "summary-row";
+      var dt = document.createElement("dt");
+      dt.textContent = r[0];
+      var dd = document.createElement("dd");
+      dd.textContent = r[1];
+      row.appendChild(dt);
+      row.appendChild(dd);
+      summaryList.appendChild(row);
+    });
+  }
+
+  /* ---------------- 검증 & 제출 ---------------- */
+  var submitBtn = $("submitBtn");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearAllErrors();
+
+    var firstBad = null;
+
+    if (!state.brand || (state.brand === "etc" && !state.brandCustom)) {
+      showError("brand", state.brand === "etc" ? "브랜드를 직접 입력해 주세요." : null);
+      firstBad = firstBad || FIELDS.brand;
+    }
+    var modelVal = state.brand === "etc" ? state.modelCustom : (state.modelIsCustom ? state.modelCustom : state.model);
+    if (!modelVal) {
+      showError("model", state.brand === "etc" ? "차종을 직접 입력해 주세요." : null);
+      firstBad = firstBad || FIELDS.model;
+    }
+    if (!state.cc) {
+      showError("cc", null);
+      firstBad = firstBad || FIELDS.cc;
+    }
+    if (!state.fault) {
+      showError("fault", null);
+      firstBad = firstBad || FIELDS.fault;
+    }
+    if (!isValidPhone(phoneInput.value)) {
+      showError("phone", "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)");
+      phoneInput.classList.add("error");
+      firstBad = firstBad || FIELDS.phone;
+    }
+
+    if (firstBad) {
+      firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+      var focusable = firstBad.querySelector("input:not([type=radio]):not(.is-hidden), select:not(.is-hidden), button");
+      if (focusable) { try { focusable.focus({ preventScroll: true }); } catch (err) {} }
+      return;
+    }
+
+    renderSummary();
+    /* 문자(SMS)로도 같은 내용을 바로 보낼 수 있도록 본문을 채워 둡니다. */
+    var smsBtn = $("smsBtn");
+    if (smsBtn) { smsBtn.href = smsHref(summaryText()); }
+    copyState.classList.remove("is-on");
+    copyBtnLabel.textContent = "신청 내용 복사";
+    openModal();
+  });
+
+  function smsHref(text) {
+    var body = text ? "?body=" + encodeURIComponent(text) : "";
+    return "sms:01020040790" + body;
+  }
+
+  /* ---------------- 모달 ---------------- */
+  function lockScroll(on) { document.body.classList.toggle("no-scroll", on); }
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    summaryModal.classList.add("is-open");
+    summaryModal.setAttribute("aria-hidden", "false");
+    modalOverlay.hidden = false;
+    /* force reflow so the transition runs */
+    void modalOverlay.offsetWidth;
+    modalOverlay.classList.add("is-open");
+    lockScroll(true);
+    setTimeout(function () {
+      var b = $("copyBtn");
+      if (b) b.focus({ preventScroll: true });
+    }, 120);
+  }
+  function closeModal() {
+    summaryModal.classList.remove("is-open");
+    summaryModal.setAttribute("aria-hidden", "true");
+    modalOverlay.classList.remove("is-open");
+    setTimeout(function () { if (!summaryModal.classList.contains("is-open")) modalOverlay.hidden = true; }, 240);
+    lockScroll(false);
+    if (lastFocused && lastFocused.focus) { try { lastFocused.focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-close-modal]"), function (el) {
+    el.addEventListener("click", closeModal);
+  });
+  modalOverlay.addEventListener("click", closeModal);
+
+  /* ---------------- 채널톡 ---------------- */
+  var ctState = $("ctState");
+  var ctDesc = $("ctDesc");
+
+  function openChannelSheet() {
+    var live = !!window.HAHA_RENT.channelPluginKey;
+    if (live && typeof window.ChannelIO === "function") {
+      try { window.ChannelIO("showMessenger"); return; } catch (e) {}
+    }
+    ctState.textContent = live ? "연결 대기" : "시안 · 연동 전";
+    ctState.classList.toggle("is-live", live);
+    ctDesc.textContent = live
+      ? "채널톡을 불러오는 중입니다. 창이 열리지 않으면 아래 전화 또는 상담 신청서를 이용해 주세요."
+      : "채널톡 상담창이 연결되면 이 버튼으로 바로 대화를 시작할 수 있습니다. 지금은 전화 또는 상담 신청서로 문의해 주세요. 담당자가 확인 후 연락드립니다.";
+    lastFocused = document.activeElement;
+    channelSheet.classList.add("is-open");
+    channelSheet.setAttribute("aria-hidden", "false");
+    modalOverlay.hidden = false;
+    void modalOverlay.offsetWidth;
+    modalOverlay.classList.add("is-open");
+    lockScroll(true);
+  }
+  function closeChannelSheet() {
+    channelSheet.classList.remove("is-open");
+    channelSheet.setAttribute("aria-hidden", "true");
+    modalOverlay.classList.remove("is-open");
+    setTimeout(function () { if (!channelSheet.classList.contains("is-open")) modalOverlay.hidden = true; }, 240);
+    lockScroll(false);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-open-channel]"), function (el) {
+    el.addEventListener("click", openChannelSheet);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-close-sheet]"), function (el) {
+    el.addEventListener("click", closeChannelSheet);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-goto-form]"), function (el) {
+    el.addEventListener("click", function () {
+      closeChannelSheet();
+      setTimeout(function () {
+        var t = $("consult");
+        if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    });
+  });
+
+  var modalChannelBtn = $("modalChannelBtn");
+  if (modalChannelBtn) {
+    modalChannelBtn.addEventListener("click", function () {
+      closeModal();
+      setTimeout(openChannelSheet, 220);
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (summaryModal.classList.contains("is-open")) closeModal();
+    else if (channelSheet.classList.contains("is-open")) closeChannelSheet();
+  });
+
+  /* ---------------- 복사 ---------------- */
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  copyBtn.addEventListener("click", function () {
+    var text = summaryText();
+    function done() {
+      copyState.classList.add("is-on");
+      copyBtnLabel.textContent = "복사 완료";
+      showToast("신청 내용을 복사했어요. 채널톡에 붙여넣기 해주세요.");
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () {
+        if (fallbackCopy(text)) done();
+        else showToast("복사가 차단되었어요. 내용을 길게 눌러 직접 복사해 주세요.");
+      });
+    } else {
+      if (fallbackCopy(text)) done();
+      else showToast("복사가 차단되었어요. 내용을 길게 눌러 직접 복사해 주세요.");
+    }
+  });
+
+  /* ---------------- 토스트 ---------------- */
+  var toastTimer = null;
+  function showToast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add("is-on");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("is-on"); }, 2600);
+  }
+
+  /* ---------------- 헤더 / 메뉴 ---------------- */
+  var header = $("siteHeader");
+  function onScroll() {
+    header.classList.toggle("is-stuck", window.scrollY > 8);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var menuBtn = $("menuBtn");
+  var mobileNav = $("mobileNav");
+  function closeMenu() {
+    mobileNav.classList.remove("is-open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+  menuBtn.addEventListener("click", function () {
+    var open = mobileNav.classList.toggle("is-open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    menuBtn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+  });
+  Array.prototype.forEach.call(mobileNav.querySelectorAll("a"), function (a) {
+    a.addEventListener("click", closeMenu);
+  });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 900) closeMenu();
+  });
+
+  /* ---------------- 차량 라인업 → 폼 프리셋 ---------------- */
+  Array.prototype.forEach.call(document.querySelectorAll("#fleetGrid .fleet-card"), function (card) {
+    card.addEventListener("click", function () {
+      var key = card.getAttribute("data-brand");
+      selectBrand(key, { scroll: true });
+      if (key === "etc") {
+        setTimeout(function () { brandCustom.focus({ preventScroll: true }); }, 420);
+      }
+    });
+  });
+
+  /* ---------------- 초기화 ---------------- */
+  renderCc();
+  renderModelPlaceholder();
+  function renderModelPlaceholder() {
+    modelSelect.innerHTML = "";
+    var ph = document.createElement("option");
+    ph.value = "";
+    ph.textContent = "브랜드를 먼저 선택해 주세요";
+    modelSelect.appendChild(ph);
+  }
+
+  /* 시안 검증용 노출 (제작/테스트 목적) */
+  window.__HAHA = {
+    getState: function () { return JSON.parse(JSON.stringify(state)); },
+    summaryText: summaryText,
+    selectBrand: selectBrand,
+    isValidPhone: isValidPhone
+  };
+})();
+</script>
+</body>
+</html>

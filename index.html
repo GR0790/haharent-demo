@@ -789,6 +789,24 @@
     clip:rect(0,0,0,0);white-space:nowrap;border:0;
   }
 </style>
+<!-- Google Ads gtag (하하렌트) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-WKH4DJZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18585737179');
+  /* 전환 액션 라벨: 신청서/전화/문자/채널톡 */
+  window.HAHA_ADS = {
+    conversionId: 'AW-18585737179',
+    labels: {
+      form: 'sZR7CIa_8bsdENuvr55F',
+      phone: '-tP1CIm_8bsdENuvr55F',
+      sms: 'BbgWCIy_8bsdENuvr55F',
+      channel: 'oKPxCI-_8bsdENuvr55F'
+    }
+  };
+</script>
 </head>
 <body>
 
@@ -2069,6 +2087,8 @@
     copyBtnLabel.textContent = "신청 내용 복사";
     /* 채널톡 고객 정보(프로필)·이벤트에 신청 내용을 남깁니다. (부트 전이면 부트 후 재시도) */
     syncChannelApplication();
+    /* Google Ads: 상담신청_완료 전환 (검증 통과 후 1회) */
+    adsConversion("form", { value: 0, currency: "KRW", transaction_id: "HR-" + Date.now() });
     openModal();
   });
 
@@ -2124,6 +2144,26 @@
     var body = text ? "?body=" + encodeURIComponent(text) : "";
     return "sms:01020040790" + body;
   }
+
+  /* ---------------- Google Ads 전환 ---------------- */
+  function adsConversion(kind, params) {
+    var ads = window.HAHA_ADS;
+    if (!ads || typeof window.gtag !== "function") return;
+    var label = ads.labels && ads.labels[kind];
+    if (!label) return;
+    var payload = { send_to: ads.conversionId + "/" + label };
+    if (params) { for (var k in params) { if (Object.prototype.hasOwnProperty.call(params, k)) payload[k] = params[k]; } }
+    try { window.gtag("event", "conversion", payload); } catch (e) {}
+  }
+  /* QA/점검용: HAHA_ADS.fire('form' | 'phone' | 'sms' | 'channel') */
+  if (window.HAHA_ADS) window.HAHA_ADS.fire = adsConversion;
+  /* 전화·문자 링크 클릭은 문서 단위로 한 번만 잡습니다. */
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (t.closest('a[href^="tel:"]')) { adsConversion("phone"); return; }
+    if (t.closest('a[href^="sms:"]')) { adsConversion("sms"); }
+  }, true);
 
   /* ---------------- 모달 ---------------- */
   function lockScroll(on) { document.body.classList.toggle("no-scroll", on); }
@@ -2314,7 +2354,7 @@
   /* 채널톡 대화창 열림/닫힘에 맞춰 우리 플로팅 버튼 표시를 맞춥니다. */
   if (typeof window.ChannelIO === "function") {
     try {
-      window.ChannelIO("onShowMessenger", function () { messengerOpen = true; updateFab(); });
+      window.ChannelIO("onShowMessenger", function () { messengerOpen = true; updateFab(); adsConversion("channel"); });
       window.ChannelIO("onHideMessenger", function () { messengerOpen = false; updateFab(); });
     } catch (e) {}
   }

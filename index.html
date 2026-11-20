@@ -826,7 +826,10 @@
     if (typeof window.ChannelIO === "function") {
       window.ChannelIO("boot", { pluginKey: key, hideChannelButtonOnBoot: true }, function (error) {
         window.HAHA_RENT.channelStatus = error ? "fail" : "ok";
-        if (error) window.console.warn("[ChannelIO] boot error", error);
+        if (error) { window.console.warn("[ChannelIO] boot error", error); return; }
+        if (typeof window.HAHA_RENT.onChannelReady === "function") {
+          try { window.HAHA_RENT.onChannelReady(); } catch (e) {}
+        }
       });
     }
   })();
@@ -2093,8 +2096,58 @@
     if (smsBtn) { smsBtn.href = smsHref(summaryText()); }
     copyState.classList.remove("is-on");
     copyBtnLabel.textContent = "신청 내용 복사";
+    /* 채널톡 고객 정보(프로필)·이벤트에 신청 내용을 남깁니다. (부트 전이면 부트 후 재시도) */
+    syncChannelApplication();
     openModal();
   });
+
+  /* ---------------- 채널톡 고객정보·이벤트 동기화 ---------------- */
+  function phoneE164() {
+    var digits = String(phoneInput.value || "").replace(/[^0-9]/g, "");
+    if (!digits) return "";
+    if (digits.indexOf("0") === 0) return "+82" + digits.slice(1);
+    return "+" + digits;
+  }
+  function channelProfile() {
+    return {
+      mobileNumber: phoneE164(),
+      "브랜드": brandText(),
+      "차종": modelText(),
+      "배기량": ccText(),
+      "지역": regionText(),
+      "과실비율": faultText()
+    };
+  }
+  function channelEventProps() {
+    return {
+      "브랜드": brandText(),
+      "차종": modelText(),
+      "배기량": ccText(),
+      "지역": regionText(),
+      "과실비율": faultText(),
+      "연락처": phoneInput.value
+    };
+  }
+  function syncChannelApplication() {
+    var api = window.ChannelIO;
+    if (typeof api !== "function" || window.HAHA_RENT.channelStatus !== "ok") {
+      window.HAHA_RENT.pendingSync = true;
+      return false;
+    }
+    try {
+      api("updateUser", { profile: channelProfile() });
+      api("track", "사고대차_상담신청", channelEventProps());
+      window.HAHA_RENT.pendingSync = false;
+      return true;
+    } catch (e) {
+      window.HAHA_RENT.pendingSync = true;
+      return false;
+    }
+  }
+  /* 부트가 늦게 끝난 경우 제출 내용을 한 번 더 반영합니다. */
+  window.HAHA_RENT.onChannelReady = function () {
+    if (window.HAHA_RENT.pendingSync) syncChannelApplication();
+  };
 
   function smsHref(text) {
     var body = text ? "?body=" + encodeURIComponent(text) : "";

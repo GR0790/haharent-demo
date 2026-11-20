@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#08182E">
 <title>일반렌트 | 일·단기·월·장기렌트·법인·기업렌트·인천공항·외국인 렌트 | 하하렌트</title>
 <meta name="description" content="하하렌트 일반렌트. 일·단기렌트부터 월렌트·장기·법인·기업렌트, 인천공항 딜리버리·외국인 렌트까지. 벤츠·포르쉐·테슬라 8종의 일렌트(24시간) 1일 요금 게시, 월렌트·장기·법인은 맞춤 견적 상담. 대여 자격·보험 기준 안내.">
@@ -341,15 +342,13 @@
   .more-car p{margin-top:6px;font-size:13.6px;line-height:1.72;color:#3E4F66}
   .more-car .btn{margin-top:12px;--btn-h:42px;font-size:13.5px;padding:0 18px}
   .chan{white-space:nowrap}
-  .tbl.tbl-price table{min-width:0}
-  .tbl.tbl-price th,.tbl.tbl-price td{padding:11px 12px}
-  .tbl.tbl-price td:first-child{white-space:normal}
-  .tbl.tbl-price td:last-child,.tbl.tbl-price th:last-child{text-align:right;white-space:nowrap}
-  @media (max-width:479px){ .tbl.tbl-price th,.tbl.tbl-price td{padding:10px 11px} }
   .footer-info strong{margin-inline-end:6px}
   @media (max-width:479px){ .fleet{grid-template-columns:1fr} .fleet-card .fn{font-size:16px} }
 
   /* ---------- 일반렌트 간편 견적 상담 (qc- 접두사: 공통 .chip·.chips 는 다크 히어로용) ---------- */
+  html{color-scheme:light only}
+  section#quote{scroll-margin-top:calc(var(--header-h) + 14px)}
+  .quote-lead{margin:0 0 2px;font-size:13.2px;line-height:1.6;color:var(--muted)}
   .is-hidden{display:none !important}
   .qc{margin-top:16px;background:#fff;border:1px solid #DCE6F4;border-radius:var(--r-lg);padding:20px 17px 18px;box-shadow:0 20px 50px -38px rgba(9,30,60,.55)}
   @media (min-width:760px){ .qc{padding:24px 24px 22px;border-radius:var(--r-xl)} }
@@ -362,7 +361,6 @@
   .qc-field.is-bad .qc-label{color:var(--err)}
   .qc-label{display:block;margin-bottom:9px;font-size:13px;font-weight:800;color:var(--navy-800);letter-spacing:-0.01em}
   .qc-req{color:var(--blue-600)}
-  .qc-opt{margin-left:4px;font-size:10.5px;font-weight:800;color:var(--muted);background:#F1F5FB;border-radius:6px;padding:2px 6px;vertical-align:2px}
   .qc-chips{display:flex;flex-wrap:wrap;gap:7px}
   .qc-chip{display:inline-flex;align-items:center;gap:5px;padding:9px 13px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-family:inherit;font-size:13.4px;font-weight:600;color:#3E5271;cursor:pointer;line-height:1.2;transition:background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
   .qc-chip small{font-size:11px;font-weight:600;color:#9BACBF}
@@ -370,13 +368,10 @@
   .qc-chip[aria-pressed="true"]{border-color:var(--blue-600);background:var(--blue-50);color:var(--blue-700);font-weight:800;box-shadow:0 0 0 3px rgba(44,116,245,.1)}
   .qc-chip[aria-pressed="true"] small{color:#6C93D6}
   .qc-chip[aria-pressed="true"]::before{content:"";width:13px;height:13px;flex:none;border-radius:50%;background:var(--blue-600) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/9px 9px no-repeat}
-  #qcCarChips .qc-chip{font-size:12.8px;padding:8px 11px}
   .qc-input{width:100%;height:50px;padding:0 15px;border-radius:12px;border:1px solid var(--line-strong);background:#fff;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);transition:border-color .16s ease,box-shadow .16s ease}
   .qc-input::placeholder{font-weight:500;color:#A3B2C6}
   .qc-input:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 4px rgba(44,116,245,.12)}
   .qc-input.is-bad{border-color:#E4797A;box-shadow:0 0 0 3px rgba(217,58,58,.1)}
-  .qc-etc{margin-top:9px}
-  .qc-hint{margin-top:8px;font-size:11.8px;line-height:1.55;color:var(--muted)}
   .qc-err{margin-top:8px;font-size:12px;font-weight:700;color:var(--err)}
   .qc-submit{margin-top:18px;height:54px;font-size:15.5px}
   .qc-submit svg{width:18px;height:18px}
@@ -486,7 +481,7 @@
     <a href="#types">이용 유형</a>
     <a href="#fleet">주요 인기차종</a>
     <a href="#corporate">법인·기업</a>
-    <a href="#quote">렌트 견적 안내</a>
+    <a href="#quote">렌트 견적 상담</a>
     <a href="#faq">자주 묻는 질문</a>
     <a href="tel:01020040790">전화 상담 010-2004-0790</a>
     <a class="btn btn-primary btn-block" href="#quote">차종·견적 상담</a>
@@ -694,31 +689,14 @@
         </div>
         <div class="note"><strong>공항 인수 비용</strong>공항 인수와 딜리버리 가능 시간은 일정과 차량에 따라 달라집니다. 비용과 가능 여부는 상담에서 안내드립니다.</div>
 
-        <h2 id="quote">요금·견적 안내</h2>
-        <p>일렌트는 차종별 1일(24시간) 요금을 그대로 게시합니다. 아래 표가 전 차종의 하루 요금입니다. 월렌트·장기·법인은 기간과 조건에 맞춘 <strong>맞춤 견적(상담 문의)</strong>으로 안내드립니다.</p>
-        <div class="tbl tbl-price">
-          <table>
-            <caption>보유 차종 일렌트 1일(24시간) 요금</caption>
-            <thead><tr><th scope="col">차종</th><th scope="col">1일 요금(24시간)</th></tr></thead>
-            <tbody>
-              <tr><td>테슬라 모델 Y</td><td class="cc">160,000원</td></tr>
-              <tr><td>벤츠 E200 아방가르드</td><td class="cc">240,000원</td></tr>
-              <tr><td>벤츠 CLE200 카브리올레</td><td class="cc">250,000원</td></tr>
-              <tr><td>벤츠 GLC300 4MATIC 쿠페</td><td class="cc">260,000원</td></tr>
-              <tr><td>벤츠 S350d</td><td class="cc">350,000원</td></tr>
-              <tr><td>벤츠 GLE450 4MATIC</td><td class="cc">370,000원</td></tr>
-              <tr><td>포르쉐 카이엔 쿠페</td><td class="cc">400,000원</td></tr>
-              <tr><td>벤츠 S450</td><td class="cc">460,000원</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="note"><strong>월렌트·장기·법인 맞춤 견적(상담 문의)</strong>1개월 이상 월렌트와 장기렌트, 법인·기업렌트는 기간·약정 주행거리·보험 조건에 따라 금액이 달라져 페이지에 금액을 게시하지 않습니다. 3일 이상·장기 이용 시 별도 할인 상담을 해 드립니다.</div>
+        <section class="quote-sec" id="quote" aria-labelledby="qcTitle">
+          <p class="quote-lead">3일 이상·월렌트·장기는 조건에 맞춰 별도 견적을 안내해 드립니다.</p>
 
         <form class="qc" id="quoteForm" novalidate autocomplete="on" aria-labelledby="qcTitle">
           <div class="qc-head">
             <span class="qc-badge">간편 견적 상담</span>
-            <h3 id="qcTitle">이용 구분과 기간, 차종만 고르면 바로 연결됩니다</h3>
-            <p>세 가지만 고르고 연락처를 남겨 주세요. 상담 창에서 <strong>전화·문자·채널톡</strong> 중 편한 방법으로 바로 이어드립니다.</p>
+            <h3 id="qcTitle">이용 구분과 기간만 고르면 바로 연결됩니다</h3>
+            <p>두 가지만 고르고 연락처를 남겨 주세요. 상담 창에서 <strong>전화·문자·채널톡</strong> 중 편한 방법으로 바로 이어드립니다.</p>
           </div>
 
           <div class="qc-field" id="qcFieldWho">
@@ -741,23 +719,6 @@
             <p class="qc-err is-hidden" id="qcErrTerm" role="alert">이용 기간을 선택해 주세요.</p>
           </div>
 
-          <div class="qc-field" id="qcFieldCar">
-            <span class="qc-label" id="qcCarLabel">희망 차종 <span class="qc-opt">선택</span></span>
-            <div class="qc-chips" id="qcCarChips" role="group" aria-labelledby="qcCarLabel">
-              <button class="qc-chip" type="button" data-car="벤츠 S450" aria-pressed="false">S450</button>
-              <button class="qc-chip" type="button" data-car="벤츠 S350d" aria-pressed="false">S350d</button>
-              <button class="qc-chip" type="button" data-car="벤츠 GLE450" aria-pressed="false">GLE450</button>
-              <button class="qc-chip" type="button" data-car="벤츠 GLC300 쿠페" aria-pressed="false">GLC300 쿠페</button>
-              <button class="qc-chip" type="button" data-car="벤츠 CLE200 카브리올레" aria-pressed="false">CLE200 카브</button>
-              <button class="qc-chip" type="button" data-car="벤츠 E200 아방가르드" aria-pressed="false">E200</button>
-              <button class="qc-chip" type="button" data-car="테슬라 Model Y" aria-pressed="false">Model Y</button>
-              <button class="qc-chip" type="button" data-car="포르쉐 카이엔 쿠페" aria-pressed="false">카이엔 쿠페</button>
-              <button class="qc-chip" type="button" data-car="기타" aria-pressed="false">기타 차종</button>
-            </div>
-            <input class="qc-input qc-etc is-hidden" id="qcCarEtc" type="text" placeholder="원하시는 차종을 입력해 주세요 (예: BMW 5시리즈)" autocomplete="off">
-            <p class="qc-hint">리스트에 없는 차종도 제휴 배차로 안내해 드립니다. 모르시면 비워 두셔도 됩니다.</p>
-          </div>
-
           <div class="qc-field" id="qcFieldTel">
             <label class="qc-label" for="qcPhone">연락처 <span class="qc-req">*</span></label>
             <input class="qc-input" id="qcPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" aria-describedby="qcErrTel">
@@ -770,6 +731,7 @@
           </button>
           <p class="qc-note">입력하신 연락처는 견적 상담 목적으로만 사용합니다. 급하시면 <a href="tel:01020040790" id="qcQuickCall">010-2004-0790</a>로 바로 전화 주셔도 됩니다.</p>
         </form>
+        </section>
 
         <p>월렌트·장기·법인 견적이나 추가 조건 상담은 아래 내용만 알려주시면 바로 정리해 드립니다.</p>
         <ul>
@@ -850,7 +812,7 @@
           <li><a href="#process">대여 절차</a></li>
           <li><a href="#corporate">법인·기업렌트</a></li>
           <li><a href="#airport">인천공항·외국인 렌트</a></li>
-          <li><a href="#quote">요금·견적 안내</a></li>
+          <li><a href="#quote">간편 견적 상담</a></li>
           <li><a href="#faq">자주 묻는 질문</a></li>
         </ol>
         <a class="toc-cta" href="#quote">렌트 견적 상담</a>
@@ -1020,8 +982,8 @@
   var PHONE_DISPLAY = "010-2004-0790";
   function $(id) { return document.getElementById(id); }
 
-  var whoChips = $("qcWhoChips"), termChips = $("qcTermChips"), carChips = $("qcCarChips");
-  var carEtc = $("qcCarEtc"), phoneInput = $("qcPhone");
+  var whoChips = $("qcWhoChips"), termChips = $("qcTermChips");
+  var phoneInput = $("qcPhone");
   var fieldWho = $("qcFieldWho"), fieldTerm = $("qcFieldTerm");
   var errWho = $("qcErrWho"), errTerm = $("qcErrTerm"), errTel = $("qcErrTel");
   var modal = $("qcModal"), overlay = $("qcOverlay"), summaryList = $("qcSummary");
@@ -1034,17 +996,6 @@
   function picked(group) { return group ? group.querySelector('[aria-pressed="true"]') : null; }
   function whoText() { var b = picked(whoChips); return b ? (b.getAttribute("data-who") || "") : ""; }
   function termText() { var b = picked(termChips); return b ? (b.getAttribute("data-term") || "") : ""; }
-  function carText() {
-    var b = picked(carChips);
-    if (!b) return "";
-    if (b.getAttribute("data-car") === "기타") {
-      var t = (carEtc && carEtc.value ? carEtc.value : "").replace(/\s+/g, " ").trim();
-      return t || "기타(상담으로 결정)";
-    }
-    return b.getAttribute("data-car") || "";
-  }
-  function carMissing() { return !picked(carChips); }
-
   function bindChips(group, onPick) {
     if (!group) return;
     Array.prototype.forEach.call(group.querySelectorAll(".qc-chip"), function (btn) {
@@ -1066,24 +1017,6 @@
   bindChips(termChips, function () {
     fieldTerm.classList.remove("is-bad");
     errTerm.classList.add("is-hidden");
-  });
-  bindChips(carChips, function (btn, on) {
-    var isEtc = btn.getAttribute("data-car") === "기타";
-    if (carEtc) {
-      if (isEtc && on) {
-        carEtc.classList.remove("is-hidden");
-        /* 기타 선택 직후 입력란으로 유도하되, 그 사이 사용자가 다른 칸을 누르면 포커스를 뺏지 않습니다. */
-        setTimeout(function () {
-          var ae = document.activeElement;
-          if (ae === btn || ae === document.body || ae === null) {
-            try { carEtc.focus({ preventScroll: true }); } catch (e) {}
-          }
-        }, 40);
-      } else {
-        carEtc.classList.add("is-hidden");
-        carEtc.value = "";
-      }
-    }
   });
 
   /* ---------------- 연락처 ---------------- */
@@ -1134,7 +1067,6 @@
     return [
       ["이용 구분", whoText()],
       ["이용 기간", termText()],
-      ["희망 차종", carText() || "상담으로 결정"],
       ["연락처", phoneInput.value]
     ];
   }
@@ -1170,15 +1102,13 @@
     return {
       mobileNumber: phoneE164(),
       "이용구분": whoText(),
-      "이용기간": termText(),
-      "희망차종": carText() || "상담으로 결정"
+      "이용기간": termText()
     };
   }
   function quoteProps() {
     return {
       "이용구분": whoText(),
       "이용기간": termText(),
-      "희망차종": carText() || "상담으로 결정",
       "연락처": phoneInput.value
     };
   }

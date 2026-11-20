@@ -2313,8 +2313,14 @@
   /* ---------------- 헤더 / 메뉴 ---------------- */
   var header = $("siteHeader");
   var fabChannel = $("fabChannel");
+  var messengerOpen = false;
   function updateFab() {
     if (!fabChannel) return;
+    /* 채널톡 대화창이 열려 있으면 우리 플로팅 버튼은 숨깁니다. */
+    if (messengerOpen) {
+      fabChannel.classList.add("is-away");
+      return;
+    }
     if (window.innerWidth >= 900) {
       fabChannel.classList.remove("is-away");
       return;
@@ -2333,6 +2339,14 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", updateFab);
   onScroll();
+
+  /* 채널톡 대화창 열림/닫힘에 맞춰 우리 플로팅 버튼 표시를 맞춥니다. */
+  if (typeof window.ChannelIO === "function") {
+    try {
+      window.ChannelIO("onShowMessenger", function () { messengerOpen = true; updateFab(); });
+      window.ChannelIO("onHideMessenger", function () { messengerOpen = false; updateFab(); });
+    } catch (e) {}
+  }
 
   var menuBtn = $("menuBtn");
   var mobileNav = $("mobileNav");

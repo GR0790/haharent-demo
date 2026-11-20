@@ -322,11 +322,9 @@
   .fleet-card .fb{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--muted)}
   .fleet-card .fn{display:block;margin-top:5px;font-size:15.5px;font-weight:800;color:var(--navy-900);letter-spacing:-0.03em;line-height:1.3}
   .fleet-card .fs{display:block;margin-top:5px;font-size:12.5px;color:var(--body);line-height:1.5}
-  .fleet-card .fu{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:800;color:var(--blue-700);background:var(--blue-50);border:1px solid var(--blue-100);border-radius:999px;padding:3px 9px}
   .fleet-card .fp{display:flex;align-items:baseline;gap:1px;margin-top:10px;padding-top:9px;border-top:1px dashed #E1E9F4}
   .fleet-card .fp b{font-size:19px;font-weight:800;color:var(--navy-900);letter-spacing:-0.035em;line-height:1.1}
   .fleet-card .fp i{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted);white-space:nowrap}
-  .fleet-card .fu{margin-top:8px}
   .prose ul.mini-list{gap:10px}
   .prose ul.mini-list li{padding:13px 15px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);font-size:14.2px;line-height:1.7;color:var(--body)}
   .prose ul.mini-list li::before{display:none}
@@ -350,6 +348,86 @@
   @media (max-width:479px){ .tbl.tbl-price th,.tbl.tbl-price td{padding:10px 11px} }
   .footer-info strong{margin-inline-end:6px}
   @media (max-width:479px){ .fleet{grid-template-columns:1fr} .fleet-card .fn{font-size:16px} }
+
+  /* ---------- 일반렌트 간편 견적 상담 (qc- 접두사: 공통 .chip·.chips 는 다크 히어로용) ---------- */
+  .is-hidden{display:none !important}
+  .qc{margin-top:16px;background:#fff;border:1px solid #DCE6F4;border-radius:var(--r-lg);padding:20px 17px 18px;box-shadow:0 20px 50px -38px rgba(9,30,60,.55)}
+  @media (min-width:760px){ .qc{padding:24px 24px 22px;border-radius:var(--r-xl)} }
+  .qc-head{padding-bottom:15px;border-bottom:1px solid #EEF3FA}
+  .qc-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.02em;color:var(--blue-700);background:var(--blue-50);border:1px solid #D9E6FB;border-radius:999px;padding:4px 10px}
+  .qc-head h3{margin-top:9px;font-size:17.5px;font-weight:800;letter-spacing:-0.03em;color:var(--navy-900);line-height:1.35}
+  .qc-head p{margin-top:6px;font-size:13.2px;line-height:1.65;color:var(--body)}
+  .qc-head p strong{color:var(--blue-700);font-weight:800}
+  .qc-field{padding-top:16px}
+  .qc-field.is-bad .qc-label{color:var(--err)}
+  .qc-label{display:block;margin-bottom:9px;font-size:13px;font-weight:800;color:var(--navy-800);letter-spacing:-0.01em}
+  .qc-req{color:var(--blue-600)}
+  .qc-opt{margin-left:4px;font-size:10.5px;font-weight:800;color:var(--muted);background:#F1F5FB;border-radius:6px;padding:2px 6px;vertical-align:2px}
+  .qc-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .qc-chip{display:inline-flex;align-items:center;gap:5px;padding:9px 13px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-family:inherit;font-size:13.4px;font-weight:600;color:#3E5271;cursor:pointer;line-height:1.2;transition:background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
+  .qc-chip small{font-size:11px;font-weight:600;color:#9BACBF}
+  .qc-chip:hover{border-color:#A9C2E6;background:#FBFDFF}
+  .qc-chip[aria-pressed="true"]{border-color:var(--blue-600);background:var(--blue-50);color:var(--blue-700);font-weight:800;box-shadow:0 0 0 3px rgba(44,116,245,.1)}
+  .qc-chip[aria-pressed="true"] small{color:#6C93D6}
+  .qc-chip[aria-pressed="true"]::before{content:"";width:13px;height:13px;flex:none;border-radius:50%;background:var(--blue-600) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/9px 9px no-repeat}
+  #qcCarChips .qc-chip{font-size:12.8px;padding:8px 11px}
+  .qc-input{width:100%;height:50px;padding:0 15px;border-radius:12px;border:1px solid var(--line-strong);background:#fff;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink);transition:border-color .16s ease,box-shadow .16s ease}
+  .qc-input::placeholder{font-weight:500;color:#A3B2C6}
+  .qc-input:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 4px rgba(44,116,245,.12)}
+  .qc-input.is-bad{border-color:#E4797A;box-shadow:0 0 0 3px rgba(217,58,58,.1)}
+  .qc-etc{margin-top:9px}
+  .qc-hint{margin-top:8px;font-size:11.8px;line-height:1.55;color:var(--muted)}
+  .qc-err{margin-top:8px;font-size:12px;font-weight:700;color:var(--err)}
+  .qc-submit{margin-top:18px;height:54px;font-size:15.5px}
+  .qc-submit svg{width:18px;height:18px}
+  .qc-note{margin-top:10px;text-align:center;font-size:11.5px;line-height:1.6;color:var(--muted)}
+  .qc-note a{font-weight:800;color:var(--blue-700);white-space:nowrap}
+
+  /* 견적 상담 연결 모달 — 모바일: 전화·문자·채널톡 3버튼 / 데스크톱: 전화(번호 크게·복사)·채널톡 2버튼 */
+  .qc-overlay{position:fixed;inset:0;z-index:80;background:rgba(6,20,36,.52);opacity:0;transition:opacity .2s ease}
+  .qc-overlay.is-open{opacity:1}
+  .qc-modal{position:fixed;inset:0;z-index:81;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s ease}
+  .qc-modal.is-open{opacity:1;pointer-events:auto}
+  .qc-card{position:relative;width:100%;max-width:520px;max-height:94vh;overflow-y:auto;background:#fff;border-radius:22px 22px 0 0;padding:16px 17px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -24px 60px -24px rgba(9,30,60,.5);transform:translateY(18px);transition:transform .24s ease}
+  .qc-modal.is-open .qc-card{transform:translateY(0)}
+  @media (min-width:900px){ .qc-modal{align-items:center;padding:24px} .qc-card{border-radius:var(--r-xl);padding:24px 26px 22px;max-width:540px} .qc-grip{display:none} }
+  .qc-grip{width:38px;height:4px;border-radius:99px;background:#DDE5F0;margin:0 auto 14px}
+  .qc-modal-head{display:flex;align-items:flex-start;gap:11px}
+  .qc-micon{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--blue-50);border:1px solid #DCE8FA;color:var(--blue-600)}
+  .qc-micon svg{width:20px;height:20px}
+  .qc-modal-head h3{font-size:17px;font-weight:800;letter-spacing:-0.03em;color:var(--navy-900);line-height:1.35}
+  .qc-modal-head p{margin-top:4px;font-size:12.3px;line-height:1.55;color:var(--muted)}
+  .qc-close{margin-left:auto;width:32px;height:32px;flex:none;border:1px solid var(--line);background:#F5F8FD;border-radius:9px;display:grid;place-items:center;color:#6D829E;cursor:pointer}
+  .qc-close svg{width:15px;height:15px}
+  .qc-summary{margin-top:15px;border:1px solid #E4EBF6;border-radius:var(--r-md);overflow:hidden;background:#FBFDFF}
+  .qc-summary-row{display:flex;gap:10px;padding:10px 13px;border-bottom:1px solid #ECF2FA;font-size:13.3px}
+  .qc-summary-row:last-child{border-bottom:0}
+  .qc-summary-row dt{flex:none;width:62px;padding-top:1px;font-size:12.3px;font-weight:600;color:var(--muted)}
+  .qc-summary-row dd{margin:0;font-weight:700;color:var(--navy-900);letter-spacing:-0.01em}
+  .qc-actions{margin-top:15px;display:grid;gap:8px}
+  .qc-chan{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:54px;border-radius:13px;border:1px solid var(--line-strong);background:#fff;color:#26405C;font-family:inherit;font-size:14.5px;font-weight:800;cursor:pointer;text-decoration:none;transition:background .16s ease,border-color .16s ease}
+  .qc-chan svg{width:18px;height:18px;flex:none;color:var(--blue-600)}
+  .qc-chan:hover{border-color:#A9C2E6;background:#FBFDFF}
+  .qc-chan.is-primary{border-color:transparent;background:linear-gradient(180deg,#2C74F5,#1D5FE0);color:#fff;box-shadow:0 12px 24px -16px rgba(29,95,224,.95)}
+  .qc-chan.is-primary svg{color:#fff}
+  .qc-chan.is-primary:hover{background:linear-gradient(180deg,#2C74F5,#1449B8)}
+  .qc-chan .qc-cb{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1.15}
+  .qc-chan .qc-cb .n{display:none;font-size:11px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  @media (min-width:900px){
+    html.is-desktop .qc-actions{grid-template-columns:1fr 1fr;gap:9px}
+    html.is-desktop #qcSmsBtn{display:none}
+    html.is-desktop #qcCallBtn .qc-cb .n{display:block}
+  }
+  .qc-callout{display:none;margin-top:10px;border:1px solid #D9E6F8;border-radius:14px;background:linear-gradient(180deg,#F7FBFF,#EFF6FF);padding:15px 15px 13px;text-align:center}
+  html.is-desktop .qc-callout.is-on{display:block}
+  .qc-callout .qc-callcap{font-size:11.5px;font-weight:800;color:#5C7AA6}
+  .qc-callout .qc-callbig{margin-top:5px;font-size:30px;font-weight:800;letter-spacing:-0.03em;color:var(--navy-900);line-height:1.15;font-variant-numeric:tabular-nums}
+  .qc-callout .btn{margin-top:10px;min-height:38px;font-size:13px}
+  .qc-callout .qc-callhelp{margin-top:9px;font-size:11.5px;color:var(--muted);line-height:1.6}
+  .qc-copied{margin-top:11px;display:none;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:800;color:var(--ok)}
+  .qc-copied.is-on{display:flex}
+  .qc-copied svg{width:14px;height:14px}
+  .qc-modalnote{margin-top:12px;text-align:center;font-size:11.3px;line-height:1.6;color:var(--muted)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"하하렌트","item":"https://haharent.com/"},{"@type":"ListItem","position":2,"name":"일반렌트","item":"https://haharent.com/rental/"}]},{"@type":"Service","name":"하하렌트 일반렌트","serviceType":["일반렌트","단기렌트","월렌트","장기렌트","법인렌트","기업렌트","인천공항 렌트","외국인 렌트"],"url":"https://haharent.com/rental/","description":"일·단기렌트, 월렌트·장기렌트, 법인·기업렌트, 인천공항 딜리버리와 외국인 렌트를 상담으로 안내하는 렌트 서비스입니다.","provider":{"@type":"AutoRental","name":"하하렌트","alternateName":"HAHA RENT","url":"https://haharent.com/","telephone":"+82-10-2004-0790","image":"https://haharent.com/og-image.png"},"areaServed":[{"@type":"AdministrativeArea","name":"서울특별시"},{"@type":"AdministrativeArea","name":"경기도"},{"@type":"AdministrativeArea","name":"인천광역시"}],"availableLanguage":[{"@type":"Language","name":"Korean"},{"@type":"Language","name":"English"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"일반렌트 상품","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"일·단기렌트","description":"1일부터 2주까지 하루 단위로 이용하는 렌트. 일렌트 1일(24시간) 요금을 차종별로 게시."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"월렌트","description":"1개월 이상 한 달 단위로 이용하는 렌트. 요금은 상담으로 안내."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"장기렌트","description":"3개월 이상 기간과 주행거리를 정해 이용하는 렌트. 요금은 상담으로 안내."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"법인·기업렌트","description":"법인·개인사업자 업무용·임직원 공용 차량(운전자 미포함, 직접 운전), 세금계산서 발행 상담."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"인천공항 딜리버리·외국인 렌트","description":"인천공항 도착 일정에 맞춘 인수와 국제운전면허증 소지 외국인 렌트 상담."}}]}},{"@type":"ItemList","name":"하하렌트 일반렌트 주요 인기차종 보유 리스트","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Car","name":"메르세데스-벤츠 S450","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"대형 세단","fuelType":"가솔린","offers":{"@type":"Offer","price":460000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":460000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":2,"item":{"@type":"Car","name":"메르세데스-벤츠 S350d","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"대형 세단","fuelType":"디젤","offers":{"@type":"Offer","price":350000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":350000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":3,"item":{"@type":"Car","name":"메르세데스-벤츠 GLE450 4MATIC","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"대형 SUV","fuelType":"가솔린","offers":{"@type":"Offer","price":370000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":370000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":4,"item":{"@type":"Car","name":"메르세데스-벤츠 GLC300 4MATIC Coupe","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"중형 SUV 쿠페","fuelType":"가솔린","offers":{"@type":"Offer","price":260000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":260000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":5,"item":{"@type":"Car","name":"메르세데스-벤츠 CLE200 Cabriolet","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"오픈톱","fuelType":"가솔린","offers":{"@type":"Offer","price":250000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":250000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":6,"item":{"@type":"Car","name":"메르세데스-벤츠 E200 아방가르드","brand":{"@type":"Brand","name":"Mercedes-Benz"},"bodyType":"중형 세단","fuelType":"가솔린","offers":{"@type":"Offer","price":240000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":240000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":7,"item":{"@type":"Car","name":"테슬라 모델 Y","brand":{"@type":"Brand","name":"Tesla"},"bodyType":"전기 SUV","fuelType":"전기","offers":{"@type":"Offer","price":160000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":160000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}},{"@type":"ListItem","position":8,"item":{"@type":"Car","name":"포르쉐 카이엔 쿠페","brand":{"@type":"Brand","name":"Porsche"},"bodyType":"대형 SUV 쿠페","fuelType":"가솔린","offers":{"@type":"Offer","price":400000,"priceCurrency":"KRW","priceSpecification":{"@type":"UnitPriceSpecification","price":400000,"priceCurrency":"KRW","unitCode":"DAY","unitText":"1일(24시간)"}}}}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"월렌트·장기렌트 요금은 왜 페이지에 없나요?","acceptedAnswer":{"@type":"Answer","text":"일렌트는 차종별 1일(24시간) 요금을 페이지에 게시하고 있습니다. 월렌트·장기·법인은 기간, 약정 주행거리, 보험 조건, 인수 장소에 따라 금액이 달라져 조건을 확인한 뒤 맞춤 견적으로 안내드립니다. 3일 이상·장기 이용 시 별도 할인 상담도 가능합니다."}},{"@type":"Question","name":"리스트에 없는 차종도 빌릴 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 하하렌트는 주요 인기차종 8종을 직접 보유하고 있고, 리스트에 없는 국산·수입 전 차종(BMW·아우디·제네시스·SUV·승합 등)은 일정에 맞춰 제휴 배차로 안내해 드립니다. 원하시는 차종과 날짜를 알려주시면 가능 여부와 요금을 확인해 드립니다."}},{"@type":"Question","name":"하루만 빌릴 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 일·단기렌트는 하루 단위로 상담합니다. 차량 정비와 배차 일정에 따라 당일 인수가 어려울 수 있어 날짜를 먼저 알려주시면 가능 여부를 확인해 드립니다."}},{"@type":"Question","name":"운전 경력이 짧아도 빌릴 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"기본 기준은 면허 취득 후 1년 이상, 만 21세 이상입니다. 고급·수입 차종은 보험 조건에 따라 연령 기준이 달라질 수 있어 나이와 면허 취득 시기를 알려주시면 가능한 차종으로 안내드립니다."}},{"@type":"Question","name":"외국인도 렌트할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 여권, 국제운전면허증(IDP), 운전자 본인 명의의 신용카드가 필요합니다. IDP는 제네바·비엔나 협약 가입국 발급분만 인정되고 입국 후 1년까지 사용할 수 있습니다."}},{"@type":"Question","name":"법인·기업렌트도 세금계산서를 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"법인·개인사업자 계약은 세금계산서로 청구합니다. 법인명과 사업자등록번호, 담당자 연락처를 알려주시면 견적서와 함께 청구 일정을 정리해 드립니다. 부가세 공제 가능 여부는 회사 세무 담당자에게 확인해 주세요."}},{"@type":"Question","name":"차량을 집이나 회사로 가져다주나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 수도권 기준으로 지정하신 장소에 차량을 가져다드리며, 거리와 일정에 따라 비용이 달라질 수 있어 상담에서 함께 안내드립니다."}},{"@type":"Question","name":"인천공항에서 바로 차를 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"항공편과 도착 시간을 알려주시면 그 일정에 맞춰 인수를 준비합니다. 공항 인수 가능 시간과 비용은 차량과 일정에 따라 달라지므로 미리 상담해 주세요."}},{"@type":"Question","name":"이용 중 사고가 나면 어떻게 하나요?","acceptedAnswer":{"@type":"Answer","text":"즉시 하하렌트로 연락 주시면 보험 접수와 차량 처리 절차를 안내드립니다. 대인·대물·자손은 기본 보험으로 처리되고, 자차는 가입 여부와 면책금 조건에 따라 처리됩니다."}}]}]}</script>
 <!-- Google Ads gtag (하하렌트) -->
@@ -510,63 +588,55 @@
             <span class="fn">S450</span>
             <span class="fs">대형 세단 · 가솔린</span>
             <span class="fp"><b>460,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">MERCEDES-BENZ</span>
             <span class="fn">S350d</span>
             <span class="fs">대형 세단 · 디젤</span>
             <span class="fp"><b>350,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">MERCEDES-BENZ</span>
             <span class="fn">GLE450 4MATIC</span>
             <span class="fs">대형 SUV · 가솔린</span>
             <span class="fp"><b>370,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">MERCEDES-BENZ</span>
             <span class="fn">GLC300 4MATIC Coupe</span>
             <span class="fs">중형 SUV 쿠페 · 가솔린</span>
             <span class="fp"><b>260,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">MERCEDES-BENZ</span>
             <span class="fn">CLE200 Cabriolet</span>
             <span class="fs">오픈톱 · 가솔린</span>
             <span class="fp"><b>250,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">MERCEDES-BENZ</span>
             <span class="fn">E200 아방가르드</span>
             <span class="fs">중형 세단 · 가솔린</span>
             <span class="fp"><b>240,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">8대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">TESLA</span>
             <span class="fn">Model Y</span>
             <span class="fs">전기 SUV · 전기</span>
             <span class="fp"><b>160,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">1대 보유</span>
           </article>
           <article class="fleet-card">
             <span class="fb">PORSCHE</span>
             <span class="fn">Cayenne Coupe</span>
             <span class="fs">대형 SUV 쿠페 · 가솔린</span>
             <span class="fp"><b>400,000</b><i>원 · 1일(24시간)</i></span>
-            <span class="fu">보유 차량</span>
           </article>
         </div>
         <div class="note"><strong>요금 기준</strong>카드에 표시한 금액은 일렌트 1일(24시간) 기준입니다. 월렌트·장기·법인은 <strong>맞춤 견적(상담 문의)</strong>으로 안내드리고, 3일 이상·장기 이용 시 별도 할인 상담을 해 드립니다.</div>
         <ul class="mini-list">
           <li><b>차량 번호판은 표기하지 않습니다</b>보유 차량의 번호판과 소유 법인 정보는 개인정보 보호를 위해 페이지에 표시하지 않습니다. 대여 확정 후 계약서에서 확인하실 수 있습니다.</li>
-          <li><b>같은 차종이라도 트림이 다를 수 있습니다</b>E200은 아방가르드 트림 8대로 운영하며, 연식과 트림이 일부 다를 수 있습니다. 특정 연식·트림이 필요하시면 상담에서 확인해 드립니다.</li>
-          <li><b>보유 대수는 수시로 바뀝니다</b>정비·매각·사고대차 배차 상황에 따라 이용 가능한 차량이 달라집니다. 원하시는 차종과 날짜를 알려주시면 가능 여부를 바로 확인해 드립니다.</li>
+          <li><b>같은 차종이라도 트림이 다를 수 있습니다</b>E200은 아방가르드 트림으로 운영하며, 연식과 트림이 일부 다를 수 있습니다. 특정 연식·트림이 필요하시면 상담에서 확인해 드립니다.</li>
+          <li><b>이용 가능 여부는 수시로 바뀝니다</b>정비·매각·사고대차 배차 상황에 따라 이용 가능한 차량이 달라집니다. 원하시는 차종과 날짜를 알려주시면 가능 여부를 바로 확인해 드립니다.</li>
         </ul>
         <div class="more-car">
           <b>리스트에 없는 차종도 상담 문의 주세요</b>
@@ -643,6 +713,64 @@
           </table>
         </div>
         <div class="note"><strong>월렌트·장기·법인 맞춤 견적(상담 문의)</strong>1개월 이상 월렌트와 장기렌트, 법인·기업렌트는 기간·약정 주행거리·보험 조건에 따라 금액이 달라져 페이지에 금액을 게시하지 않습니다. 3일 이상·장기 이용 시 별도 할인 상담을 해 드립니다.</div>
+
+        <form class="qc" id="quoteForm" novalidate autocomplete="on" aria-labelledby="qcTitle">
+          <div class="qc-head">
+            <span class="qc-badge">간편 견적 상담</span>
+            <h3 id="qcTitle">이용 구분과 기간, 차종만 고르면 바로 연결됩니다</h3>
+            <p>세 가지만 고르고 연락처를 남겨 주세요. 상담 창에서 <strong>전화·문자·채널톡</strong> 중 편한 방법으로 바로 이어드립니다.</p>
+          </div>
+
+          <div class="qc-field" id="qcFieldWho">
+            <span class="qc-label" id="qcWhoLabel">이용 구분 <span class="qc-req">*</span></span>
+            <div class="qc-chips" id="qcWhoChips" role="group" aria-labelledby="qcWhoLabel">
+              <button class="qc-chip" type="button" data-who="개인" aria-pressed="false">개인</button>
+              <button class="qc-chip" type="button" data-who="법인·기업" aria-pressed="false">법인·기업</button>
+              <button class="qc-chip" type="button" data-who="외국인" aria-pressed="false">외국인</button>
+            </div>
+            <p class="qc-err is-hidden" id="qcErrWho" role="alert">이용 구분을 선택해 주세요.</p>
+          </div>
+
+          <div class="qc-field" id="qcFieldTerm">
+            <span class="qc-label" id="qcTermLabel">이용 기간 <span class="qc-req">*</span></span>
+            <div class="qc-chips" id="qcTermChips" role="group" aria-labelledby="qcTermLabel">
+              <button class="qc-chip" type="button" data-term="일·단기" aria-pressed="false">일·단기 <small>하루~2주</small></button>
+              <button class="qc-chip" type="button" data-term="월렌트" aria-pressed="false">월렌트 <small>1개월~</small></button>
+              <button class="qc-chip" type="button" data-term="장기렌트" aria-pressed="false">장기렌트 <small>3개월~</small></button>
+            </div>
+            <p class="qc-err is-hidden" id="qcErrTerm" role="alert">이용 기간을 선택해 주세요.</p>
+          </div>
+
+          <div class="qc-field" id="qcFieldCar">
+            <span class="qc-label" id="qcCarLabel">희망 차종 <span class="qc-opt">선택</span></span>
+            <div class="qc-chips" id="qcCarChips" role="group" aria-labelledby="qcCarLabel">
+              <button class="qc-chip" type="button" data-car="벤츠 S450" aria-pressed="false">S450</button>
+              <button class="qc-chip" type="button" data-car="벤츠 S350d" aria-pressed="false">S350d</button>
+              <button class="qc-chip" type="button" data-car="벤츠 GLE450" aria-pressed="false">GLE450</button>
+              <button class="qc-chip" type="button" data-car="벤츠 GLC300 쿠페" aria-pressed="false">GLC300 쿠페</button>
+              <button class="qc-chip" type="button" data-car="벤츠 CLE200 카브리올레" aria-pressed="false">CLE200 카브</button>
+              <button class="qc-chip" type="button" data-car="벤츠 E200 아방가르드" aria-pressed="false">E200</button>
+              <button class="qc-chip" type="button" data-car="테슬라 Model Y" aria-pressed="false">Model Y</button>
+              <button class="qc-chip" type="button" data-car="포르쉐 카이엔 쿠페" aria-pressed="false">카이엔 쿠페</button>
+              <button class="qc-chip" type="button" data-car="기타" aria-pressed="false">기타 차종</button>
+            </div>
+            <input class="qc-input qc-etc is-hidden" id="qcCarEtc" type="text" placeholder="원하시는 차종을 입력해 주세요 (예: BMW 5시리즈)" autocomplete="off">
+            <p class="qc-hint">리스트에 없는 차종도 제휴 배차로 안내해 드립니다. 모르시면 비워 두셔도 됩니다.</p>
+          </div>
+
+          <div class="qc-field" id="qcFieldTel">
+            <label class="qc-label" for="qcPhone">연락처 <span class="qc-req">*</span></label>
+            <input class="qc-input" id="qcPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" maxlength="13" aria-describedby="qcErrTel">
+            <p class="qc-err is-hidden" id="qcErrTel" role="alert">휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)</p>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block qc-submit" type="submit" id="qcSubmit">
+            상담 연결하기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="qc-note">입력하신 연락처는 견적 상담 목적으로만 사용합니다. 급하시면 <a href="tel:01020040790" id="qcQuickCall">010-2004-0790</a>로 바로 전화 주셔도 됩니다.</p>
+        </form>
+
         <p>월렌트·장기·법인 견적이나 추가 조건 상담은 아래 내용만 알려주시면 바로 정리해 드립니다.</p>
         <ul>
           <li><strong>차종</strong> — 원하는 차종이 있으면 알려주세요. 모르시면 용도와 인원수만 말씀하셔도 됩니다.</li>
@@ -830,6 +958,410 @@
     </div>
   </div>
 </div>
+
+<!-- ================= 일반렌트 견적 상담 연결 모달 ================= -->
+<div class="qc-overlay" id="qcOverlay" hidden></div>
+<div class="qc-modal" id="qcModal" aria-hidden="true">
+  <div class="qc-card" role="dialog" aria-modal="true" aria-labelledby="qcModalTitle">
+    <div class="qc-grip" aria-hidden="true"></div>
+    <div class="qc-modal-head">
+      <span class="qc-micon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="m9.5 15 1.8 1.8L14.8 13"/></svg></span>
+      <div>
+        <h3 id="qcModalTitle">견적 상담 내용을 확인해 주세요</h3>
+        <p>아래 조건으로 상담을 이어갑니다. 편한 방법을 선택해 주세요.</p>
+      </div>
+      <button class="qc-close" type="button" data-qc-close aria-label="닫기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <dl class="qc-summary" id="qcSummary"></dl>
+
+    <div class="qc-actions">
+      <a class="qc-chan is-primary" href="tel:01020040790" id="qcCallBtn" aria-label="전화 상담 010-2004-0790">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+        <span class="qc-cb"><span class="t">전화 상담</span><span class="n">010-2004-0790</span></span>
+      </a>
+      <a class="qc-chan" href="sms:01020040790" id="qcSmsBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg>
+        문자로 보내기
+      </a>
+      <button class="qc-chan" type="button" id="qcChannelBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+        채널톡 바로 상담
+      </button>
+    </div>
+
+    <!-- 데스크톱: 전화 상담 클릭 시 tel: 대신 큰 번호 + 원클릭 복사 -->
+    <div class="qc-callout" id="qcCallOut">
+      <p class="qc-callcap">전화 주시면 바로 견적 확인해 드립니다</p>
+      <p class="qc-callbig">010-2004-0790</p>
+      <button class="btn btn-soft" type="button" id="qcCopyNum">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+        <span id="qcCopyNumLabel">번호 복사</span>
+      </button>
+      <p class="qc-callhelp">휴대폰·유선전화 어디서든 통화 연결됩니다. 통화가 어려우면 채널톡으로 남겨 주세요.</p>
+    </div>
+
+    <p class="qc-copied" id="qcCopied">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span id="qcCopiedText">번호를 복사했어요. 전화로 걸어주세요.</span>
+    </p>
+    <p class="qc-modalnote">입력하신 연락처는 상담 목적으로만 사용됩니다.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("quoteForm");
+  if (!form) return;
+
+  var PHONE_DISPLAY = "010-2004-0790";
+  function $(id) { return document.getElementById(id); }
+
+  var whoChips = $("qcWhoChips"), termChips = $("qcTermChips"), carChips = $("qcCarChips");
+  var carEtc = $("qcCarEtc"), phoneInput = $("qcPhone");
+  var fieldWho = $("qcFieldWho"), fieldTerm = $("qcFieldTerm");
+  var errWho = $("qcErrWho"), errTerm = $("qcErrTerm"), errTel = $("qcErrTel");
+  var modal = $("qcModal"), overlay = $("qcOverlay"), summaryList = $("qcSummary");
+  var smsBtn = $("qcSmsBtn"), callBtn = $("qcCallBtn"), channelBtn = $("qcChannelBtn");
+  var callOut = $("qcCallOut"), copyNumBtn = $("qcCopyNum"), copyNumLabel = $("qcCopyNumLabel");
+  var copiedEl = $("qcCopied"), copiedText = $("qcCopiedText"), quickCall = $("qcQuickCall");
+  var lastFocused = null, copyTimer = null;
+
+  /* ---------------- 선택값 ---------------- */
+  function picked(group) { return group ? group.querySelector('[aria-pressed="true"]') : null; }
+  function whoText() { var b = picked(whoChips); return b ? (b.getAttribute("data-who") || "") : ""; }
+  function termText() { var b = picked(termChips); return b ? (b.getAttribute("data-term") || "") : ""; }
+  function carText() {
+    var b = picked(carChips);
+    if (!b) return "";
+    if (b.getAttribute("data-car") === "기타") {
+      var t = (carEtc && carEtc.value ? carEtc.value : "").replace(/\s+/g, " ").trim();
+      return t || "기타(상담으로 결정)";
+    }
+    return b.getAttribute("data-car") || "";
+  }
+  function carMissing() { return !picked(carChips); }
+
+  function bindChips(group, onPick) {
+    if (!group) return;
+    Array.prototype.forEach.call(group.querySelectorAll(".qc-chip"), function (btn) {
+      btn.addEventListener("click", function () {
+        var wasOn = btn.getAttribute("aria-pressed") === "true";
+        Array.prototype.forEach.call(group.querySelectorAll(".qc-chip"), function (o) {
+          o.setAttribute("aria-pressed", "false");
+        });
+        if (!wasOn) btn.setAttribute("aria-pressed", "true");
+        if (onPick) onPick(btn, !wasOn);
+      });
+    });
+  }
+
+  bindChips(whoChips, function () {
+    fieldWho.classList.remove("is-bad");
+    errWho.classList.add("is-hidden");
+  });
+  bindChips(termChips, function () {
+    fieldTerm.classList.remove("is-bad");
+    errTerm.classList.add("is-hidden");
+  });
+  bindChips(carChips, function (btn, on) {
+    var isEtc = btn.getAttribute("data-car") === "기타";
+    if (carEtc) {
+      if (isEtc && on) {
+        carEtc.classList.remove("is-hidden");
+        setTimeout(function () { try { carEtc.focus({ preventScroll: true }); } catch (e) {} }, 40);
+      } else {
+        carEtc.classList.add("is-hidden");
+        carEtc.value = "";
+      }
+    }
+  });
+
+  /* ---------------- 연락처 ---------------- */
+  function formatPhone(raw) {
+    var d = String(raw || "").replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 3) return d;
+    if (d.length <= 6) return d.slice(0, 3) + "-" + d.slice(3);
+    if (d.length <= 10) return d.slice(0, 3) + "-" + d.slice(3, 6) + "-" + d.slice(6);
+    return d.slice(0, 3) + "-" + d.slice(3, 7) + "-" + d.slice(7);
+  }
+  function isValidPhone(v) {
+    return /^01[016789]\d{7,8}$/.test(String(v || "").replace(/\D/g, ""));
+  }
+  phoneInput.addEventListener("input", function () {
+    var pos = phoneInput.selectionStart, before = phoneInput.value.length;
+    phoneInput.value = formatPhone(phoneInput.value);
+    if (before !== phoneInput.value.length && pos !== null) {
+      try { phoneInput.setSelectionRange(phoneInput.value.length, phoneInput.value.length); } catch (e) {}
+    }
+    if (isValidPhone(phoneInput.value)) {
+      phoneInput.classList.remove("is-bad");
+      errTel.classList.add("is-hidden");
+    }
+  });
+
+  function validate() {
+    var ok = true;
+    if (!whoText()) { fieldWho.classList.add("is-bad"); errWho.classList.remove("is-hidden"); ok = false; }
+    if (!termText()) { fieldTerm.classList.add("is-bad"); errTerm.classList.remove("is-hidden"); ok = false; }
+    if (!isValidPhone(phoneInput.value)) {
+      phoneInput.classList.add("is-bad");
+      errTel.classList.remove("is-hidden");
+      ok = false;
+    }
+    return ok;
+  }
+
+  /* ---------------- 요약 ---------------- */
+  function rows() {
+    return [
+      ["이용 구분", whoText()],
+      ["이용 기간", termText()],
+      ["희망 차종", carText() || "상담으로 결정"],
+      ["연락처", phoneInput.value]
+    ];
+  }
+  function summaryText() {
+    var lines = ["[하하렌트 일반렌트 견적 상담]", ""];
+    rows().forEach(function (r) { lines.push("· " + r[0] + " : " + r[1]); });
+    lines.push("", "위 조건으로 일반렌트 견적 상담 신청합니다.");
+    return lines.join("\n");
+  }
+  function renderSummary() {
+    summaryList.innerHTML = "";
+    rows().forEach(function (r) {
+      var row = document.createElement("div");
+      row.className = "qc-summary-row";
+      var dt = document.createElement("dt");
+      dt.textContent = r[0];
+      var dd = document.createElement("dd");
+      dd.textContent = r[1];
+      row.appendChild(dt);
+      row.appendChild(dd);
+      summaryList.appendChild(row);
+    });
+  }
+
+  /* ---------------- 채널톡 고객정보·이벤트 ---------------- */
+  function phoneE164() {
+    var d = String(phoneInput.value || "").replace(/[^0-9]/g, "");
+    if (!d) return "";
+    if (d.indexOf("0") === 0) return "+82" + d.slice(1);
+    return "+" + d;
+  }
+  function quoteProfile() {
+    return {
+      mobileNumber: phoneE164(),
+      "이용구분": whoText(),
+      "이용기간": termText(),
+      "희망차종": carText() || "상담으로 결정"
+    };
+  }
+  function quoteProps() {
+    return {
+      "이용구분": whoText(),
+      "이용기간": termText(),
+      "희망차종": carText() || "상담으로 결정",
+      "연락처": phoneInput.value
+    };
+  }
+  var pendingSync = false, retryTimer = null, retryDeadline = 0;
+  function channelReady() {
+    var api = window.ChannelIO, st = (window.HAHA_RENT && window.HAHA_RENT.channelStatus) || "";
+    return typeof api === "function" && st === "ok";
+  }
+  function syncChannel() {
+    if (!channelReady()) { pendingSync = true; scheduleRetry(); return false; }
+    try {
+      window.ChannelIO("updateUser", { profile: quoteProfile() });
+      window.ChannelIO("track", "일반렌트_견적상담", quoteProps());
+      pendingSync = false;
+      return true;
+    } catch (e) {
+      pendingSync = true; scheduleRetry(); return false;
+    }
+  }
+  function scheduleRetry() {
+    if (retryTimer) return;
+    retryDeadline = Date.now() + 20000;
+    retryTimer = setInterval(function () {
+      if (!pendingSync || Date.now() > retryDeadline) {
+        clearInterval(retryTimer); retryTimer = null; return;
+      }
+      if (!channelReady()) return;
+      try {
+        window.ChannelIO("updateUser", { profile: quoteProfile() });
+        window.ChannelIO("track", "일반렌트_견적상담", quoteProps());
+        pendingSync = false;
+      } catch (e) {}
+      clearInterval(retryTimer); retryTimer = null;
+    }, 700);
+  }
+
+  /* ---------------- Google Ads 전환 ---------------- */
+  function ads(kind, params) {
+    var a = window.HAHA_ADS;
+    if (!a || typeof window.gtag !== "function") return;
+    var label = a.labels && a.labels[kind];
+    if (!label) return;
+    var payload = { send_to: a.conversionId + "/" + label };
+    if (params) { for (var k in params) { if (Object.prototype.hasOwnProperty.call(params, k)) payload[k] = params[k]; } }
+    try { window.gtag("event", "conversion", payload); } catch (e) {}
+  }
+
+  /* ---------------- 모달 ---------------- */
+  function openModal() {
+    lastFocused = document.activeElement;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    overlay.hidden = false;
+    void overlay.offsetWidth;
+    overlay.classList.add("is-open");
+    document.body.classList.add("no-scroll");
+    setTimeout(function () {
+      if (callBtn) { try { callBtn.focus({ preventScroll: true }); } catch (e) {} }
+    }, 140);
+  }
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("is-open");
+    setTimeout(function () { if (!modal.classList.contains("is-open")) overlay.hidden = true; }, 220);
+    document.body.classList.remove("no-scroll");
+    if (callOut) callOut.classList.remove("is-on");
+    if (copiedEl) copiedEl.classList.remove("is-on");
+    if (copyNumLabel) copyNumLabel.textContent = "번호 복사";
+    if (lastFocused && lastFocused.focus) { try { lastFocused.focus({ preventScroll: true }); } catch (e) {} }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-qc-close]"), function (el) {
+    el.addEventListener("click", closeModal);
+  });
+  overlay.addEventListener("click", closeModal);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  });
+
+  /* ---------------- 데스크톱 / 모바일 분기 ----------------
+     모바일(터치·좁은 화면): 전화(tel:) · 문자(sms:) · 채널톡 3개
+     데스크톱(마우스 PC): 문자 숨김 + 전화 상담은 번호 표시·원클릭 복사로 전환 (메인 페이지와 같은 기준) */
+  var desktopMQ = window.matchMedia("(min-width:900px)");
+  var coarseMQ = window.matchMedia("(pointer: coarse)");
+  function isDesktopEnv() { return desktopMQ.matches && !coarseMQ.matches; }
+  function syncInputMode() { document.documentElement.classList.toggle("is-desktop", isDesktopEnv()); }
+  syncInputMode();
+  [desktopMQ, coarseMQ].forEach(function (mq) {
+    if (mq.addEventListener) mq.addEventListener("change", syncInputMode);
+    else if (mq.addListener) mq.addListener(syncInputMode);
+  });
+
+  /* ---------------- 제출 → 요약 모달 → 바로 연결 ---------------- */
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validate()) {
+      var firstBad = fieldWho.classList.contains("is-bad") ? fieldWho
+        : (fieldTerm.classList.contains("is-bad") ? fieldTerm
+        : (phoneInput.classList.contains("is-bad") ? phoneInput.closest(".qc-field") : null));
+      if (firstBad) firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    renderSummary();
+    if (smsBtn) smsBtn.href = "sms:01020040790?body=" + encodeURIComponent(summaryText());
+    if (callOut) callOut.classList.remove("is-on");
+    if (copiedEl) copiedEl.classList.remove("is-on");
+    if (copyNumLabel) copyNumLabel.textContent = "번호 복사";
+    syncChannel();
+    ads("form", { value: 0, currency: "KRW", transaction_id: "HRR-" + Date.now() });
+    openModal();
+  });
+
+  if (callBtn) callBtn.addEventListener("click", function (e) {
+    ads("phone");
+    if (!isDesktopEnv()) return;
+    e.preventDefault();
+    if (callOut) callOut.classList.add("is-on");
+    if (copyNumBtn) { try { copyNumBtn.focus({ preventScroll: true }); } catch (err) {} }
+  });
+
+  if (smsBtn) smsBtn.addEventListener("click", function () { ads("sms"); });
+
+  if (quickCall) quickCall.addEventListener("click", function () { ads("phone"); });
+
+  if (copyNumBtn) copyNumBtn.addEventListener("click", function () {
+    copyPlain(PHONE_DISPLAY, function (ok) {
+      if (!ok) { showCopied("복사가 막혔어요. 번호는 " + PHONE_DISPLAY + " 입니다."); return; }
+      showCopied("번호를 복사했어요. 전화로 걸어주세요.");
+      if (copyNumLabel) copyNumLabel.textContent = "복사 완료";
+      if (copyTimer) clearTimeout(copyTimer);
+      copyTimer = setTimeout(function () {
+        if (copyNumLabel) copyNumLabel.textContent = "번호 복사";
+      }, 2400);
+    });
+  });
+
+  function showCopied(msg) {
+    if (!copiedEl) return;
+    if (copiedText) copiedText.textContent = msg;
+    copiedEl.classList.add("is-on");
+    if (copyTimer === null) {
+      copyTimer = setTimeout(function () { copiedEl.classList.remove("is-on"); copyTimer = null; }, 4000);
+    }
+  }
+
+  if (channelBtn) channelBtn.addEventListener("click", function () {
+    ads("channel");
+    var text = summaryText();
+    copyPlain(text, function () {});
+    openChat();
+    closeModal();
+  });
+
+  function openChat() {
+    var api = window.ChannelIO;
+    var st = (window.HAHA_RENT && window.HAHA_RENT.channelStatus) || "";
+    if (typeof api === "function" && (st === "ok" || st === "pending")) {
+      try { api("showMessenger"); } catch (e) {}
+      if (st === "pending") {
+        setTimeout(function () {
+          var now = (window.HAHA_RENT && window.HAHA_RENT.channelStatus) || "";
+          if (now !== "ok") openFallbackSheet();
+        }, 2200);
+      }
+      return;
+    }
+    openFallbackSheet();
+  }
+  function openFallbackSheet() {
+    var trigger = document.querySelector("[data-open-channel]");
+    if (trigger) { try { trigger.click(); } catch (e) {} }
+  }
+
+  /* ---------------- 클립보드 ---------------- */
+  function copyPlain(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+})();
+</script>
 
 <script>
   window.HAHA_RENT = {

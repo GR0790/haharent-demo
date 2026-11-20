@@ -791,6 +791,7 @@
 <script>
   window.HAHA_RENT = {
     channelPluginKey: "c59221ef-899a-43c4-aa93-1e4622e088ea",
+    channelStatus: "pending",
     phone: "01020040790",
     phoneDisplay: "010-2004-0790"
   };
@@ -824,6 +825,7 @@
     })();
     if (typeof window.ChannelIO === "function") {
       window.ChannelIO("boot", { pluginKey: key, hideChannelButtonOnBoot: true }, function (error) {
+        window.HAHA_RENT.channelStatus = error ? "fail" : "ok";
         if (error) window.console.warn("[ChannelIO] boot error", error);
       });
     }
@@ -2134,17 +2136,30 @@
   var ctState = $("ctState");
   var ctDesc = $("ctDesc");
 
-  function openChannelSheet(prefillText) {
+  function openChannel(prefillText) {
     var summary = (typeof prefillText === "string" && prefillText.trim()) ? prefillText : "";
-    var live = !!window.HAHA_RENT.channelPluginKey && typeof window.ChannelIO === "function";
-    if (live) {
+    var key = window.HAHA_RENT.channelPluginKey;
+    var status = window.HAHA_RENT.channelStatus;
+    var api = window.ChannelIO;
+
+    if (key && typeof api === "function" && status === "ok") {
       try {
         /* 신청서 요약이 있으면 그 내용을 첫 메시지로 담아 상담을 시작합니다. */
-        if (summary) window.ChannelIO("openChat", undefined, summary);
-        else window.ChannelIO("showMessenger");
+        if (summary) api("openChat", undefined, summary);
+        else api("showMessenger");
         return;
       } catch (e) {}
     }
+    if (key && typeof api === "function" && status === "pending") {
+      /* 부트가 끝나기 전 클릭: 우선 메신저를 시도하고, 실패로 판명되면 안내 시트로 전환 */
+      try { api("showMessenger"); } catch (e2) {}
+      setTimeout(function () { if (window.HAHA_RENT.channelStatus !== "ok") openChannelSheet(summary); }, 2200);
+      return;
+    }
+    openChannelSheet(summary);
+  }
+
+  function openChannelSheet(prefillText) {
     var hasKey = !!window.HAHA_RENT.channelPluginKey;
     ctState.textContent = hasKey ? "연결 대기" : "시안 · 연동 전";
     ctState.classList.toggle("is-live", hasKey);
@@ -2168,7 +2183,7 @@
   }
 
   Array.prototype.forEach.call(document.querySelectorAll("[data-open-channel]"), function (el) {
-    el.addEventListener("click", openChannelSheet);
+    el.addEventListener("click", openChannel);
   });
   Array.prototype.forEach.call(document.querySelectorAll("[data-close-sheet]"), function (el) {
     el.addEventListener("click", closeChannelSheet);
@@ -2189,7 +2204,7 @@
       /* 모달이 열려 있을 때는 신청서 요약을 첫 메시지로 전달합니다. */
       var text = summaryModal.classList.contains("is-open") ? summaryText() : "";
       closeModal();
-      setTimeout(function () { openChannelSheet(text); }, 220);
+      setTimeout(function () { openChannel(text); }, 220);
     });
   }
 

@@ -1072,7 +1072,13 @@
     if (carEtc) {
       if (isEtc && on) {
         carEtc.classList.remove("is-hidden");
-        setTimeout(function () { try { carEtc.focus({ preventScroll: true }); } catch (e) {} }, 40);
+        /* 기타 선택 직후 입력란으로 유도하되, 그 사이 사용자가 다른 칸을 누르면 포커스를 뺏지 않습니다. */
+        setTimeout(function () {
+          var ae = document.activeElement;
+          if (ae === btn || ae === document.body || ae === null) {
+            try { carEtc.focus({ preventScroll: true }); } catch (e) {}
+          }
+        }, 40);
       } else {
         carEtc.classList.add("is-hidden");
         carEtc.value = "";

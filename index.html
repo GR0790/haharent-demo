@@ -624,6 +624,7 @@
   .fab:hover{transform:translateY(-2px);box-shadow:0 22px 36px -16px rgba(20,73,184,.9)}
   .fab svg{width:20px;height:20px;flex:none}
   .fab .fab-dot{width:7px;height:7px;border-radius:50%;background:#5FE3A1;box-shadow:0 0 0 3px rgba(95,227,161,.22);margin-left:2px}
+  .fab.is-away{opacity:0;pointer-events:none;transform:translateY(10px)}
   @media (min-width:900px){ .fab{right:26px;bottom:26px;height:54px;padding:0 20px 0 16px;font-size:14px} }
   @media (max-width:899px){
     .fab{right:13px;bottom:82px;height:46px;padding:0 14px 0 12px;font-size:12.5px;gap:7px}
@@ -2221,10 +2222,26 @@
 
   /* ---------------- 헤더 / 메뉴 ---------------- */
   var header = $("siteHeader");
+  var fabChannel = $("fabChannel");
+  function updateFab() {
+    if (!fabChannel) return;
+    if (window.innerWidth >= 900) {
+      fabChannel.classList.remove("is-away");
+      return;
+    }
+    var hw = $("heroWidget");
+    if (!hw) return;
+    /* 모바일에서 히어로 배차 위젯을 가리지 않도록 잠시 숨김 */
+    var r = hw.getBoundingClientRect();
+    var covering = r.top < window.innerHeight - 70 && r.bottom > window.innerHeight - 210;
+    fabChannel.classList.toggle("is-away", covering);
+  }
   function onScroll() {
     header.classList.toggle("is-stuck", window.scrollY > 8);
+    updateFab();
   }
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateFab);
   onScroll();
 
   var menuBtn = $("menuBtn");

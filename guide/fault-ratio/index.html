@@ -272,6 +272,35 @@
   .mobile-nav .cat-tabs-mobile a.nav-cat{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 10px;border:0;border-radius:999px;font-size:15.5px;font-weight:800;color:#43566E;background:transparent}
   .mobile-nav .cat-tabs-mobile a.nav-cat.is-active{background:linear-gradient(135deg,var(--blue-600),var(--blue-700));color:#fff}
   .mobile-nav .cat-tabs-mobile a.nav-cat small{display:none}
+
+  /* ── 모바일(<900px)에서도 상단 바 안에 사고대차 | 일반렌트 탭을 바로 노출 ── */
+  @media (max-width:899px){
+    .nav-desktop{display:flex;min-width:0}
+    .header-inner{gap:10px}
+    .site-header > .wrap{padding:0 14px}
+    .header-inner .logo{flex:0 0 auto;white-space:nowrap}
+    .header-actions{flex:0 0 auto;gap:8px}
+    .cat-tabs{flex:0 0 auto}
+    .nav-desktop .cat-tabs a{padding:7px 10px;font-size:13px;letter-spacing:-0.03em}
+    .menu-btn{width:38px;height:38px}
+  }
+  @media (max-width:639px){
+    .logo small{display:none}
+    .header-inner .logo{font-size:17px;gap:7px}
+    .logo-mark{width:26px;height:26px;border-radius:8px}
+    .logo-mark svg{width:15px;height:15px}
+    .cat-tabs{gap:2px;padding:3px}
+    .nav-desktop .cat-tabs a{padding:6px 9px;font-size:12.5px}
+  }
+  @media (max-width:359px){
+    .header-inner{gap:8px}
+    .site-header > .wrap{padding:0 12px}
+    .header-inner .logo{font-size:16px;gap:6px}
+    .logo-mark{width:24px;height:24px}
+    .logo-mark svg{width:14px;height:14px}
+    .nav-desktop .cat-tabs a{padding:5px 7px;font-size:12px}
+    .menu-btn{width:34px;height:34px}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"하하렌트","item":"https://haharent.com/"},{"@type":"ListItem","position":2,"name":"사고대차 가이드","item":"https://haharent.com/guide/fault-ratio/"},{"@type":"ListItem","position":3,"name":"과실비율별 사고대차 가이드","item":"https://haharent.com/guide/fault-ratio/"}]},{"@type":"Article","headline":"과실비율별 사고대차 가이드","description":"무과실 100%부터 쌍방 10~30%, 40~50%, 과실 미정까지. 과실비율에 따라 사고대차 비용을 누가 부담하는지 일반적인 보험 기준으로 정리했습니다. 상담 전에 확인할 항목도 함께 안내합니다.","inLanguage":"ko-KR","datePublished":"2026-11-20","dateModified":"2026-11-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://haharent.com/guide/fault-ratio/"},"author":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/"},"publisher":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/","logo":{"@type":"ImageObject","url":"https://haharent.com/og-image.png"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"과실비율이 아직 안 정해졌는데 대차 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"대차를 먼저 진행하고 나중에 정산하는 방식이 가능한 경우가 있습니다. 다만 보험사 협의가 필요하므로, 상담에서 현재 상황에 맞는 방법을 확인해 드립니다."}},{"@type":"Question","name":"무과실이면 대차 비용을 한 푼도 안 내도 되나요?","acceptedAnswer":{"@type":"Answer","text":"상대 보험의 대차료가 인정되는 범위에서는 부담이 없습니다. 다만 인정 기간을 넘기거나 특약 조건에 따라 본인 부담이 생길 수 있어, 상담에서 예상 범위를 안내드립니다."}},{"@type":"Question","name":"대차료 특약이 없으면 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"상대 과실분은 상대 보험으로 처리할 수 있고, 내 과실분은 본인 부담이 됩니다. 예상 금액을 먼저 안내받고 진행 여부를 정하시면 됩니다."}},{"@type":"Question","name":"자차 보험을 쓰면 보험료가 오르나요?","acceptedAnswer":{"@type":"Answer","text":"사고 내용과 보험사 기준에 따라 다릅니다. 할증 여부와 자기부담금은 보험사에서 확인해야 하는 부분이라, 상담에서 함께 짚어 드립니다."}},{"@type":"Question","name":"상대방이 과실을 인정하지 않으면요?","acceptedAnswer":{"@type":"Answer","text":"보험사 협의나 과실비율 심의 절차를 거치게 됩니다. 그동안 대차를 어떻게 진행할지 보험사와 상의해 정하는 것이 좋습니다."}},{"@type":"Question","name":"대차 기간은 누가 정하나요?","acceptedAnswer":{"@type":"Answer","text":"보통 사고 차량의 수리 기간을 기준으로 보험사가 인정하는 범위에서 정해집니다. 수리 기간이 길어지면 연장 협의가 필요합니다."}}]}]}</script>
 </head>

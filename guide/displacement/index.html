@@ -272,6 +272,35 @@
   .mobile-nav .cat-tabs-mobile a.nav-cat{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 10px;border:0;border-radius:999px;font-size:15.5px;font-weight:800;color:#43566E;background:transparent}
   .mobile-nav .cat-tabs-mobile a.nav-cat.is-active{background:linear-gradient(135deg,var(--blue-600),var(--blue-700));color:#fff}
   .mobile-nav .cat-tabs-mobile a.nav-cat small{display:none}
+
+  /* ── 모바일(<900px)에서도 상단 바 안에 사고대차 | 일반렌트 탭을 바로 노출 ── */
+  @media (max-width:899px){
+    .nav-desktop{display:flex;min-width:0}
+    .header-inner{gap:10px}
+    .site-header > .wrap{padding:0 14px}
+    .header-inner .logo{flex:0 0 auto;white-space:nowrap}
+    .header-actions{flex:0 0 auto;gap:8px}
+    .cat-tabs{flex:0 0 auto}
+    .nav-desktop .cat-tabs a{padding:7px 10px;font-size:13px;letter-spacing:-0.03em}
+    .menu-btn{width:38px;height:38px}
+  }
+  @media (max-width:639px){
+    .logo small{display:none}
+    .header-inner .logo{font-size:17px;gap:7px}
+    .logo-mark{width:26px;height:26px;border-radius:8px}
+    .logo-mark svg{width:15px;height:15px}
+    .cat-tabs{gap:2px;padding:3px}
+    .nav-desktop .cat-tabs a{padding:6px 9px;font-size:12.5px}
+  }
+  @media (max-width:359px){
+    .header-inner{gap:8px}
+    .site-header > .wrap{padding:0 12px}
+    .header-inner .logo{font-size:16px;gap:6px}
+    .logo-mark{width:24px;height:24px}
+    .logo-mark svg{width:14px;height:14px}
+    .nav-desktop .cat-tabs a{padding:5px 7px;font-size:12px}
+    .menu-btn{width:34px;height:34px}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"하하렌트","item":"https://haharent.com/"},{"@type":"ListItem","position":2,"name":"사고대차 가이드","item":"https://haharent.com/guide/displacement/"},{"@type":"ListItem","position":3,"name":"배기량별 사고대차 기준","item":"https://haharent.com/guide/displacement/"}]},{"@type":"Article","headline":"배기량별 사고대차 기준","description":"사고대차는 차종이 아니라 배기량으로 급을 나눕니다. 경차(~1,000cc)부터 소형(~1,600cc), 2.0급(~2,500cc), 3.0~4.0급(~5,000cc), 전기차까지 구간별 대차 기준과 배차 예시를 정리했습니다.","inLanguage":"ko-KR","datePublished":"2026-11-20","dateModified":"2026-11-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://haharent.com/guide/displacement/"},"author":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/"},"publisher":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/","logo":{"@type":"ImageObject","url":"https://haharent.com/og-image.png"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"배기량이 같은데 다른 차를 받게 되나요?","acceptedAnswer":{"@type":"Answer","text":"같은 배기량 구간 안에서도 차량 재고에 따라 배차 차량이 달라질 수 있습니다. 원하시는 차종이 있으면 요청하실 수 있고, 재고가 없을 때는 가장 가까운 차급으로 안내드립니다."}},{"@type":"Question","name":"내 차보다 낮은 급을 받는 경우가 있나요?","acceptedAnswer":{"@type":"Answer","text":"원칙적으로는 없습니다. 같은 급 이상으로 배차하며, 부득이하게 조정이 필요한 경우에는 배차 전에 먼저 말씀드립니다."}},{"@type":"Question","name":"경차인데 SUV로 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"요청하실 수 있습니다. 다만 보험 대차 적용 조건과 재고 상황에 따라 가능 여부가 달라지므로 상담에서 확인해 드립니다."}},{"@type":"Question","name":"수입차를 타고 있는데 국산차로 배차되나요?","acceptedAnswer":{"@type":"Answer","text":"같은 배기량 구간이라면 가능합니다. 수입차를 원하시면 말씀해 주세요. 보유 차량 중에서 우선 확인해 안내드립니다."}},{"@type":"Question","name":"배기량을 모르면 상담이 안 되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 차명과 연식만 알려주시면 저희가 확인해 안내드립니다. 신청서의 배기량 칸은 비워두셔도 됩니다."}},{"@type":"Question","name":"대차 기간은 어떻게 정해지나요?","acceptedAnswer":{"@type":"Answer","text":"보통 사고 차량의 수리 기간을 기준으로 정해집니다. 수리 기간이 길어지면 보험사와 조건을 확인해 연장을 안내드립니다."}}]}]}</script>
 </head>

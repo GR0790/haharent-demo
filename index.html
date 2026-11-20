@@ -830,6 +830,35 @@
   .mobile-nav .cat-tabs-mobile a.nav-cat{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 10px;border:0;border-radius:999px;font-size:15.5px;font-weight:800;color:#43566E;background:transparent}
   .mobile-nav .cat-tabs-mobile a.nav-cat.is-active{background:linear-gradient(135deg,var(--blue-600),var(--blue-700));color:#fff}
   .mobile-nav .cat-tabs-mobile a.nav-cat small{display:none}
+
+  /* ── 모바일(<900px)에서도 상단 바 안에 사고대차 | 일반렌트 탭을 바로 노출 ── */
+  @media (max-width:899px){
+    .nav-desktop{display:flex;min-width:0}
+    .header-inner{gap:10px}
+    .site-header > .wrap{padding:0 14px}
+    .header-inner .logo{flex:0 0 auto;white-space:nowrap}
+    .header-actions{flex:0 0 auto;gap:8px}
+    .cat-tabs{flex:0 0 auto}
+    .nav-desktop .cat-tabs a{padding:7px 10px;font-size:13px;letter-spacing:-0.03em}
+    .menu-btn{width:38px;height:38px}
+  }
+  @media (max-width:639px){
+    .logo small{display:none}
+    .header-inner .logo{font-size:17px;gap:7px}
+    .logo-mark{width:26px;height:26px;border-radius:8px}
+    .logo-mark svg{width:15px;height:15px}
+    .cat-tabs{gap:2px;padding:3px}
+    .nav-desktop .cat-tabs a{padding:6px 9px;font-size:12.5px}
+  }
+  @media (max-width:359px){
+    .header-inner{gap:8px}
+    .site-header > .wrap{padding:0 12px}
+    .header-inner .logo{font-size:16px;gap:6px}
+    .logo-mark{width:24px;height:24px}
+    .logo-mark svg{width:14px;height:14px}
+    .nav-desktop .cat-tabs a{padding:5px 7px;font-size:12px}
+    .menu-btn{width:34px;height:34px}
+  }
 </style>
 <!-- Google Ads gtag (하하렌트) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-WKH4DJZR"></script>

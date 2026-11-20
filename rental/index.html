@@ -736,13 +736,23 @@
         <script>
         /* 모바일 메뉴에서 항목을 고르면 메뉴를 닫고 바로 해당 위치로 이동합니다. */
         (function () {
-          var nav = document.getElementById("mobileNav"), btn = document.getElementById("menuBtn");
-          if (!nav) return;
-          nav.addEventListener("click", function (e) {
+          function closeMenu() {
+            var nav = document.getElementById("mobileNav"), btn = document.getElementById("menuBtn");
+            if (nav) nav.classList.remove("is-open");
+            if (btn) { btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-label", "메뉴 열기"); }
+          }
+          var nav = document.getElementById("mobileNav");
+          if (nav) nav.addEventListener("click", function (e) {
+            var t = e.target, a = t && t.closest ? t.closest("a") : null;
+            if (a) closeMenu();
+          });
+          /* 채널톡 대체 시트에서 견적 폼으로 넘어갈 때는 시트를 닫고 이동합니다. */
+          var sheet = document.getElementById("channelSheet");
+          if (sheet) sheet.addEventListener("click", function (e) {
             var t = e.target, a = t && t.closest ? t.closest("a") : null;
             if (!a) return;
-            nav.classList.remove("is-open");
-            if (btn) { btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-label", "메뉴 열기"); }
+            var close = sheet.querySelector("[data-close-sheet]");
+            if (close) close.click();
           });
         })();
         </script>

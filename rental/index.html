@@ -1092,10 +1092,18 @@
     return /^01[016789]\d{7,8}$/.test(String(v || "").replace(/\D/g, ""));
   }
   phoneInput.addEventListener("input", function () {
-    var pos = phoneInput.selectionStart, before = phoneInput.value.length;
-    phoneInput.value = formatPhone(phoneInput.value);
-    if (before !== phoneInput.value.length && pos !== null) {
-      try { phoneInput.setSelectionRange(phoneInput.value.length, phoneInput.value.length); } catch (e) {}
+    var raw = phoneInput.value;
+    var pos = phoneInput.selectionStart;
+    var digitsBefore = raw.slice(0, pos === null ? raw.length : pos).replace(/\D/g, "").length;
+    var formatted = formatPhone(raw);
+    if (formatted !== raw) {
+      phoneInput.value = formatted;
+      var idx = 0, seen = 0;
+      while (idx < formatted.length && seen < digitsBefore) {
+        if (/\d/.test(formatted.charAt(idx))) seen++;
+        idx++;
+      }
+      try { phoneInput.setSelectionRange(idx, idx); } catch (e) {}
     }
     if (isValidPhone(phoneInput.value)) {
       phoneInput.classList.remove("is-bad");

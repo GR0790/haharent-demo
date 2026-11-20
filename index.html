@@ -264,34 +264,42 @@
   }
   .hero-card h2{font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-top:12px}
   .hero-card .sub{font-size:13.5px;color:var(--body);margin-top:5px}
-  .compare{margin-top:18px;display:grid;gap:0}
-  .compare-row{
-    border:1px solid var(--line);border-radius:var(--r-md);
-    padding:13px 15px;background:#fff;
+
+  /* 히어로 배차 위젯 */
+  .hw-fields{margin-top:16px;display:grid;gap:9px}
+  .hw-field{min-width:0}
+  .hw-label{display:block;font-size:11.5px;font-weight:800;color:var(--muted);letter-spacing:.02em;margin-bottom:5px}
+  .hw-select{
+    width:100%;height:46px;padding:0 38px 0 13px;border-radius:11px;
+    border:1px solid var(--line-strong);background:#fff;
+    font-family:inherit;font-size:14px;font-weight:700;color:var(--ink);
+    appearance:none;-webkit-appearance:none;cursor:pointer;
+    transition:border-color .16s ease, box-shadow .16s ease;
   }
-  .compare-row .label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--muted)}
-  .compare-row .value{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:3px;font-size:16px;font-weight:700;letter-spacing:-0.02em;color:#33465F}
-  .compare-row .value em{
-    font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted);
-    background:#F1F4F9;border-radius:6px;padding:2px 7px;
+  .hw-select:hover{border-color:#B9CCE6}
+  .hw-select:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 4px rgba(44,116,245,.12)}
+  .select-wrap .chev.hw-chev{width:16px;height:16px;right:13px}
+  .hw-result{margin-top:15px;padding-top:14px;border-top:1px dashed var(--line-strong)}
+  .hw-result-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .hw-result-head h3{font-size:12.5px;font-weight:800;letter-spacing:-0.01em;color:var(--navy-800)}
+  .hw-band{
+    font-size:11px;font-weight:800;color:var(--blue-700);
+    background:var(--blue-50);border:1px solid var(--blue-100);
+    border-radius:6px;padding:3px 8px;white-space:nowrap;
   }
-  .compare-row .value .v-line{display:inline-block;line-height:1.42}
-  .compare-row.is-target{
-    background:linear-gradient(180deg,#F4F8FF 0%,#EAF2FF 100%);
-    border-color:#BBD4FF;
-    box-shadow:0 10px 24px -20px rgba(29,95,224,.9);
+  .hw-models{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .hw-model{
+    font-size:12px;font-weight:700;letter-spacing:-0.01em;color:#3A4E68;
+    background:#F5F8FD;border:1px solid #E5EDF8;border-radius:8px;
+    padding:5px 9px;line-height:1.25;
   }
-  .compare-row.is-target .label{color:var(--blue-700)}
-  .compare-row.is-target .value{color:var(--navy-900);font-size:17.5px}
-  .compare-row.is-target .value em{color:#Fff;background:var(--blue-600)}
-  .compare-link{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    height:34px;color:#93A6BF;position:relative;
+  .hw-model.is-own{background:var(--blue-50);border-color:#BFD7FF;color:var(--blue-700)}
+  .hw-note{margin-top:11px;font-size:11px;color:var(--muted);line-height:1.55}
+  .hw-cta{margin-top:12px;width:100%;--btn-h:46px;font-size:14px;border-radius:11px}
+  @media (min-width:420px){
+    .hw-fields{grid-template-columns:1fr 1fr;gap:9px 8px}
+    .hw-field.is-cc{grid-column:1 / -1}
   }
-  .compare-link::before,.compare-link::after{content:"";height:1px;flex:1;background:repeating-linear-gradient(to right,#CBD8E8 0 4px,transparent 4px 8px)}
-  .compare-link span{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--blue-700);background:#fff;padding:0 4px}
-  .compare-link svg{width:14px;height:14px;color:var(--blue-500)}
-  .hero-card .note{margin-top:14px;font-size:12px;color:var(--muted);line-height:1.6}
   @media (min-width:640px){
     .hero-cta{max-width:520px}
     .chan{font-size:13px;height:46px}
@@ -303,7 +311,6 @@
     .hero-sub{font-size:16.5px}
     .hero-card{padding:30px 30px 26px}
     .hero-card h2{font-size:22px}
-    .compare-row{padding:16px 18px}
   }
 
   /* ---------- brand strip ---------- */
@@ -855,7 +862,7 @@
         <span class="eyebrow on-dark"><span class="dot"></span>사고대차 전문 · 하하렌트</span>
         <h1>차량 사고 시,<br><span class="hl">간편하고 쉽게 사고대차</span></h1>
         <p class="hero-sub">
-          사고 차량의 차급을 먼저 확인하고 <strong>동급 또는 동급 이상</strong> 차량을 고객님이 계신 곳으로 배차합니다.
+          사고 차량의 배기량을 먼저 확인하고 <strong>같은 급 이상</strong> 차량을 고객님이 계신 곳으로 배차합니다.
           접수부터 수리 후 인도까지 한 사람이 끝까지 안내합니다.
         </p>
         <div class="hero-cta">
@@ -885,29 +892,49 @@
         </ul>
       </div>
 
-      <div class="hero-card" aria-label="배기량 기준 동급 이상 배차 예시">
+      <div class="hero-card" id="heroWidget" aria-label="배차 예상 가능 차량 확인">
         <span class="badge">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.4 3.2 7.6 7.5 9 4.3-1.4 7.5-4.6 7.5-9V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
-          배차 원칙
+          배차 예상 확인
         </span>
-        <h2>배기량 기준 동급 이상</h2>
-        <p class="sub">사고 차량의 배기량을 확인한 뒤 배차 차량을 정합니다.</p>
+        <h2>타시던 차량을 골라보세요</h2>
+        <p class="sub">브랜드 · 차종 · 배기량을 고르면 배차 예상 차량이 바로 바뀝니다.</p>
 
-        <div class="compare">
-          <div class="compare-row">
-            <span class="label">타시던 차량</span>
-            <div class="value">그랜저 <em>2.0~3.0 급</em></div>
+        <div class="hw-fields">
+          <div class="hw-field">
+            <label class="hw-label" for="hwBrand">타시던 차량 브랜드</label>
+            <div class="select-wrap">
+              <select class="hw-select" id="hwBrand" aria-label="타시던 차량 브랜드"></select>
+              <svg class="chev hw-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
           </div>
-          <div class="compare-link" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-            <span>같은 배기량 또는 상위</span>
+          <div class="hw-field">
+            <label class="hw-label" for="hwModel">차종</label>
+            <div class="select-wrap">
+              <select class="hw-select" id="hwModel" aria-label="타시던 차량 차종"></select>
+              <svg class="chev hw-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
           </div>
-          <div class="compare-row is-target">
-            <span class="label">배차 차량</span>
-            <div class="value"><span class="v-line">E클래스 · 5시리즈<br>S클래스 · 7시리즈</span><em>동급 이상</em></div>
+          <div class="hw-field is-cc">
+            <label class="hw-label" for="hwCc">배기량</label>
+            <div class="select-wrap">
+              <select class="hw-select" id="hwCc" aria-label="타시던 차량 배기량"></select>
+              <svg class="chev hw-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
           </div>
         </div>
-        <p class="note">예시입니다. 실제 배차 차량은 사고 차량의 배기량·차급과 재고 상황을 확인한 뒤 안내드립니다.</p>
+
+        <div class="hw-result">
+          <div class="hw-result-head">
+            <h3>배차 예상 가능 차량</h3>
+            <span class="hw-band" id="hwBand">2.0급 · ~2,500cc</span>
+          </div>
+          <ul class="hw-models" id="hwModels" aria-live="polite"></ul>
+          <p class="hw-note">※ 실제 배차 차량은 보유 재고 및 보험 조건 확인 후 상담으로 안내됩니다.</p>
+        </div>
+        <button class="btn btn-primary hw-cta" type="button" id="hwApply">이 조건으로 상담 신청
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -926,7 +953,7 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow"><span class="dot"></span>하하렌트가 지키는 것</span>
-        <h2>대차에서 가장 중요한 건<br>“내 차보다 낮지 않은 차”입니다</h2>
+        <h2>사고 후 대차,<br>내 차에 맞는 차량으로 편하게</h2>
         <p>사고 직후에는 무엇부터 해야 할지 판단이 어렵습니다. 하하렌트는 배기량 확인부터 보험 절차, 입고와 인도까지 순서대로 안내합니다.</p>
       </div>
 
@@ -936,7 +963,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5 8a3 3 0 0 1 2.8-2h8.4A3 3 0 0 1 19 8l2 5.5"/><path d="M3 13.5h18V18a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H6.5v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5Z"/><path d="M6.5 16h1M16.5 16h1"/></svg>
           </div>
           <h3>배기량 기준 동급 이상</h3>
-          <p>차종보다 배기량을 먼저 봅니다. 사고 차량의 배기량을 확인해 그와 같거나 높은 급으로 배차하며, 예를 들어 2.0급은 그랜저·E클래스·5시리즈, 3.0~4.0급은 S클래스·GLE·카이엔 급이 배차 예시입니다.</p>
+          <p>차종보다 배기량을 먼저 봅니다. 사고 차량의 배기량을 확인해 같은 급 이상에서 배차하며, 예를 들어 2.0급(~2,500cc)은 그랜저·E클래스·5시리즈, 3.0~4.0급(~5,000cc)은 S클래스·GLE·카이엔 급이 배차 예시입니다.</p>
         </article>
         <article class="p-card">
           <div class="icon" aria-hidden="true">
@@ -1093,20 +1120,20 @@
           </span>
           <div>
             <h3>차종보다 배기량이 기준입니다</h3>
-            <p class="cc-lead">업계 기준은 배기량입니다. 내 차의 배기량과 같거나 높은 급으로 배차하며, 같은 배기량이라면 차종이 달라도 동급으로 봅니다.</p>
+            <p class="cc-lead">업계 기준은 배기량입니다. 내 차의 배기량과 같은 급 이상으로 배차하며, 같은 배기량이라면 차종이 달라도 동급으로 봅니다.</p>
           </div>
         </div>
         <ul class="cc-rows">
-          <li class="cc-row"><span class="cc-k">경차 · ~1,000cc</span><span class="cc-v">모닝 · 캐스퍼 급</span></li>
-          <li class="cc-row"><span class="cc-k">소형 · ~1,600cc</span><span class="cc-v">아반떼 · K3 · C클래스 급</span></li>
-          <li class="cc-row"><span class="cc-k">2.0급 · 1,600~2,400cc</span><span class="cc-v">쏘나타 · K5 · 그랜저 · K8 · E클래스 · 5시리즈 급</span></li>
-          <li class="cc-row"><span class="cc-k">3.0~4.0급 · 3,000~4,000cc</span><span class="cc-v">S클래스 · 7시리즈 · GLE · 카이엔 · G90 급</span></li>
-          <li class="cc-row"><span class="cc-k">전기차 · EV</span><span class="cc-v">아이오닉 5 · EV6 · 모델 3 급</span></li>
+          <li class="cc-row"><span class="cc-k">경차 · ~1,000cc</span><span class="cc-v">모닝 · 캐스퍼 · 레이 급</span></li>
+          <li class="cc-row"><span class="cc-k">소형 · ~1,600cc</span><span class="cc-v">아반떼 · K3 · 셀토스 · 코나 · A클래스 급</span></li>
+          <li class="cc-row"><span class="cc-k">2.0급 · ~2,500cc</span><span class="cc-v">쏘나타 · K5 · 그랜저 · K8 · G80 · E클래스 · 5시리즈 급</span></li>
+          <li class="cc-row"><span class="cc-k">3.0~4.0급 · ~5,000cc</span><span class="cc-v">팰리세이드 · 카니발 · G90 · GV80 · S클래스 · GLE · 7시리즈 · X5 · 카이엔 급</span></li>
+          <li class="cc-row"><span class="cc-k">전기차 · EV</span><span class="cc-v">아이오닉 5 · 아이오닉 6 · EV6 · 모델 3 · 모델 Y 급</span></li>
         </ul>
         <p class="cc-caveat">※ 배차 예시이며, 실제 배차 차량과 보험 적용 여부는 차량 배기량과 보험 조건을 확인한 상담 후 안내드립니다.</p>
       </div>
 
-      <p class="fleet-hint">※ 예시 차종과 실제 배차 차량은 재고에 따라 달라질 수 있으며, 어떤 경우에도 차급을 낮춰 안내하지 않습니다.</p>
+      <p class="fleet-hint">※ 예시 차종과 실제 배차 차량은 재고에 따라 달라질 수 있습니다. 사고 차량의 배기량과 보험 조건을 확인한 뒤 가장 잘 맞는 차량으로 안내드립니다.</p>
     </div>
   </section>
 
@@ -1116,7 +1143,7 @@
       <div class="consult-info">
         <span class="eyebrow"><span class="dot"></span>무료 대차 상담</span>
         <h2>사고 경위만 알려주시면<br>나머지는 저희가 확인합니다</h2>
-        <p>브랜드와 차종, 배기량, 과실비율, 연락처만 남겨주세요. 배차는 배기량 기준으로 확인 후 순서대로 연락드립니다.</p>
+        <p>브랜드와 차종, 배기량, 지역, 과실비율, 연락처만 남겨주세요. 배차는 배기량 기준으로 확인 후 순서대로 연락드립니다.</p>
 
         <div class="contact-list">
           <a href="tel:01020040790">
@@ -1231,13 +1258,13 @@
             <div class="chips" id="ccChips" role="group" aria-label="배기량 선택">
               <button class="chip" type="button" data-cc="light" aria-pressed="false">경차 <small>~1,000cc</small></button>
               <button class="chip" type="button" data-cc="compact" aria-pressed="false">소형 <small>~1,600cc</small></button>
-              <button class="chip" type="button" data-cc="midsize" aria-pressed="false">2.0급 <small>1,600~2,400cc</small></button>
-              <button class="chip" type="button" data-cc="luxury" aria-pressed="false">3.0~4.0급 <small>3,000~4,000cc</small></button>
+              <button class="chip" type="button" data-cc="midsize" aria-pressed="false">2.0급 <small>~2,500cc</small></button>
+              <button class="chip" type="button" data-cc="luxury" aria-pressed="false">3.0~4.0급 <small>~5,000cc</small></button>
               <button class="chip" type="button" data-cc="ev" aria-pressed="false">전기차 <small>EV</small></button>
             </div>
             <p class="cc-guide">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 12l3.5-3.5"/><path d="M6.8 15.2h10.4"/></svg>
-              <span>배차는 차종이 아니라 <strong>배기량 기준</strong>입니다. 2.0급은 그랜저·E클래스·5시리즈, 3.0~4.0급은 S클래스·GLE·카이엔 급이 예시입니다.</span>
+              <span>배차는 차종이 아니라 <strong>배기량 기준</strong>입니다. 2.0급(~2,500cc)은 그랜저·E클래스·5시리즈, 3.0~4.0급(~5,000cc)은 S클래스·GLE·카이엔 급이 예시입니다.</span>
             </p>
             <p class="field-note is-hidden" id="ccNote">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
@@ -1246,6 +1273,28 @@
             <p class="err is-hidden" id="errCc" role="alert">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
               배기량을 선택해 주세요.
+            </p>
+          </div>
+
+          <!-- 지역 -->
+          <div class="field" id="fieldRegion">
+            <div class="field-head">
+              <span class="field-label">지역 <span class="req">*</span></span>
+              <span class="field-hint">배차 받으실 지역</span>
+            </div>
+            <div class="chips" id="regionChips" role="group" aria-label="지역 선택">
+              <button class="chip" type="button" data-region="서울" aria-pressed="false">서울</button>
+              <button class="chip" type="button" data-region="경기" aria-pressed="false">경기</button>
+              <button class="chip" type="button" data-region="인천" aria-pressed="false">인천</button>
+              <button class="chip" type="button" data-region="충청·대전·세종" aria-pressed="false">충청·대전·세종</button>
+              <button class="chip" type="button" data-region="강원" aria-pressed="false">강원</button>
+              <button class="chip" type="button" data-region="전라·광주" aria-pressed="false">전라·광주</button>
+              <button class="chip" type="button" data-region="경상·부산·대구" aria-pressed="false">경상·부산·대구</button>
+              <button class="chip" type="button" data-region="제주" aria-pressed="false">제주</button>
+            </div>
+            <p class="err is-hidden" id="errRegion" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              지역을 선택해 주세요.
             </p>
           </div>
 
@@ -1328,7 +1377,7 @@
           <summary><span class="q">Q</span>희망하는 차종으로 받을 수 있나요?
             <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
-          <div class="a">동급 이상 원칙 안에서 희망 차종을 요청하실 수 있습니다. 배기량 기준으로 같은 급 이상에서 안내드리고, 재고 상황에 따라 가장 가까운 차급으로 안내드리며 차급을 낮춰 안내하는 일은 없습니다.</div>
+          <div class="a">희망 차종을 요청하실 수 있습니다. 배기량 기준으로 같은 급 이상에서 안내드리고, 재고 상황에 따라 가장 가까운 차급으로 안내드립니다.</div>
         </details>
         <details class="faq-item">
           <summary><span class="q">Q</span>수리 기간이 길어지면 대차도 연장되나요?
@@ -1531,11 +1580,20 @@
 
   /* ---------------- 데이터 ---------------- */
   var CC = {
-    light:   { label: "경차",       detail: "~1,000cc",      peer: "모닝 · 캐스퍼 급" },
-    compact: { label: "소형",       detail: "~1,600cc",      peer: "아반떼 · K3 급" },
-    midsize: { label: "2.0급",      detail: "1,600~2,400cc", peer: "쏘나타 · K5 · 그랜저 · E클래스 · 5시리즈 급" },
-    luxury:  { label: "3.0~4.0급",  detail: "3,000~4,000cc", peer: "S클래스 · 7시리즈 · GLE · 카이엔 · G90 급" },
-    ev:      { label: "전기차",     detail: "EV",            peer: "아이오닉 5 · EV6 · 모델 3 등" }
+    light:   { label: "경차",       detail: "~1,000cc", peer: "모닝 · 캐스퍼 · 레이 급" },
+    compact: { label: "소형",       detail: "~1,600cc", peer: "아반떼 · K3 · 셀토스 · 코나 급" },
+    midsize: { label: "2.0급",      detail: "~2,500cc", peer: "쏘나타 · K5 · 그랜저 · K8 · E클래스 · 5시리즈 급" },
+    luxury:  { label: "3.0~4.0급",  detail: "~5,000cc", peer: "팰리세이드 · 카니발 · S클래스 · 7시리즈 · GLE · 카이엔 · G90 급" },
+    ev:      { label: "전기차",     detail: "EV",       peer: "아이오닉 5 · 아이오닉 6 · EV6 · 모델 3 급" }
+  };
+
+  /* 배기량 급별 배차 예상 차종 */
+  var DISPATCH = {
+    light:   ["모닝", "캐스퍼", "레이"],
+    compact: ["아반떼", "K3", "셀토스", "코나", "미니", "벤츠 A클래스", "벤츠 CLA"],
+    midsize: ["쏘나타", "K5", "그랜저", "K8", "제네시스 G80", "벤츠 E클래스", "BMW 5시리즈", "아우디 A6"],
+    luxury:  ["팰리세이드", "카니발", "제네시스 G90", "제네시스 GV80", "벤츠 S클래스", "벤츠 GLE", "BMW 7시리즈", "BMW X5", "포르쉐 카이엔"],
+    ev:      ["아이오닉 5", "아이오닉 6", "EV6", "테슬라 모델 3", "테슬라 모델 Y"]
   };
 
   var FAULT = {
@@ -1547,11 +1605,13 @@
 
   var BRANDS = {
     hyundai: { name: "현대", models: [
-      ["아반떼", "compact"], ["쏘나타", "midsize"], ["그랜저", "midsize"],
+      ["캐스퍼", "light"], ["아반떼", "compact"], ["셀토스", "compact"], ["코나", "compact"],
+      ["쏘나타", "midsize"], ["그랜저", "midsize"],
       ["투싼", "midsize"], ["싼타페", "midsize"], ["팰리세이드", "luxury"],
       ["아이오닉 5", "ev"], ["아이오닉 6", "ev"]
     ]},
     kia: { name: "기아", models: [
+      ["모닝", "light"], ["레이", "light"], ["K3", "compact"], ["셀토스", "compact"],
       ["K5", "midsize"], ["K8", "midsize"], ["스포티지", "midsize"],
       ["쏘렌토", "midsize"], ["카니발", "luxury"], ["EV6", "ev"], ["EV9", "ev"]
     ]},
@@ -1564,7 +1624,7 @@
       ["X3", "midsize"], ["X5", "luxury"], ["X7", "luxury"]
     ]},
     benz: { name: "벤츠", models: [
-      ["C클래스", "midsize"], ["E클래스", "midsize"], ["S클래스", "luxury"],
+      ["A클래스", "compact"], ["CLA", "compact"], ["C클래스", "midsize"], ["E클래스", "midsize"], ["S클래스", "luxury"],
       ["GLC", "midsize"], ["GLE", "luxury"]
     ]},
     audi: { name: "아우디", models: [
@@ -1587,6 +1647,7 @@
     modelIsCustom: false,
     cc: null,
     ccAuto: false,
+    region: null,
     fault: null
   };
 
@@ -1598,6 +1659,7 @@
   var modelSelect = $("modelSelect");
   var modelCustom = $("modelCustom");
   var ccChips = Array.prototype.slice.call(document.querySelectorAll("#ccChips .chip"));
+  var regionChips = Array.prototype.slice.call(document.querySelectorAll("#regionChips .chip"));
   var ccNote = $("ccNote");
   var ccNoteText = $("ccNoteText");
   var ccHint = $("ccHint");
@@ -1616,6 +1678,7 @@
     brand: $("errBrand"),
     model: $("errModel"),
     cc: $("errCc"),
+    region: $("errRegion"),
     fault: $("errFault"),
     phone: $("errPhone")
   };
@@ -1623,6 +1686,7 @@
     brand: $("fieldBrand"),
     model: $("fieldModel"),
     cc: $("fieldCc"),
+    region: $("fieldRegion"),
     fault: $("fieldFault"),
     phone: $("fieldPhone")
   };
@@ -1719,7 +1783,7 @@
   });
 
   /* ---------------- 차종 ---------------- */
-  modelSelect.addEventListener("change", function () {
+  function applyModelValue() {
     var v = modelSelect.value;
     state.modelIsCustom = false;
     state.modelCustom = "";
@@ -1764,7 +1828,8 @@
       show(ccNote, true);
       clearError("cc");
     }
-  });
+  }
+  modelSelect.addEventListener("change", applyModelValue);
 
   modelCustom.addEventListener("input", function () {
     state.modelCustom = modelCustom.value.trim();
@@ -1790,6 +1855,21 @@
       ccHint.classList.remove("is-auto");
       ccNoteText.textContent = "선택한 배기량(" + CC[key].label + ") 기준으로 상담을 진행합니다. 이 급의 배차 예시는 " + CC[key].peer + "입니다.";
       show(ccNote, true);
+    });
+  });
+
+  /* ---------------- 지역 ---------------- */
+  function renderRegion() {
+    regionChips.forEach(function (chip) {
+      chip.setAttribute("aria-pressed", chip.getAttribute("data-region") === state.region ? "true" : "false");
+    });
+  }
+
+  regionChips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      state.region = chip.getAttribute("data-region");
+      renderRegion();
+      clearError("region");
     });
   });
 
@@ -1874,6 +1954,9 @@
     if (!state.fault) return "";
     return FAULT[state.fault].main + " (" + FAULT[state.fault].sub + ")";
   }
+  function regionText() {
+    return state.region || "";
+  }
   function summaryText() {
     return [
       "[하하렌트 사고대차 상담 신청]",
@@ -1881,6 +1964,7 @@
       "· 브랜드 : " + brandText(),
       "· 차종 : " + modelText(),
       "· 배기량 : " + ccText(),
+      "· 지역 : " + regionText(),
       "· 사고 과실 : " + faultText(),
       "· 연락처 : " + phoneInput.value,
       "",
@@ -1893,6 +1977,7 @@
       ["브랜드", brandText()],
       ["차종", modelText()],
       ["배기량", ccText()],
+      ["지역", regionText()],
       ["사고 과실", faultText()],
       ["연락처", phoneInput.value]
     ];
@@ -1930,6 +2015,10 @@
     if (!state.cc) {
       showError("cc", null);
       firstBad = firstBad || FIELDS.cc;
+    }
+    if (!state.region) {
+      showError("region", null);
+      firstBad = firstBad || FIELDS.region;
     }
     if (!state.fault) {
       showError("fault", null);
@@ -2133,8 +2222,135 @@
     });
   });
 
+  /* ---------------- 히어로 배차 위젯 ---------------- */
+  var hwBrand = $("hwBrand"), hwModel = $("hwModel"), hwCc = $("hwCc");
+  var hwModelsEl = $("hwModels"), hwBand = $("hwBand"), hwApply = $("hwApply");
+  var HW = { brand: "hyundai", model: "그랜저", cc: "midsize" };
+  var HW_BRANDS = ["hyundai", "kia", "genesis", "bmw", "benz", "audi", "tesla"];
+
+  function hwModelBand(name) {
+    var b = BRANDS[HW.brand];
+    if (!b || !b.models) return null;
+    for (var i = 0; i < b.models.length; i++) {
+      if (b.models[i][0] === name) return b.models[i][1];
+    }
+    return null;
+  }
+
+  function hwFillBrands() {
+    hwBrand.innerHTML = "";
+    HW_BRANDS.forEach(function (k) {
+      var o = document.createElement("option");
+      o.value = k;
+      o.textContent = BRANDS[k].name;
+      hwBrand.appendChild(o);
+    });
+    hwBrand.value = HW.brand;
+  }
+
+  function hwFillModels() {
+    hwModel.innerHTML = "";
+    var b = BRANDS[HW.brand];
+    (b && b.models ? b.models : []).forEach(function (m) {
+      var o = document.createElement("option");
+      o.value = m[0];
+      o.textContent = m[0];
+      hwModel.appendChild(o);
+    });
+    hwModel.value = HW.model;
+  }
+
+  function hwFillCc() {
+    hwCc.innerHTML = "";
+    Object.keys(CC).forEach(function (k) {
+      var o = document.createElement("option");
+      o.value = k;
+      o.textContent = CC[k].label + " (" + CC[k].detail + ")";
+      hwCc.appendChild(o);
+    });
+    hwCc.value = HW.cc;
+  }
+
+  function hwRender() {
+    var list = DISPATCH[HW.cc] || [];
+    hwModelsEl.innerHTML = "";
+    list.forEach(function (name) {
+      var li = document.createElement("li");
+      li.className = "hw-model";
+      if (name === HW.model) li.classList.add("is-own");
+      li.textContent = name;
+      hwModelsEl.appendChild(li);
+    });
+    hwBand.textContent = CC[HW.cc].label + " · " + CC[HW.cc].detail;
+  }
+
+  hwBrand.addEventListener("change", function () {
+    HW.brand = hwBrand.value;
+    hwFillModels();
+    /* 같은 배기량 급의 차종으로 유지, 없을 때만 차종의 급으로 이동 */
+    var b = BRANDS[HW.brand];
+    var same = null;
+    if (b && b.models) {
+      for (var i = 0; i < b.models.length; i++) {
+        if (b.models[i][1] === HW.cc) { same = b.models[i]; break; }
+      }
+    }
+    if (same) {
+      HW.model = same[0];
+    } else if (b && b.models && b.models.length) {
+      HW.model = b.models[0][0];
+      HW.cc = b.models[0][1];
+    }
+    hwModel.value = HW.model;
+    hwCc.value = HW.cc;
+    hwRender();
+  });
+
+  hwModel.addEventListener("change", function () {
+    HW.model = hwModel.value;
+    var band = hwModelBand(HW.model);
+    if (band) {
+      HW.cc = band;
+      hwCc.value = band;
+    }
+    hwRender();
+  });
+
+  hwCc.addEventListener("change", function () {
+    HW.cc = hwCc.value;
+    hwRender();
+  });
+
+  hwApply.addEventListener("click", function () {
+    selectBrand(HW.brand);
+    if (HW.model) {
+      modelSelect.value = HW.model;
+      applyModelValue();
+    }
+    if (state.cc !== HW.cc) {
+      state.cc = HW.cc;
+      state.ccAuto = false;
+      renderCc();
+      ccHint.textContent = "타시던 차량 기준";
+      ccHint.classList.add("is-auto");
+      show(ccNote, false);
+    }
+    clearError("cc");
+    var t = $("consult");
+    if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.history && history.replaceState) {
+      try { history.replaceState(null, "", "#consult"); } catch (e) {}
+    }
+    showToast("선택한 차량 조건을 신청서에 반영했어요.");
+  });
+
   /* ---------------- 초기화 ---------------- */
   renderCc();
+  renderRegion();
+  hwFillBrands();
+  hwFillModels();
+  hwFillCc();
+  hwRender();
   renderModelPlaceholder();
   function renderModelPlaceholder() {
     modelSelect.innerHTML = "";
@@ -2149,7 +2365,9 @@
     getState: function () { return JSON.parse(JSON.stringify(state)); },
     summaryText: summaryText,
     selectBrand: selectBrand,
-    isValidPhone: isValidPhone
+    isValidPhone: isValidPhone,
+    getHero: function () { return JSON.parse(JSON.stringify(HW)); },
+    dispatch: DISPATCH
   };
 })();
 </script>

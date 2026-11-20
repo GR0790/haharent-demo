@@ -27,6 +27,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232C74F5'/%3E%3Cstop offset='.75' stop-color='%231449B8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cg transform='translate(4,4)' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.6'/%3E%3Ccircle cx='12' cy='12' r='2.9'/%3E%3Cpath d='M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/haharent-consult.css?v=1">
 <style>
   :root{
     color-scheme:light only;
@@ -896,6 +897,8 @@
     phone: "01020040790",
     phoneDisplay: "010-2004-0790"
   };
+  /* 플로팅 "상담하기" 버튼 → 사고대차 상담 양식 모달 (공통 스크립트가 그립니다) */
+  window.HAHA_CONSULT = { variant: "accident", phone: "01020040790", phoneDisplay: "010-2004-0790" };
 </script>
 <script>
   /* ChannelIO 부트스트랩: pluginKey가 있을 때만 SDK를 불러오고 boot 합니다. */
@@ -1460,6 +1463,29 @@
             </p>
           </div>
 
+          <!-- 개인정보 수집·이용 동의 -->
+          <div class="hr-consent" id="fieldConsent">
+            <label class="hr-consent-row" for="consent">
+              <input type="checkbox" id="consent" name="consent" value="y">
+              <span class="hr-consent-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span class="hr-consent-text"><b>[필수]</b> 개인정보 수집 및 이용 동의</span>
+            </label>
+            <button class="hr-consent-view" type="button" data-consent-view aria-expanded="false" aria-controls="consentDetail">
+              <span class="hr-consent-view-t">자세히 보기</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="hr-consent-detail is-hidden" id="consentDetail">
+              <p><strong>수집항목</strong> 연락처, 차량·상담 정보</p>
+              <p><strong>이용 목적</strong> 사고대차 상담 및 배차 안내</p>
+              <p><strong>보유기간</strong> 상담 종료 후 지체 없이 파기</p>
+              <p>동의를 거부하실 수 있으나, 거부 시 상담 신청이 제한됩니다.</p>
+            </div>
+            <p class="hr-consent-err is-hidden" id="errConsent" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              개인정보 수집 및 이용에 동의해 주세요.
+            </p>
+          </div>
+
           <div class="submit-area">
             <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">
               무료 대차 상담 신청
@@ -1580,10 +1606,10 @@
   </div>
 </footer>
 
-<!-- floating channel talk -->
-<button class="fab" type="button" id="fabChannel" aria-label="채널톡 상담 열기" data-open-channel>
+<!-- floating consult -->
+<button class="fab hr-fab" type="button" id="fabChannel" aria-label="상담하기 · 사고대차 상담 양식 열기" data-open-consult>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8.5 10.5h7M8.5 13.5h4"/></svg>
-  채널톡 상담
+  상담하기
   <span class="fab-dot" aria-hidden="true"></span>
 </button>
 
@@ -1788,6 +1814,7 @@
   var ccNoteText = $("ccNoteText");
   var ccHint = $("ccHint");
   var phoneInput = $("phone");
+  var consentInput = $("consent");
   var summaryModal = $("summaryModal");
   var modalOverlay = $("modalOverlay");
   var channelSheet = $("channelSheet");
@@ -1804,7 +1831,8 @@
     cc: $("errCc"),
     region: $("errRegion"),
     fault: $("errFault"),
-    phone: $("errPhone")
+    phone: $("errPhone"),
+    consent: $("errConsent")
   };
   var FIELDS = {
     brand: $("fieldBrand"),
@@ -1812,7 +1840,8 @@
     cc: $("fieldCc"),
     region: $("fieldRegion"),
     fault: $("fieldFault"),
-    phone: $("fieldPhone")
+    phone: $("fieldPhone"),
+    consent: $("fieldConsent")
   };
 
   function show(el, on) { if (el) el.classList.toggle("is-hidden", !on); }
@@ -2048,6 +2077,13 @@
     }
   });
 
+  /* 개인정보 수집·이용 동의: 체크하면 오류 표시를 지웁니다. */
+  if (consentInput) {
+    consentInput.addEventListener("change", function () {
+      if (consentInput.checked) clearError("consent");
+    });
+  }
+
   /* ---------------- 에러 처리 ---------------- */
   function showError(key, msg) {
     var el = ERRORS[key];
@@ -2165,6 +2201,10 @@
       showError("phone", "휴대폰 번호를 정확히 입력해 주세요. (예: 010-1234-5678)");
       phoneInput.classList.add("error");
       firstBad = firstBad || FIELDS.phone;
+    }
+    if (!consentInput.checked) {
+      showError("consent", null);
+      firstBad = firstBad || FIELDS.consent;
     }
 
     if (firstBad) {
@@ -2678,5 +2718,6 @@
   };
 })();
 </script>
+<script src="/assets/haharent-consult.js?v=1" defer></script>
 </body>
 </html>

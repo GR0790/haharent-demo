@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08182E">
+<title>배기량별 사고대차 기준 | 경차·소형·2.0·3.0급·전기차 | 하하렌트</title>
+<meta name="description" content="사고대차는 차종이 아니라 배기량으로 급을 나눕니다. 경차(~1,000cc)부터 소형(~1,600cc), 2.0급(~2,500cc), 3.0~4.0급(~5,000cc), 전기차까지 구간별 대차 기준과 배차 예시를 정리했습니다.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://haharent.com/guide/displacement/">
+<meta property="og:title" content="배기량별 사고대차 기준 | 하하렌트">
+<meta property="og:description" content="사고대차는 차종이 아니라 배기량으로 급을 나눕니다. 경차(~1,000cc)부터 소형(~1,600cc), 2.0급(~2,500cc), 3.0~4.0급(~5,000cc), 전기차까지 구간별 대차 기준과 배차 예시를 정리했습니다.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://haharent.com/guide/displacement/">
+<meta property="og:image" content="https://haharent.com/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="하하렌트 사고대차 대표 이미지">
+<meta property="og:site_name" content="하하렌트">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://haharent.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232C74F5'/%3E%3Cstop offset='.75' stop-color='%231449B8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cg transform='translate(4,4)' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.6'/%3E%3Ccircle cx='12' cy='12' r='2.9'/%3E%3Cpath d='M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --navy-900:#08182E;--navy-800:#0C2340;--navy-700:#123055;
+    --blue-700:#1449B8;--blue-600:#1D5FE0;--blue-500:#2C74F5;
+    --blue-100:#D8E6FF;--blue-50:#EEF4FF;
+    --ink:#0C1A2B;--body:#4A5A70;--muted:#7D8CA1;
+    --line:#E3E9F2;--line-strong:#CFDAEA;--soft:#F5F8FD;--white:#FFFFFF;
+    --ok:#0B8457;--warn:#B4690E;--err:#D93A3A;
+    --r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:26px;
+    --shadow-card:0 24px 60px -34px rgba(9,30,60,.42),0 2px 6px rgba(9,30,60,.04);
+    --shadow-soft:0 12px 32px -20px rgba(9,30,60,.35);
+    --header-h:60px;--maxw:1200px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    color:var(--ink);background:var(--white);font-size:16px;line-height:1.72;letter-spacing:-0.01em;
+    -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden;
+  }
+  h1,h2,h3,h4,p,ul,ol,figure,table{margin:0}
+  ul,ol{padding:0;list-style:none}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  svg{display:block;max-width:100%}
+  strong{font-weight:700}
+  :focus-visible{outline:2px solid var(--blue-500);outline-offset:3px;border-radius:6px}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  @media (min-width:900px){ .wrap{padding:0 40px} }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* ---------- header ---------- */
+  .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(10px)}
+  .header-inner{display:flex;align-items:center;gap:14px;height:var(--header-h)}
+  .logo{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:800;letter-spacing:-0.035em;white-space:nowrap}
+  .logo-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(140deg,#2C74F5,#1449B8);box-shadow:0 6px 14px -8px rgba(20,73,184,.9)}
+  .logo-mark svg{width:18px;height:18px}
+  .logo small{font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--muted);margin-left:2px}
+  .nav-desktop{display:none;margin-left:auto;gap:4px;align-items:center}
+  .nav-desktop a{font-size:14px;font-weight:600;color:#3B4C63;padding:9px 11px;border-radius:9px}
+  .nav-desktop a:hover{background:var(--blue-50);color:var(--blue-700)}
+  .nav-desktop a.is-active{color:var(--blue-700);font-weight:800}
+  .header-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+  .header-tel{display:none;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--navy-800)}
+  .header-tel svg{width:16px;height:16px;color:var(--blue-600)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-size:14.5px;font-weight:700;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s ease,box-shadow .2s ease,background .2s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-lg{height:54px;padding:0 24px;font-size:15.5px;border-radius:14px}
+  .btn-block{width:100%}
+  .btn-primary{background:linear-gradient(180deg,#2C74F5,#1D5FE0);color:#fff;box-shadow:0 12px 24px -16px rgba(29,95,224,.95)}
+  .btn-primary:hover{background:linear-gradient(180deg,#2C74F5,#1449B8)}
+  .btn-outline{background:#fff;border-color:var(--line-strong);color:var(--navy-800)}
+  .btn-soft{background:var(--blue-50);color:var(--blue-700);border-color:var(--blue-100)}
+  .header-cta{display:none;height:40px;font-size:13.5px;padding:0 16px}
+  .menu-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line-strong);background:#fff;display:grid;place-items:center;gap:4px;padding:11px 9px;cursor:pointer}
+  .menu-btn span{display:block;width:100%;height:2px;border-radius:2px;background:var(--navy-800);transition:transform .2s ease,opacity .2s ease}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .mobile-nav{display:none;flex-direction:column;gap:2px;padding:10px 20px 18px;border-top:1px solid var(--line);background:#fff}
+  .mobile-nav.is-open{display:flex}
+  .mobile-nav a{display:flex;align-items:center;justify-content:space-between;padding:12px 4px;font-size:15px;font-weight:600;border-bottom:1px solid #F0F4FA}
+  .mobile-nav a svg{width:15px;height:15px;color:#9FB0C6}
+  .mobile-nav .btn{margin-top:12px}
+  @media (min-width:900px){
+    .nav-desktop{display:flex}
+    .header-tel{display:inline-flex}
+    .header-cta{display:inline-flex}
+    .menu-btn{display:none}
+    .mobile-nav{display:none !important}
+  }
+
+  /* ---------- breadcrumb ---------- */
+  .crumb{padding:16px 0 0;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .crumb a{color:#6B7F99;font-weight:600}
+  .crumb a:hover{color:var(--blue-700)}
+  .crumb .sep{color:#C3CFDF}
+  .crumb [aria-current]{color:var(--navy-800);font-weight:700}
+
+  /* ---------- hero ---------- */
+  .g-hero{position:relative;overflow:hidden;background:
+      radial-gradient(900px 420px at 88% -10%,rgba(44,116,245,.34),transparent 62%),
+      radial-gradient(600px 300px at 6% 108%,rgba(29,95,224,.22),transparent 66%),
+      linear-gradient(160deg,#08182E 0%,#0C2340 58%,#123055 100%);
+    color:#fff;padding:30px 0 34px;margin-top:14px}
+  .g-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(600px 300px at 70% 20%,#000,transparent 78%);pointer-events:none}
+  .g-hero .wrap{position:relative;z-index:1;max-width:960px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#CFE0FF;background:rgba(120,170,255,.14);border:1px solid rgba(150,190,255,.28);padding:7px 13px;border-radius:999px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#6FA8FF;box-shadow:0 0 0 4px rgba(111,168,255,.16)}
+  .g-hero h1{margin-top:16px;font-size:clamp(1.62rem,5.4vw,2.5rem);line-height:1.28;letter-spacing:-0.04em;font-weight:800}
+  .g-hero .lead{margin-top:14px;color:#C6D7EE;font-size:15px;line-height:1.75;max-width:700px}
+  .g-meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12px;color:#8FADC9;font-weight:600}
+  .g-meta b{color:#BDD2EA;font-weight:700}
+  @media (min-width:900px){ .g-hero{padding:52px 0 58px;margin-top:18px} .g-hero .lead{font-size:16.5px} }
+
+  /* ---------- layout ---------- */
+  .g-body{padding:34px 0 8px}
+  .g-layout{display:grid;gap:30px;grid-template-columns:1fr}
+  @media (min-width:1000px){
+    .g-layout{grid-template-columns:minmax(0,1fr) 244px;gap:48px;align-items:start}
+    .toc{position:sticky;top:calc(var(--header-h) + 20px)}
+  }
+  .toc{display:none;background:var(--soft);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 16px 14px}
+  .toc h2{font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .toc ol{margin-top:10px;display:grid;gap:2px;counter-reset:toc}
+  .toc a{display:block;font-size:13px;line-height:1.5;font-weight:600;color:#41566F;padding:6px 8px;border-radius:7px}
+  .toc a:hover{background:#fff;color:var(--blue-700)}
+  .toc .toc-cta{margin-top:12px;display:block;text-align:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(180deg,#2C74F5,#1D5FE0);padding:11px 10px;border-radius:10px}
+  @media (min-width:1000px){ .toc{display:block} }
+
+  /* ---------- prose ---------- */
+  .prose{min-width:0}
+  .prose p{color:var(--body);font-size:15.3px;line-height:1.8}
+  .prose p + p{margin-top:12px}
+  .prose h2{margin:44px 0 0;font-size:clamp(1.22rem,3.6vw,1.55rem);line-height:1.36;letter-spacing:-0.035em;font-weight:800;color:var(--navy-900);scroll-margin-top:calc(var(--header-h) + 18px)}
+  .prose h2:first-child{margin-top:0}
+  .prose h2::before{content:"";display:block;width:28px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--blue-500),var(--blue-700));margin-bottom:12px}
+  .prose h3{margin:26px 0 0;font-size:16px;font-weight:800;letter-spacing:-0.02em;color:var(--navy-800);scroll-margin-top:calc(var(--header-h) + 18px)}
+  .prose h2 + p,.prose h2 + .tbl,.prose h2 + ul,.prose h2 + ol,.prose h2 + .note,.prose h2 + .steps,.prose h3 + p{margin-top:14px}
+  .prose ul,.prose ol{margin-top:14px;display:grid;gap:9px}
+  .prose ul li{position:relative;padding-left:17px;color:var(--body);font-size:15px;line-height:1.76}
+  .prose ul li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:2px;background:var(--blue-500);transform:rotate(45deg)}
+  .prose ul li strong,.prose ol li strong{color:var(--navy-800)}
+  .prose ol.steps{counter-reset:step;gap:12px}
+  .prose ol.steps > li{counter-increment:step;position:relative;padding:14px 16px 14px 52px;background:var(--soft);border:1px solid var(--line);border-radius:var(--r-md);font-size:14.6px;line-height:1.72;color:var(--body)}
+  .prose ol.steps > li::before{content:counter(step);position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(150deg,#2C74F5,#1449B8);color:#fff;font-size:12.5px;font-weight:800}
+  .prose ol.steps > li b{display:block;color:var(--navy-900);font-weight:800;font-size:15px;margin-bottom:3px}
+
+  .tbl{margin-top:16px;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);-webkit-overflow-scrolling:touch}
+  .tbl table{border-collapse:collapse;width:100%;min-width:520px;font-size:13.6px}
+  .tbl caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .tbl th,.tbl td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.62}
+  .tbl thead th{background:var(--blue-50);color:var(--navy-800);font-weight:800;font-size:12.6px;letter-spacing:-0.01em;white-space:nowrap}
+  .tbl tbody tr:last-child td{border-bottom:0}
+  .tbl tbody tr:nth-child(even){background:#FBFDFF}
+  .tbl td:first-child{font-weight:800;color:var(--navy-800);white-space:nowrap}
+  .tbl .cc{color:var(--blue-700);font-weight:800;white-space:nowrap}
+
+  .note,.warn,.okbox{margin-top:16px;border-radius:var(--r-md);padding:14px 16px;font-size:14.2px;line-height:1.74;color:#3E4F66;background:var(--blue-50);border:1px solid #D9E6FB}
+  .note strong,.warn strong,.okbox strong{color:var(--navy-800)}
+  .warn{background:#FFF8EC;border-color:#F3E1C2;color:#6B5327}
+  .warn strong{color:#7A4E10}
+  .okbox{background:#F1FAF5;border-color:#CFEBD9;color:#2C5C43}
+  .okbox strong{color:#14603B}
+
+  .mini-list{margin-top:14px;display:grid;gap:10px}
+  .mini-list div{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:13px 15px;font-size:14.2px;line-height:1.7;color:var(--body)}
+  .mini-list b{display:block;color:var(--navy-800);font-weight:800;font-size:14.5px;margin-bottom:2px}
+
+  /* ---------- related ---------- */
+  .related{padding:34px 0 0}
+  .related h2{font-size:14px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+  .rel-grid{margin-top:14px;display:grid;gap:10px}
+  .rel-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:16px;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+  .rel-card:hover{border-color:#C6D9F4;box-shadow:var(--shadow-soft);transform:translateY(-1px)}
+  .rel-card .rc-k{font-size:11px;font-weight:800;color:var(--blue-600);letter-spacing:.04em}
+  .rel-card .rc-t{display:block;margin-top:5px;font-size:15px;font-weight:800;color:var(--navy-900);letter-spacing:-0.02em}
+  .rel-card .rc-d{display:block;margin-top:5px;font-size:13px;color:var(--muted);line-height:1.6}
+  @media (min-width:760px){ .rel-grid{grid-template-columns:repeat(3,1fr)} }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{margin-top:16px;display:grid;gap:9px}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+  .faq-item[open]{border-color:#C6D9F4;box-shadow:0 16px 34px -30px rgba(9,30,60,.6)}
+  .faq-item summary{display:flex;align-items:center;gap:9px;padding:15px 16px;cursor:pointer;list-style:none;font-size:14.6px;font-weight:700;color:var(--navy-900);letter-spacing:-0.02em}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary .q{font-size:11.5px;font-weight:800;color:var(--blue-600);flex:none}
+  .faq-item summary .caret{margin-left:auto;flex:none;width:16px;height:16px;color:#90A3BA;transition:transform .2s ease}
+  .faq-item[open] summary .caret{transform:rotate(180deg)}
+  .faq-item .a{padding:0 16px 15px;font-size:14.2px;line-height:1.78;color:var(--body)}
+  .faq-item .a strong{color:var(--navy-800)}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{position:relative;overflow:hidden;margin-top:46px;background:var(--navy-900);color:#fff;padding:44px 0}
+  .cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 260px at 78% 0%,rgba(44,116,245,.42),transparent 68%)}
+  .cta-band .wrap{position:relative;z-index:1;text-align:center;max-width:760px}
+  .cta-band h2{font-size:clamp(1.3rem,4.4vw,1.9rem);line-height:1.36;letter-spacing:-0.035em;font-weight:800}
+  .cta-band p{margin-top:11px;color:#B9CBE4;font-size:14px;line-height:1.7}
+  .cta-actions{margin-top:22px;display:flex;flex-direction:column;gap:9px;max-width:420px;margin-left:auto;margin-right:auto}
+  .chan-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .chan{display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:1;min-width:0;height:44px;padding:0 14px;border-radius:11px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:#E4EEFB;cursor:pointer}
+  .chan:hover{background:rgba(255,255,255,.15)}
+  .chan svg{width:16px;height:16px;flex:none}
+  @media (min-width:640px){ .cta-actions{flex-direction:row;justify-content:center;max-width:none} .cta-actions > .btn{flex:none} }
+
+  /* ---------- footer ---------- */
+  .site-footer{background:#061424;color:#8296AE;padding:34px 0 28px;font-size:12.5px;margin-top:0}
+  .footer-top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .footer-brand{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:17px;letter-spacing:-0.03em}
+  .footer-brand .logo-mark{box-shadow:none}
+  .footer-brand small{font-size:9.5px;color:#68809B;letter-spacing:.14em;font-weight:700}
+  .footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;font-weight:600}
+  .footer-links a:hover{color:#D9E6F7}
+  .footer-info{margin-top:18px;display:grid;gap:6px;line-height:1.75}
+  .footer-info strong{color:#A9BEDC;font-weight:700}
+  .footer-info a{color:#A9BEDC}
+  .footer-bottom{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;color:#54708F;font-size:11.5px}
+
+  /* ---------- floating / sheet ---------- */
+  .fab{position:fixed;right:16px;bottom:76px;z-index:55;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(180deg,#2C74F5,#1449B8);color:#fff;font-size:14px;font-weight:800;box-shadow:0 16px 34px -14px rgba(20,73,184,.9)}
+  .fab svg{width:18px;height:18px}
+  @media (min-width:900px){ .fab{bottom:26px;right:26px} }
+  .mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:54;display:flex;background:#fff;border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px -18px rgba(9,30,60,.6)}
+  .bar-item{flex:1;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:48px;border-radius:10px;font-size:11.5px;font-weight:700;color:#42556D}
+  .bar-item svg{width:19px;height:19px}
+  .bar-item.is-primary{background:var(--blue-50);color:var(--blue-700)}
+  @media (min-width:900px){ .mobile-bar{display:none} .fab{bottom:26px} }
+  .overlay{position:fixed;inset:0;z-index:70;background:rgba(6,20,36,.5);opacity:0;transition:opacity .2s ease}
+  .overlay.is-open{opacity:1}
+  .sheet{position:fixed;inset:0;z-index:71;display:none;align-items:flex-end;justify-content:center}
+  .sheet.is-open{display:flex}
+  .sheet-card{width:100%;max-width:480px;background:#fff;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -20px 50px -20px rgba(6,20,36,.5)}
+  @media (min-width:640px){ .sheet{align-items:center} .sheet-card{border-radius:20px;max-width:420px} }
+  .sheet-card h3{font-size:16.5px;font-weight:800;letter-spacing:-0.03em;color:var(--navy-900)}
+  .sheet-card p{margin-top:8px;font-size:13.4px;line-height:1.7;color:var(--body)}
+  .sheet-actions{margin-top:16px;display:grid;gap:8px}
+  body.no-scroll{overflow:hidden}
+
+  .chips{margin-top:18px;display:grid;gap:7px;grid-template-columns:repeat(2,1fr)}
+  .chip{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(150,190,255,.18);border-radius:10px;padding:9px 12px;font-size:11.5px;color:#A9C3E0;font-weight:600}
+  .chip b{color:#EAF2FF;font-size:13px;font-weight:800;letter-spacing:-0.02em}
+  @media (min-width:760px){ .chips{grid-template-columns:repeat(5,1fr);gap:8px} }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"하하렌트","item":"https://haharent.com/"},{"@type":"ListItem","position":2,"name":"사고대차 가이드","item":"https://haharent.com/guide/displacement/"},{"@type":"ListItem","position":3,"name":"배기량별 사고대차 기준","item":"https://haharent.com/guide/displacement/"}]},{"@type":"Article","headline":"배기량별 사고대차 기준","description":"사고대차는 차종이 아니라 배기량으로 급을 나눕니다. 경차(~1,000cc)부터 소형(~1,600cc), 2.0급(~2,500cc), 3.0~4.0급(~5,000cc), 전기차까지 구간별 대차 기준과 배차 예시를 정리했습니다.","inLanguage":"ko-KR","datePublished":"2026-11-20","dateModified":"2026-11-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://haharent.com/guide/displacement/"},"author":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/"},"publisher":{"@type":"Organization","name":"하하렌트","url":"https://haharent.com/","logo":{"@type":"ImageObject","url":"https://haharent.com/og-image.png"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"배기량이 같은데 다른 차를 받게 되나요?","acceptedAnswer":{"@type":"Answer","text":"같은 배기량 구간 안에서도 차량 재고에 따라 배차 차량이 달라질 수 있습니다. 원하시는 차종이 있으면 요청하실 수 있고, 재고가 없을 때는 가장 가까운 차급으로 안내드립니다."}},{"@type":"Question","name":"내 차보다 낮은 급을 받는 경우가 있나요?","acceptedAnswer":{"@type":"Answer","text":"원칙적으로는 없습니다. 같은 급 이상으로 배차하며, 부득이하게 조정이 필요한 경우에는 배차 전에 먼저 말씀드립니다."}},{"@type":"Question","name":"경차인데 SUV로 받을 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"요청하실 수 있습니다. 다만 보험 대차 적용 조건과 재고 상황에 따라 가능 여부가 달라지므로 상담에서 확인해 드립니다."}},{"@type":"Question","name":"수입차를 타고 있는데 국산차로 배차되나요?","acceptedAnswer":{"@type":"Answer","text":"같은 배기량 구간이라면 가능합니다. 수입차를 원하시면 말씀해 주세요. 보유 차량 중에서 우선 확인해 안내드립니다."}},{"@type":"Question","name":"배기량을 모르면 상담이 안 되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 차명과 연식만 알려주시면 저희가 확인해 안내드립니다. 신청서의 배기량 칸은 비워두셔도 됩니다."}},{"@type":"Question","name":"대차 기간은 어떻게 정해지나요?","acceptedAnswer":{"@type":"Answer","text":"보통 사고 차량의 수리 기간을 기준으로 정해집니다. 수리 기간이 길어지면 보험사와 조건을 확인해 연장을 안내드립니다."}}]}]}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="/" aria-label="하하렌트 홈">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="2.9"/>
+          <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
+        </svg></span>
+      하하렌트 <small>HAHA RENT</small>
+    </a>
+    <nav class="nav-desktop" aria-label="주요 메뉴">
+      <a href="/#promise">서비스 안내</a>
+      <a href="/#process">처리 절차</a>
+      <a href="/#fleet">차량 라인업</a>
+      <a href="/#faq">자주 묻는 질문</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-tel" href="tel:01020040790"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg> 010-2004-0790</a>
+      <a class="btn btn-primary header-cta" href="/#consult">상담 신청</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴">
+    <a href="/#promise">서비스 안내</a>
+    <a href="/#process">처리 절차</a>
+    <a href="/#fleet">차량 라인업</a>
+    <a href="/#faq">자주 묻는 질문</a>
+    <a href="tel:01020040790">전화 상담 010-2004-0790</a>
+    <a class="btn btn-primary btn-block" href="/#consult">무료 대차 상담 신청</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="/">하하렌트</a><span class="sep">›</span>
+      <span>사고대차 가이드</span><span class="sep">›</span>
+      <span aria-current="page">배기량별 사고대차 기준</span>
+    </nav>
+  </div>
+
+  <section class="g-hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span>사고대차 가이드</span>
+      <h1>배기량별 사고대차 기준</h1>
+      <p class="lead">사고대차에서 '같은 급'을 가르는 기준은 차 이름이 아니라 배기량입니다. 내 차의 배기량이 어느 구간에 들어가는지 알면, 어떤 차를 받을 수 있는지 상담 전에 미리 가늠할 수 있습니다.</p>
+      <div class="g-meta"><span><b>하하렌트</b> 안내</span><span>업데이트 <b>2026.11.20</b></span><span>읽는 시간 <b>약 6분</b></span></div>
+      <div class="chips"><span class="chip"><b>경차</b>~1,000cc</span><span class="chip"><b>소형</b>~1,600cc</span><span class="chip"><b>2.0급</b>~2,500cc</span><span class="chip"><b>3.0~4.0급</b>~5,000cc</span><span class="chip"><b>전기차</b>EV 기준</span></div>
+    </div>
+  </section>
+
+  <div class="g-body">
+    <div class="wrap g-layout">
+      <article class="prose">
+
+        <h2 id="why">사고대차 급은 왜 배기량으로 나눌까</h2>
+        <p>사고대차에서 "같은 급"을 이야기할 때 업계에서 가장 많이 쓰는 기준은 <strong>차량 이름이 아니라 배기량</strong>입니다. 차종 이름은 브랜드마다 트림마다 달라지고 연식이 바뀌면 같은 이름의 차도 급이 달라지지만, 배기량은 자동차등록증에 숫자로 남아 있어 누구나 같은 기준으로 비교할 수 있습니다.</p>
+        <ul>
+          <li><strong>비교가 명확합니다</strong> — "그랜저냐 쏘나타냐"보다 "1,999cc냐 2,497cc냐"가 훨씬 분명하게 구간이 갈립니다.</li>
+          <li><strong>차량 가격·크기·유지비가 함께 움직입니다</strong> — 배기량이 올라가면 보통 차체 크기, 차량 가격, 보험료·자동차세도 같이 올라갑니다. 그래서 대차 차량의 급을 나누는 기준으로 오래 쓰여 왔습니다.</li>
+          <li><strong>보험·렌터카 기준표와 같은 언어입니다</strong> — 대차료 산정이나 렌트 차량 등급표도 배기량 구간으로 만들어져 있는 경우가 많아, 상담할 때 같은 기준으로 이야기하게 됩니다.</li>
+        </ul>
+        <p>다만 배기량은 절대 기준은 아닙니다. 차량 성격(스포츠카, 대형 SUV), 수입차 여부, 그날의 재고 상황에 따라 조정이 필요할 수 있어, 최종 배차는 상담에서 함께 확인합니다.</p>
+
+        <h2 id="table">배기량 구간별 기준표</h2>
+        <p>하하렌트가 상담에서 쓰는 구간은 아래 다섯 가지입니다. 내 차의 배기량이 어느 구간에 들어가는지 먼저 확인해 보세요.</p>
+        <div class="tbl">
+          <table>
+            <caption>배기량 구간별 사고대차 기준</caption>
+            <thead><tr><th scope="col">구간</th><th scope="col">배기량</th><th scope="col">대표 차종</th><th scope="col">확인 포인트</th></tr></thead>
+            <tbody>
+              <tr><td>경차</td><td class="cc">~1,000cc</td><td>모닝 · 캐스퍼 · 레이</td><td>1,000cc 경계 차량이 많아 등록증 확인이 정확합니다.</td></tr>
+              <tr><td>소형</td><td class="cc">~1,600cc</td><td>아반떼 · K3 · 코나 · 셀토스 · 미니</td><td>국산 준중형 대부분이 1,600cc 아래에 들어갑니다.</td></tr>
+              <tr><td>2.0급</td><td class="cc">~2,500cc</td><td>쏘나타 · K5 · 그랜저 · K8 / 벤츠 E클래스 · BMW 5시리즈 · 아우디 A6</td><td>수입 중형 세단은 2.0리터 터보가 많아 이 구간에 들어옵니다.</td></tr>
+              <tr><td>3.0~4.0급</td><td class="cc">~5,000cc</td><td>G90 · GV80 · S클래스 · 7시리즈 · GLE · X5 · 카이엔</td><td>대형 세단·대형 SUV가 모이는 구간입니다.</td></tr>
+              <tr><td>전기차</td><td class="cc">EV</td><td>아이오닉 5 · 아이오닉 6 · EV6 · 모델 3 · 모델 Y</td><td>배기량이 없어 모터 출력과 차급으로 확인합니다.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note"><strong>같은 급 이상 원칙</strong> 하하렌트는 신청하신 차량의 배기량을 확인한 뒤, <strong>같은 구간 이상</strong>의 차량으로 배차합니다. 내 차보다 낮은 급으로 안내하는 일은 없으며, 부득이한 경우에는 먼저 말씀드리고 조정합니다.</div>
+
+        <h2 id="check">내 차 배기량 확인하는 방법</h2>
+        <p>배기량은 차량 서류와 보험 서류 어디에서나 확인할 수 있습니다. 가장 빠른 순서대로 정리했습니다.</p>
+        <ul>
+          <li><strong>자동차등록증</strong> — 차량 제원 항목에 배기량이 cc로 표기되어 있습니다. 가장 정확하고 빠릅니다.</li>
+          <li><strong>자동차보험 증권 또는 보험사 앱</strong> — 가입 차량 정보에 차명과 배기량이 함께 나옵니다. 사고 접수 화면에서도 확인되는 경우가 많습니다.</li>
+          <li><strong>정부24 자동차등록원부</strong> — 등록증을 잃어버렸을 때 온라인으로 발급해 확인할 수 있습니다.</li>
+          <li><strong>제조사 카탈로그·사양표</strong> — 신차 구매 당시 자료가 있으면 참고할 수 있습니다.</li>
+        </ul>
+        <p>번호판만으로는 배기량을 알 수 없고, 같은 차명이라도 연식과 트림에 따라 배기량이 다를 수 있습니다. 등록증이나 보험 서류 기준으로 확인하는 것이 가장 확실합니다. 잘 모르시겠다면 신청서에 <strong>차명과 연식만</strong> 적어 주셔도 저희가 확인해 안내드립니다.</p>
+
+        <h2 id="edge">경계선에서 갈리는 경우</h2>
+        <p>상담에서 가장 자주 나오는 질문이 "내 차가 어느 쪽이냐"입니다. 대표적인 경계 사례를 정리했습니다.</p>
+        <h3>1,000cc 언저리</h3>
+        <p>경차는 보통 1,000cc 이하를 말합니다. 998cc, 999cc처럼 아주 조금 차이로 구간이 갈리기 때문에 차명만으로 판단하지 않고 등록증 숫자로 확인합니다.</p>
+        <h3>1,600cc 언저리</h3>
+        <p>아반떼(1,598cc), K3(1,591cc), 코나·셀토스(1,598cc)처럼 1,600cc 바로 아래에 걸치는 차량이 국산 준중형의 다수입니다. 반대로 1,700cc가 넘는 차량은 2.0급 구간으로 올라갑니다.</p>
+        <h3>2.0리터 터보 수입차</h3>
+        <p>벤츠 E200(1,991cc), BMW 520i(1,998cc)처럼 2.0리터 터보 엔진을 쓰는 수입 중형 세단은 2.0급 구간에 들어갑니다. 배기량 숫자는 국산 중형과 비슷하지만 차량 급은 더 높게 느껴질 수 있어, 원하시는 차급이 따로 있으면 상담에서 함께 조정합니다.</p>
+        <h3>하이브리드·LPG</h3>
+        <p>하이브리드와 LPG 차량도 배기량은 엔진 기준으로 그대로 표기됩니다. 예를 들어 1,999cc 하이브리드 세단은 2.0급 구간입니다.</p>
+
+        <h2 id="mistake">2.0급 이상에서 자주 생기는 오해</h2>
+        <ul>
+          <li><strong>"배기량이 낮으니 내 차가 더 낮은 급"이라는 오해</strong> — 최근 수입차는 다운사이징 터보가 많아, 배기량이 낮아도 차량 가격과 차체가 큰 경우가 있습니다. 그래서 표만 보지 않고 차명·차급·연식을 함께 확인합니다.</li>
+          <li><strong>스포츠카</strong> — 포르쉐 911처럼 배기량은 3.0 구간이지만 차량 성격이 다른 경우, 같은 배기량의 대형 세단으로 배차하는 것이 오히려 어색할 수 있습니다. 이런 경우 상담에서 어떤 차가 맞는지 함께 정합니다.</li>
+          <li><strong>SUV와 세단</strong> — 같은 배기량이라도 차체 크기와 실사용 공간 차이가 큽니다. 짐이 많거나 가족이 함께 타시는 경우 SUV를 원하시는지 미리 말씀해 주시면 좋습니다.</li>
+        </ul>
+
+        <h2 id="ev">전기차는 배기량이 없는데 어떻게 하나</h2>
+        <p>전기차 등록증에는 배기량 대신 모터 출력(정격출력)이 표기됩니다. 그래서 전기차는 배기량 대신 <strong>차급과 모터 출력, 차량 가격대</strong>를 함께 보고 동급 여부를 판단합니다. 아이오닉 5, 아이오닉 6, EV6, 모델 3처럼 같은 체급의 전기차로 배차하는 것이 일반적입니다.</p>
+        <div class="note"><strong>전기차를 타고 계신 경우</strong> 충전 방식(완속·급속)과 주행 가능 거리를 미리 말씀해 주시면, 충전 환경에 맞는 차량으로 안내드립니다.</div>
+
+        <h2 id="faq-title">배기량 기준, 한 줄 정리</h2>
+        <p>경차는 1,000cc 이하, 소형은 1,600cc 이하, 2.0급은 2,500cc 이하, 3.0~4.0급은 5,000cc 이하, 전기차는 별도 구간입니다. 내 차의 배기량만 확인하면 어떤 차를 받을 수 있는지 상담 전에 가늠할 수 있고, 정확한 배차는 상담에서 확정됩니다.</p>
+
+        <h2 id="contact">상담 전에 알려주시면 좋은 것</h2>
+        <p>아래 내용만 있으면 상담이 훨씬 빨라집니다. 일부만 알고 계셔도 괜찮습니다. 모르는 항목은 상담하면서 함께 확인해 드립니다.</p>
+        <ul>
+          <li><strong>차명과 연식</strong> — 예: 더 뉴 그랜저 2022년식, BMW 520i 2021년식</li>
+          <li><strong>배기량</strong> — 등록증 기준 cc. 모르시면 차명만 알려주셔도 확인해 드립니다.</li>
+          <li><strong>사고 접수 보험사와 접수번호</strong> — 보험사 대차 적용 여부를 확인할 때 필요합니다.</li>
+          <li><strong>희망 배차 장소와 시간</strong> — 집, 회사, 공업사 등 원하시는 곳으로 배차합니다.</li>
+          <li><strong>사고차 입고지</strong> — 지정 공업사나 딜러 서비스센터가 있으면 함께 알려주세요.</li>
+        </ul>
+        <div class="note"><strong>참고</strong> 이 페이지는 사고대차 업무에서 일반적으로 쓰이는 기준을 정리한 안내입니다. 개별 사고의 보험 적용과 비용 부담은 가입하신 보험 조건과 사고 경위에 따라 달라지므로, 실제 확정은 상담을 통해 안내드립니다.</div>
+
+        <h2 id="faq">자주 묻는 질문</h2>
+        <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="q">Q</span>배기량이 같은데 다른 차를 받게 되나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">같은 배기량 구간 안에서도 차량 재고에 따라 배차 차량이 달라질 수 있습니다. 원하시는 차종이 있으면 요청하실 수 있고, 재고가 없을 때는 가장 가까운 차급으로 안내드립니다.</div>
+        </details>        <details class="faq-item">
+          <summary><span class="q">Q</span>내 차보다 낮은 급을 받는 경우가 있나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">원칙적으로는 없습니다. 같은 급 이상으로 배차하며, 부득이하게 조정이 필요한 경우에는 배차 전에 먼저 말씀드립니다.</div>
+        </details>        <details class="faq-item">
+          <summary><span class="q">Q</span>경차인데 SUV로 받을 수 있나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">요청하실 수 있습니다. 다만 보험 대차 적용 조건과 재고 상황에 따라 가능 여부가 달라지므로 상담에서 확인해 드립니다.</div>
+        </details>        <details class="faq-item">
+          <summary><span class="q">Q</span>수입차를 타고 있는데 국산차로 배차되나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">같은 배기량 구간이라면 가능합니다. 수입차를 원하시면 말씀해 주세요. 보유 차량 중에서 우선 확인해 안내드립니다.</div>
+        </details>        <details class="faq-item">
+          <summary><span class="q">Q</span>배기량을 모르면 상담이 안 되나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">아니요. 차명과 연식만 알려주시면 저희가 확인해 안내드립니다. 신청서의 배기량 칸은 비워두셔도 됩니다.</div>
+        </details>        <details class="faq-item">
+          <summary><span class="q">Q</span>대차 기간은 어떻게 정해지나요?
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="a">보통 사고 차량의 수리 기간을 기준으로 정해집니다. 수리 기간이 길어지면 보험사와 조건을 확인해 연장을 안내드립니다.</div>
+        </details>
+        </div>
+      </article>
+
+      <aside class="toc" aria-label="목차">
+        <h2>이 페이지 목차</h2>
+        <ol><li><a href="#why">급을 배기량으로 나누는 이유</a></li><li><a href="#table">배기량 구간별 기준표</a></li><li><a href="#check">내 차 배기량 확인 방법</a></li><li><a href="#edge">경계선에서 갈리는 경우</a></li><li><a href="#mistake">2.0급 이상의 오해</a></li><li><a href="#ev">전기차 기준</a></li><li><a href="#faq-title">한 줄 정리</a></li><li><a href="#contact">상담 전 준비</a></li><li><a href="#faq">자주 묻는 질문</a></li></ol>
+        <a class="toc-cta" href="/#consult">무료 대차 상담 신청</a>
+      </aside>
+    </div>
+
+    <div class="wrap related">
+      <h2>함께 보면 좋은 가이드</h2>
+      <div class="rel-grid">
+      <a class="rel-card" href="/guide/import-car/">
+        <span class="rc-k">수입차</span>
+        <span class="rc-t">수입차 사고대차 절차</span>
+        <span class="rc-d">벤츠·BMW·아우디·포르쉐 동급 기준과 입고·인도 흐름</span>
+      </a>      <a class="rel-card" href="/guide/fault-ratio/">
+        <span class="rc-k">과실비율</span>
+        <span class="rc-t">과실비율별 사고대차</span>
+        <span class="rc-d">무과실·쌍방과실에 따라 비용 부담이 어떻게 나뉘는지</span>
+      </a>      <a class="rel-card" href="/#consult">
+        <span class="rc-k">상담 신청</span>
+        <span class="rc-t">하하렌트 무료 대차 상담</span>
+        <span class="rc-d">차종·배기량·지역만 입력하면 바로 상담이 시작됩니다</span>
+      </a>
+      </div>
+    </div>
+  </div>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>내 차 기준, 상담으로 바로 확인하세요</h2>
+    <p>차종과 배기량만 알려주시면 같은 급 이상 차량으로 안내드립니다. 전화 한 통이면 시작됩니다.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary btn-lg" href="/#consult">무료 대차 상담 신청</a>
+      <div class="chan-row">
+        <a class="chan" href="tel:01020040790"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg> 전화 상담</a>
+        <a class="chan" href="sms:01020040790"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg> 문자 문의</a>
+        <button class="chan" type="button" data-open-channel><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg> 채널톡 상담</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="2.9"/>
+          <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
+        </svg></span>
+        <span>하하렌트 <small style="margin-left:6px">HAHA RENT</small></span>
+      </div>
+      <nav class="footer-links" aria-label="바닥글 메뉴">
+        <a href="/#promise">서비스 안내</a>
+        <a href="/#process">처리 절차</a>
+        <a href="/#fleet">차량 라인업</a>
+        <a href="/#consult">상담 신청</a>
+        <a href="/#faq">자주 묻는 질문</a>
+      </nav>
+    </div>
+    <div class="footer-info">
+      <div><strong>사고대차 가이드</strong>
+        <a href="/guide/displacement/">배기량별 대차 기준</a> ·
+        <a href="/guide/import-car/">수입차 대차 절차</a> ·
+        <a href="/guide/fault-ratio/">과실비율별 안내</a>
+      </div>
+      <div><strong>상담</strong> <a href="tel:01020040790">010-2004-0790</a> · <a href="sms:01020040790">문자 문의</a> · <a href="/#consult">상담 신청서</a></div>
+      <div>사고대차 상담 및 배차 · 요청 입고지 입고 · 제휴 센터 연결</div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HAHA RENT. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+<button class="fab" type="button" data-open-channel>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.3-.7L3 21l1.8-4.5A8.4 8.4 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+  채널톡 상담
+</button>
+
+<div class="mobile-bar">
+  <a class="bar-item" href="tel:01020040790"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg> 전화 상담</a>
+  <a class="bar-item" href="sms:01020040790"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M7.5 9.5h9M7.5 13h6"/></svg> 문자 문의</a>
+  <a class="bar-item is-primary" href="/#consult">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+    상담 신청
+  </a>
+</div>
+
+<div class="overlay" id="sheetOverlay" hidden></div>
+<div class="sheet" id="channelSheet" aria-hidden="true">
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <h3 id="sheetTitle">채널톡 상담</h3>
+    <p>채널톡 대화창이 열리지 않으면 전화·문자로 문의해 주세요. 담당자가 확인 후 바로 안내드립니다.</p>
+    <div class="sheet-actions">
+      <a class="btn btn-primary btn-lg btn-block" href="tel:01020040790">전화 상담 010-2004-0790</a>
+      <a class="btn btn-outline btn-block" href="sms:01020040790">문자로 문의하기</a>
+      <a class="btn btn-soft btn-block" href="/#consult">상담 신청서 작성하기</a>
+      <button class="btn btn-block" type="button" data-close-sheet style="background:#F2F5FA;color:#42556D">닫기</button>
+    </div>
+  </div>
+</div>
+<script>
+  window.HAHA_RENT = {
+    channelPluginKey: "c59221ef-899a-43c4-aa93-1e4622e088ea",
+    channelStatus: "pending",
+    phone: "01020040790",
+    phoneDisplay: "010-2004-0790"
+  };
+</script>
+<script>
+  (function () {
+    var key = window.HAHA_RENT.channelPluginKey;
+    if (!key) return;
+    (function () {
+      var w = window;
+      if (w.ChannelIO) return;
+      var ch = function () { ch.c(arguments); };
+      ch.q = []; ch.c = function (args) { ch.q.push(args); };
+      w.ChannelIO = ch;
+      function load() {
+        if (w.ChannelIOInitialized) return;
+        w.ChannelIOInitialized = true;
+        var s = document.createElement("script");
+        s.type = "text/javascript"; s.async = true; s.charset = "UTF-8";
+        s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+        var x = document.getElementsByTagName("script")[0];
+        (x && x.parentNode ? x.parentNode : document.head).insertBefore(s, x || null);
+      }
+      if (document.readyState === "complete") load();
+      else {
+        w.addEventListener("DOMContentLoaded", load, false);
+        w.addEventListener("load", load, false);
+      }
+    })();
+    if (typeof window.ChannelIO === "function") {
+      window.ChannelIO("boot", { pluginKey: key, hideChannelButtonOnBoot: true }, function (error) {
+        window.HAHA_RENT.channelStatus = error ? "fail" : "ok";
+        if (error) { window.console.warn("[ChannelIO] boot error", error); }
+      });
+    }
+  })();
+</script>
+<script>
+(function () {
+  "use strict";
+  var menuBtn = document.getElementById("menuBtn");
+  var mobileNav = document.getElementById("mobileNav");
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener("click", function () {
+      var open = mobileNav.classList.toggle("is-open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+    });
+  }
+
+  var sheet = document.getElementById("channelSheet");
+  var overlay = document.getElementById("sheetOverlay");
+
+  function openSheet() {
+    sheet.classList.add("is-open");
+    sheet.setAttribute("aria-hidden", "false");
+    overlay.hidden = false;
+    void overlay.offsetWidth;
+    overlay.classList.add("is-open");
+    document.body.classList.add("no-scroll");
+  }
+  function closeSheet() {
+    sheet.classList.remove("is-open");
+    sheet.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("is-open");
+    setTimeout(function () { if (!sheet.classList.contains("is-open")) overlay.hidden = true; }, 200);
+    document.body.classList.remove("no-scroll");
+  }
+
+  function openChannel() {
+    var api = window.ChannelIO;
+    var status = window.HAHA_RENT && window.HAHA_RENT.channelStatus;
+    if (typeof api === "function" && status === "ok") {
+      try { api("showMessenger"); return; } catch (e) {}
+    }
+    if (typeof api === "function" && status === "pending") {
+      try { api("showMessenger"); } catch (e2) {}
+      setTimeout(function () {
+        if (!window.HAHA_RENT || window.HAHA_RENT.channelStatus !== "ok") openSheet();
+      }, 2200);
+      return;
+    }
+    openSheet();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-open-channel]"), function (el) {
+    el.addEventListener("click", openChannel);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-close-sheet]"), function (el) {
+    el.addEventListener("click", closeSheet);
+  });
+  if (overlay) overlay.addEventListener("click", closeSheet);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && sheet && sheet.classList.contains("is-open")) closeSheet();
+  });
+})();
+</script>
+</body>
+</html>

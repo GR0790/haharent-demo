@@ -483,6 +483,15 @@
   .cc-guide strong{color:var(--blue-700);font-weight:800}
 
   .chips{display:flex;flex-wrap:wrap;gap:7px}
+  /* 지역 칩 7개: 넓은 화면은 한 줄, 좁은 모바일 폭은 4+3으로 정리 */
+  @media (min-width:1152px){
+    #regionChips{gap:5px}
+    #regionChips .chip{padding-left:10px;padding-right:10px}
+  }
+  @media (min-width:341px) and (max-width:400px){
+    #regionChips{gap:5px}
+    #regionChips .chip{padding-left:11px;padding-right:11px}
+  }
   .chip{
     display:inline-flex;align-items:center;gap:5px;
     padding:9px 13px;border-radius:999px;
@@ -1325,7 +1334,6 @@
               <button class="chip" type="button" data-region="강원" aria-pressed="false">강원</button>
               <button class="chip" type="button" data-region="전라·광주" aria-pressed="false">전라·광주</button>
               <button class="chip" type="button" data-region="경상·부산·대구" aria-pressed="false">경상·부산·대구</button>
-              <button class="chip" type="button" data-region="제주" aria-pressed="false">제주</button>
             </div>
             <p class="err is-hidden" id="errRegion" role="alert">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -1491,12 +1499,10 @@
     </div>
     <div class="footer-info">
       <div><strong>상담</strong> <a href="tel:01020040790">010-2004-0790</a> · <a href="sms:01020040790">문자 문의</a> · <a href="#consult">상담 신청서</a></div>
-      <div><strong>운영</strong> 도윤렌트카</div>
       <div>사고대차 상담 및 배차 · 요청 입고지 입고 · 제휴 센터 연결</div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 HAHA RENT. All rights reserved.</span>
-      <span>사업자 정보·주소는 오픈 전 반영 예정입니다.</span>
     </div>
   </div>
 </footer>

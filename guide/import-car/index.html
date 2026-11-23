@@ -66,8 +66,8 @@
   .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(10px)}
   .header-inner{display:flex;align-items:center;gap:14px;height:var(--header-h)}
   .logo{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:800;letter-spacing:-0.035em;white-space:nowrap}
-  .logo-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(140deg,#2C74F5,#1449B8);box-shadow:0 6px 14px -8px rgba(20,73,184,.9)}
-  .logo-mark svg{width:18px;height:18px}
+  .logo-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(150deg,#2C74F5,#1449B8 75%,#0E3B91);box-shadow:0 6px 14px -8px rgba(20,73,184,.9)}
+  .logo-mark svg{width:100%;height:100%;display:block}
   .logo small{font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--muted);margin-left:2px}
   .nav-desktop{display:none;margin-left:auto;gap:4px;align-items:center}
   .nav-desktop a{font-size:14px;font-weight:600;color:#3B4C63;padding:9px 11px;border-radius:9px}
@@ -293,7 +293,7 @@
     .logo small{display:none}
     .header-inner .logo{font-size:17px;gap:7px}
     .logo-mark{width:26px;height:26px;border-radius:8px}
-    .logo-mark svg{width:15px;height:15px}
+    .logo-mark svg{width:100%;height:100%;display:block}
     .cat-tabs{gap:2px;padding:3px}
     .nav-desktop .cat-tabs a{padding:6px 9px;font-size:12.5px}
   }
@@ -302,7 +302,7 @@
     .site-header > .wrap{padding:0 12px}
     .header-inner .logo{font-size:16px;gap:6px}
     .logo-mark{width:24px;height:24px}
-    .logo-mark svg{width:14px;height:14px}
+    .logo-mark svg{width:100%;height:100%;display:block}
     .nav-desktop .cat-tabs a{padding:5px 7px;font-size:12px}
     .menu-btn{width:34px;height:34px}
   }
@@ -313,10 +313,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="/" aria-label="하하렌트 홈">
-      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="2.9"/>
-          <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
-        </svg></span>
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="#fff" aria-hidden="true" focusable="false"><rect x="15.36" y="12.32" width="9.6" height="39.36" rx="1.02"/><rect x="39.04" y="12.32" width="9.6" height="39.36" rx="1.02"/><rect x="15.36" y="27.2" width="33.28" height="9.6"/></svg></span>
       하하렌트 <small>HAHA RENT</small>
     </a>
     <nav class="nav-desktop" aria-label="주요 메뉴">
@@ -547,10 +544,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="2.9"/>
-          <path d="M12 3.4v5.7M4.1 15.3l5.3-2.4M19.9 15.3l-5.3-2.4"/>
-        </svg></span>
+        <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="#fff" aria-hidden="true" focusable="false"><rect x="15.36" y="12.32" width="9.6" height="39.36" rx="1.02"/><rect x="39.04" y="12.32" width="9.6" height="39.36" rx="1.02"/><rect x="15.36" y="27.2" width="33.28" height="9.6"/></svg></span>
         <span>하하렌트 <small style="margin-left:6px">HAHA RENT</small></span>
       </div>
       <nav class="footer-links" aria-label="바닥글 메뉴">

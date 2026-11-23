@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="하하렌트">
+  <defs>
+    <linearGradient id="hahaBg" x1="0" y1="0" x2="0.366" y2="0.634" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2C74F5"/>
+      <stop offset="0.75" stop-color="#1449B8"/>
+      <stop offset="1" stop-color="#0E3B91"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14.4" fill="url(#hahaBg)"/>
+  <g fill="#FFFFFF">
+    <rect x="15.36" y="12.32" width="9.6" height="39.36" rx="1.024"/>
+    <rect x="39.04" y="12.32" width="9.6" height="39.36" rx="1.024"/>
+    <rect x="15.36" y="27.2" width="33.28" height="9.6"/>
+  </g>
+</svg>

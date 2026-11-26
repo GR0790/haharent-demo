@@ -633,6 +633,38 @@
     .faq-item .a{padding:0 24px 22px 49px}
   }
 
+  /* 최근 실제 배차 사례 */
+  .case-grid{margin-top:30px;display:grid;gap:14px}
+  .case-card{
+    display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r-lg);overflow:hidden;box-shadow:0 14px 34px -30px rgba(9,30,60,.55);
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .case-card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -28px rgba(9,30,60,.5);border-color:#D5E2F5}
+  .case-thumb{position:relative;aspect-ratio:16 / 10;background:#E9F0FA;overflow:hidden}
+  .case-thumb img{width:100%;height:100%;object-fit:cover}
+  .case-body{display:flex;flex-direction:column;flex:1;padding:15px 16px 17px}
+  .case-badge{
+    align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:11px;font-weight:800;letter-spacing:-0.01em;color:var(--blue-700);
+    background:var(--blue-50);border:1px solid var(--blue-100);border-radius:999px;padding:4px 10px;
+  }
+  .case-card h3{margin-top:10px;font-size:16px;font-weight:800;letter-spacing:-0.03em;line-height:1.42}
+  .case-card .case-desc{margin-top:7px;font-size:13px;line-height:1.66;color:var(--body)}
+  .case-more{
+    margin-top:auto;padding-top:13px;display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:800;color:var(--blue-700);
+  }
+  .case-more svg{width:14px;height:14px;flex:none;transition:transform .2s ease}
+  .case-card:hover .case-more svg{transform:translateX(2px)}
+  .case-foot{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .case-note{font-size:12.5px;line-height:1.65;color:var(--muted);text-align:center}
+  @media (min-width:640px){ .case-grid{grid-template-columns:repeat(2,1fr);gap:16px} }
+  @media (min-width:940px){
+    .case-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+    .case-card h3{font-size:16.5px}
+  }
+
   /* final cta */
   .cta-band{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:52px 0}
   .cta-band::before{
@@ -1543,6 +1575,111 @@
           </summary>
           <div class="a">괜찮습니다. 신청서에서 ‘과실 미정 / 모름’을 선택해 주시면, 사고 경위를 듣고 확인해야 할 부분을 함께 정리해 드립니다.</div>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 실제 배차 사례 ================= -->
+  <section class="section tint" id="cases">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>최근 실제 배차 사례</span>
+        <h2>이런 차량을 실제로 배차해 드렸습니다</h2>
+        <p>사고 차량의 배기량에 맞춰 실제로 배차를 마친 건들입니다. 사진은 번호판을 가린 실제 차량 사진이고, 자세한 후기는 네이버 블로그에 정리해 두었습니다.</p>
+      </div>
+
+      <div class="case-grid">
+        <a class="case-card" href="https://blog.naver.com/haharent/224492798289" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/s400d-s350d.jpg" alt="벤츠 S 350 d 배차 차량 정면 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">3.0급 · 센터 야간 입고</span>
+            <h3>S 400 d → S 350 d</h3>
+            <p class="case-desc">인천 고객님 S클래스 사고에 같은 3.0 디젤 S 350 d 배차 및 서비스센터 야간 입고 지원</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="case-card" href="https://blog.naver.com/haharent/224491881813" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/k7-cle200.jpg" alt="벤츠 CLE 200 카브리올레 배차 차량 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">국산차 · 오픈카 배차</span>
+            <h3>K7 → CLE 200 카브리올레</h3>
+            <p class="case-desc">제휴 공업사 입고·수리 기간 동안 화이트 벤츠 CLE 카브리올레로 업그레이드 배차</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="case-card" href="https://blog.naver.com/haharent/224491199834" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/gle450-s350d.jpg" alt="벤츠 S 350 d 배차 차량 정면 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">3.0급 · SUV → 세단</span>
+            <h3>GLE 450 → S 350 d</h3>
+            <p class="case-desc">3.0급 대형 SUV 사고에 동급 세단 S 350 d로 편안한 이동 지원</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="case-card" href="https://blog.naver.com/haharent/224489665744" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/modely-juniper.jpg" alt="신형 테슬라 모델 Y 주니퍼 배차 차량 정면 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">전기차 · 동급 배차</span>
+            <h3>모델 Y → 모델 Y 주니퍼</h3>
+            <p class="case-desc">전기차 사고에도 신형 모델 Y 주니퍼로 공백 없이 바로 교체 배차</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="case-card" href="https://blog.naver.com/haharent/224488240739" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/e300-e200.jpg" alt="벤츠 E 200 배차 차량 정면 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">2.0급 · 같은 차체</span>
+            <h3>E 300 4MATIC → E 200</h3>
+            <p class="case-desc">같은 신형 W214 E클래스 차체로 이질감 없이 빠르게 배차 완료</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="case-card" href="https://blog.naver.com/haharent/224487981072" target="_blank" rel="noopener noreferrer">
+          <div class="case-thumb">
+            <img src="/assets/cases/santafe-glc300.jpg" alt="벤츠 GLC 300 쿠페 배차 차량 정면 사진" width="900" height="562" loading="lazy" decoding="async">
+          </div>
+          <div class="case-body">
+            <span class="case-badge">SUV · 수입 쿠페 SUV</span>
+            <h3>싼타페 → GLC 300 쿠페</h3>
+            <p class="case-desc">중형 SUV 사고에 수입 쿠페형 SUV GLC 300으로 현장 배차</p>
+            <span class="case-more">자세히 보기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class="case-foot">
+        <p class="case-note">사진은 실제 배차 차량이며, 번호판과 배경 상호는 가림 처리했습니다.</p>
+        <a class="btn btn-outline" href="https://blog.naver.com/haharent" target="_blank" rel="noopener noreferrer">
+          네이버 블로그에서 전체 배차 사례 더 보기
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </section>

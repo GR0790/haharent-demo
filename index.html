@@ -2691,6 +2691,7 @@
   function closeMenu() {
     mobileNav.classList.remove("is-open");
     menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "메뉴 열기");
   }
   menuBtn.addEventListener("click", function () {
     var open = mobileNav.classList.toggle("is-open");
